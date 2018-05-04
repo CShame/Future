@@ -1,0 +1,456 @@
+.myProject{
+
+}
+
+.myProject .set-password{
+  height:40px;
+  background: #D9DEE2;
+  width:125px;
+  float: right;
+  line-height: 40px;
+  margin-bottom: 5px;
+}
+
+.myProject .set-password img{
+  margin-left:20px;
+  width:18px;
+  height:18px;
+  vertical-align: sub;
+}
+.myProject .set-password span{
+  font-size: 12px;
+  color: #555;
+}
+.myProject .set-password i{
+  margin-left:12px;
+  height:10px;
+  width:10px;
+}
+
+
+
+.myProject .project{
+  /*height:90px;*/
+  /*line-height:90px;*/
+  border:1px solid #D9DEE2;
+  border-left: 0!important;
+  color: #222;
+  font-size: 15px;
+}
+.myProject .project.activated{
+  background: #e6eaed;
+}
+
+.myProject .project span {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+}
+
+.myProject .add{
+  height:90px;
+  border:1px solid #D9DEE2;
+  line-height:90px;
+}
+.myProject .add.activated{
+  background: #e6eaed;
+}
+.myProject .add i{
+  color: #777;
+  font-size: 40px;
+}
+
+.myProject .noBorderTop{
+  border-top: 0 !important;
+}
+
+.myProject .noBorder{
+  border: 0 !important;
+}
+
+
+
+/*==============================setPassword===================================*/
+.setPassword{
+  padding-left: 20px;
+  padding-right: 13px;
+}
+
+.setPassword .row,.setPassword .col{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.setPassword .title1{
+  margin-top:25px;
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 35px
+}
+
+.setPassword .phone-div{
+  padding-left: 10px;
+  margin-top: 30px;
+  height:48px;
+  border-bottom: 1px solid #E8E8E8;
+  line-height: 48px;
+
+}
+
+.setPassword .phone-div div:first-child{
+  width: 80px;
+  display: inline-block;
+  font-size: 15px;
+  color: #999;
+}
+.setPassword .phone-div div:last-child{
+  font-size: 18px;
+  color: #999;
+  margin-left: 10px;
+}
+
+.setPassword .pwd-div{
+  padding-left: 10px;
+  height:48px;
+  line-height: 48px;
+}
+
+.setPassword .pwd-div div:first-child{
+  width: 80px;
+  display: inline-block;
+  font-size: 15px;
+  color: #222;
+}
+.setPassword .pwd-div div:last-child{
+  display: inline-block;
+}
+
+.setPassword .pwd-div input{
+  display: inline-block;
+  font-size: 15px;
+  vertical-align: baseline;
+  height: 48px;
+  padding-left: 10px;
+  width: 100%;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.setPassword .checkPwd-div{
+  padding-left: 10px;
+  height:48px;
+  line-height: 48px;
+}
+
+.setPassword .checkPwd-div div:first-child{
+  width: 80px;
+  display: inline-block;
+  font-size: 15px;
+  color: #222;
+}
+.setPassword .checkPwd-div div:last-child{
+  display: inline-block;
+  /*border-bottom: 1px solid #E8E8E8;*/
+  padding-left: 10px;
+
+}
+
+.setPassword .checkPwd-div input{
+  display: inline-block;
+  font-size: 15px;
+  vertical-align: baseline;
+  padding-left: 10px;
+  height:48px;
+  width:100%;
+  border-bottom: 1px solid #E8E8E8;
+
+}
+
+.setPassword #pwd:focus,.setPassword #checkPwd:focus{
+  border-bottom: 1px solid #1fb5ff;
+}
+
+.setPassword .finish-password-set{
+  margin-top:30px;
+  width:100%;
+  min-height:42px !important;
+  background-color: #1fb5ff;
+  color: #fff !important;
+}
+
+.setPassword .finish-password-set.activated{
+  background-color: #04a2f0;
+  border-color: transparent;
+}
+
+.setPassword .button_disable{
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
+
+/*==========================添加项目==========================*/
+.add-project-page{
+  padding:21px 15px !important;
+}
+
+.add-project-page .row,.add-project-page .col{
+  padding: 0 !important;
+}
+
+.add-project-page .pro-name{
+  height: 45px;
+}
+
+.add-project-page .pro-name div{
+  font-size: 15px;
+  color: #555;
+  line-height: 45px;
+}
+
+.add-project-page .pro-name input{
+  border:1px solid #D9DEE2;
+  border-radius: 5px;
+  height:45px;
+  padding: 0px 10px;
+  color: #222;
+  font-size: 14px;
+}
+
+.add-project-page .pro-name input:focus{
+  border:1px solid #1fb5ff;
+}
+
+.add-project-page .pro-type{
+  height: 45px;
+  margin-top: 20px !important;
+
+}
+
+.add-project-page .pro-type div{
+  font-size: 15px;
+  color: #555;
+  line-height: 45px;
+  /*margin-top: 20px;*/
+}
+
+.add-project-page .pro-type select{
+  border:1px solid #D9DEE2;
+  border-radius: 5px;
+  height:45px;
+  padding: 0 5px;
+}
+
+.add-project-page .pro-type select:focus{
+  border:1px solid #1fb5ff;
+}
+
+
+.add-project-page .pro-address{
+  height: 45px;
+  margin-top: 20px!important;
+
+}
+.add-project-page .pro-address div{
+  font-size: 15px;
+  color: #555;
+  line-height: 45px;
+  /*margin-top: 20px;*/
+}
+
+.add-project-page .pro-address input{
+  border:1px solid #D9DEE2;
+  border-radius: 5px;
+  height:45px;
+  padding: 0px 10px;
+  color: #222;
+  font-size: 14px;
+}
+
+.add-project-page .pro-address input:focus{
+  border:1px solid #1fb5ff;
+}
+
+
+.add-project-page .finish-add{
+  width:100%;
+  min-height:42px !important;
+  background-color: #1fb5ff;
+  color: #fff !important;
+  top:190px;
+}
+
+.add-project-page .finish-add.activated{
+  background-color: #04a2f0;
+  border-color: transparent;
+  /*color: #fff;*/
+}
+
+
+
+
+
+/*============================系统列表 & 设备列表============================*/
+.list-page{
+
+}
+
+
+.list-page .div1:first-child{
+  border-top:0;
+}
+.list-page .div1:last-child{
+  border-bottom: 1px solid #D9DEE2;
+}
+
+.list-page .sys-list{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height:44px;
+  line-height: 44px;
+  border-top: 1px solid #D9DEE2;
+}
+
+.list-page .sys-list.activated{
+  background: #e6eaed;
+}
+
+.list-page .sys-list span:first-child{
+  margin-left: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.list-page .sys-list span:last-child{
+  margin-right: 14px;
+  color: #777;
+  font-size: 12px;
+}
+
+.list-page .sys-list i{
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+
+.list-page .hasRoom{
+  background: #F2F5F8;
+  border-top: 0;
+}
+
+.list-page .row{
+  padding:0 !important;
+}
+
+.list-page .room-list{
+  /*border-bottom:1px solid #D9DEE2;*/
+}
+
+.list-page .each-room{
+  border-right:1px solid #D9DEE2;
+  border-bottom:1px solid #D9DEE2;
+  font-size: 14px;
+  color: #222;
+}
+
+.list-page .each-room.activated{
+  background: #e6eaed;
+
+}
+
+.list-page .each-room span{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+}
+
+.list-page .noBorderBottom{
+  border-bottom: 0!important;
+}
+
+/*=============================add room & add device===============================*/
+.add-page{
+  padding:0 2%;
+}
+
+.add-page .each-item{
+  width:100%;
+  height:44px;
+  line-height: 44px;
+  border-bottom: 1px solid #D9DEE2;
+  display: flex;
+  justify-content: space-between;
+  padding:0 5px;
+}
+
+.add-page .each-item input{
+  font-size: 14px;
+  color: #222;
+  height: 42px;
+  padding-top: 0;
+  width: 100%;
+}
+
+.add-page .each-item i{
+  font-size: 18px;
+  color: #777;
+}
+
+.add-page .add i{
+  font-size: 30px;
+}
+
+.add-page .add.activated{
+  background: #e6eaed;
+}
+
+.add-page .each-item i.activated{
+  color: red;
+}
+
+
+.add-page .finish-add{
+  width:100%;
+  min-height:42px !important;
+  background-color: #1fb5ff;
+  color: #fff !important;
+  top:20px;
+}
+
+.add-page .finish-add.activated{
+  background-color: #04a2f0;
+  border-color: transparent;
+}
+
+
+/*modal*/
+.operProject-modal{
+  background: rgba(0,0,0,0.5) !important;
+  display: flex !important;
+  justify-content: space-around;
+}
+
+.operProject-modal .middle-part{
+  width:80%;
+  height:90px;
+  background: #fff;
+  margin:auto;
+}
+
+.operProject-modal .middle-part div{
+  padding-left:20px;
+  height:45px;
+  line-height: 45px;
+  color: #000;
+}
+
+.operProject-modal .middle-part div:first-child{
+  border-bottom: 1px solid #DEE2E6;
+}
+
+.operProject-modal .middle-part div.activated{
+  background: #e6eaed;
+}

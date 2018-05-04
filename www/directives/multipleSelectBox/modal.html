@@ -1,0 +1,23 @@
+<ion-modal-view  class="dir-modal-multiple-select">
+  <div class="select-title text-center">{{options.title || "请选择"}}</div>
+  <div class="screen-content text-center">
+    <i class="icon ion-android-search"></i>
+    <input type="search" placeholder="输入关键字查找" ng-model="options.selectKey" ng-keyup="getInformation()"/>
+    <i class="icon ion-close-circled" style="left: inherit;right: 10px;" ng-show="options.selectKey && options.selectKey != ''" ng-click="clearInfo()"></i>
+  </div>
+  <ion-scroll class="selectArea" delegate-handle="scorllHandler">
+    <ul class="select-options">
+      <li class="select-option"
+          ng-class="{selectedOption:option.checked == true,unSelectedOption:option.checked != true}"
+          ng-repeat="option in options.list | filter:options.selectKey"
+          ng-click="seletedItem(option)" alt="">
+        {{option[options.attrName] || option}}
+        <i class="ion-android-radio-button-on"></i>
+      </li>
+    </ul>
+  </ion-scroll>
+  <div class="bottom row text-center">
+    <div class="col-50 btn-cancel" ng-click="btnCancel()">取消</div>
+    <div class="col-50 btn-ok" ng-click="btnOK()">确定</div>
+  </div>
+</ion-modal-view>

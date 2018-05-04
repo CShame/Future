@@ -1,0 +1,88 @@
+<ion-view class="architecture-page" view-title="建筑">
+  <ion-nav-buttons side="right">
+    <button class="submit" ng-click="submitArchitectureData()">提交</button>
+  </ion-nav-buttons>
+
+  <ion-content  ng-click="closeBuilderList()">
+    <div class="row each-item">
+      <span class="col col-33 text-left">位置</span>
+      <div class="col text-right">
+        <input class="pos-input" type="text" ng-model="architecture.Address">
+      </div>
+    </div>
+
+    <div class="row each-item">
+      <span class="col col-33 text-left">建筑面积</span>
+      <div class="col text-right">
+        <input class="type2-input" type="text" ng-model="architecture.Acreage">
+      </div>
+      <div class="col-10 text-left unit-div">
+        <span class="data-unit">㎡</span>
+      </div>
+    </div>
+
+    <div class="row each-item">
+      <span class="col col-33 text-left">楼龄</span>
+      <div class="col text-right">
+        <select-box options = "buildingAge"></select-box>
+      </div>
+    </div>
+
+    <div class="row each-item">
+      <span class="col col-33 text-left">开发商</span>
+      <div class="col text-right">
+        <input type="text" class="type2-input" ng-keyup="getBuilderList()" ng-model="architecture.CompanyName"/>
+      </div>
+    </div>
+    <div class="builder-list" ng-show="isShowBuilderList == true">
+      <ion-scroll>
+      <div class="each-builder" ng-repeat="data in BuliderList | filter:architecture.CompanyName" ng-click="getBuilder(data)">
+        <span>{{data.CompanyName}}</span>
+      </div>
+      </ion-scroll>
+    </div>
+
+
+    <div class="row each-item">
+      <span class="col col-33 text-left">建筑类型</span>
+      <div class="col text-right">
+        <select-box options = "buildType"></select-box>
+      </div>
+    </div>
+
+
+    <div class="row each-item">
+      <span class="col col-33 text-left">楼栋数</span>
+      <div class="col text-right">
+        <input type="text" class="type2-input" ng-model="architecture.BulidCount">
+      </div>
+      <div class="col-10 text-left unit-div">
+        <span class="data-unit">栋</span>
+      </div>
+    </div>
+
+    <div class="row each-item">
+      <span class="col col-33 text-left">户数</span>
+      <div class="col text-right">
+        <input type="text" class="type2-input" ng-model="architecture.HouseCount">
+      </div>
+      <div class="col-10 text-left unit-div">
+        <span class="data-unit">户</span>
+      </div>
+    </div>
+
+    <div class="row each-item border0">
+      <span class="col col-33 text-left">建筑平面图</span>
+      <div class="col text-right ">
+        <input id="uploadImg" type="file" accept="image/*" file-model="images" onchange="angular.element(this).scope().img_upload(this.files)"/>
+        <span id="btUpload" ng-click="chooseFile()">上传图片</span>
+      </div>
+    </div>
+
+    <div class="text-center preImg">
+      <img ng-src="{{thumb.imgSrc}}"/>
+    </div>
+
+
+  </ion-content>
+</ion-view>

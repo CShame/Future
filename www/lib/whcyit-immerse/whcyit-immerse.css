@@ -1,0 +1,50 @@
+:root {
+  --statusbar-height: 18px;
+  --header-height: 44px;
+}
+
+.platform-android ion-header-bar {
+  padding-top: var(--statusbar-height);
+  min-height: calc(var(--statusbar-height) + var(--header-height));
+  /*padding-top:18px;*/
+  /*min-height:62px;*/
+}
+
+.platform-android ion-header-bar .title {
+  top: var(--statusbar-height);
+  /*top:18px;*/
+}
+
+.platform-android .modal ion-header-bar .button {
+  top: var(--statusbar-height) !important;
+  /*top:18px !important;*/
+}
+
+.platform-android ion-header-bar .buttons-right {
+  top: var(--statusbar-height) !important;
+  /*top:18px !important;*/
+
+}
+
+.platform-android .has-header {
+  top: calc(var(--header-height) + var(--statusbar-height));
+  /*top:62px;*/
+}
+
+.platform-android .bar-subheader {
+  top: calc(var(--header-height) + var(--statusbar-height));
+  /*top:62px;*/
+}
+
+.platform-android .has-subheader {
+  top: calc(var(--header-height) * 2 + var(--statusbar-height)) !important;
+  /*top:100px;*/
+}
+
+.immerse-status-bar {
+  display: none;
+}
+
+/*.platform-android .view-container{
+  height: calc(100% - 20px);
+}*/

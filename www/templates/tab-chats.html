@@ -1,0 +1,68 @@
+<ion-view view-title="Chats">
+  <ion-content class="medical" scroll="false">
+
+    <div class="top">
+      <div class="left">
+        <div class="electricity">
+          <p class="unit">电MWh</p>
+          <p class="now-data">120</p>
+          <p class="unit">本月MWh</p>
+          <p class="month-data">623.3</p>
+        </div>
+        <div class="gas">
+          <p class="unit">燃气m³</p>
+          <p class="now-data">5.1</p>
+          <p class="unit">本月m³</p>
+          <p class="month-data">45.2</p>
+        </div>
+      </div>
+      <div id="medicalPic"></div>
+      <div class="right">
+        <div class="water">
+          <p class="unit">水m³</p>
+          <p class="now-data">12</p>
+          <p class="unit">本月m³</p>
+          <p class="month-data">63.3</p>
+        </div>
+        <div class="oxygen">
+          <p class="unit">氧气m³</p>
+          <p class="now-data">5.2</p>
+          <p class="unit">本月m³</p>
+          <p class="month-data">68.3</p>
+        </div>
+      </div>
+    </div>
+
+    <ion-scroll style="flex:1;">
+      <div class="row row-wrap middle">
+        <div class="col-25 each-div" ng-repeat="data in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]">
+          <p class="title">急诊室</p>
+          <p class="unit title2">内1F</p>
+          <div class="div-bottom row">
+            <div class="div-bottom-left col-40">
+              <!--<div ng-repeat="i in [1,2,3]">-->
+                <!--<p class="unit">燃气m³</p>-->
+                <!--<p class="now-content">11</p>-->
+              <!--</div>-->
+              <p class="unit">水m³</p>
+              <p class="now-content">11</p>
+              <p class="unit">燃气m³</p>
+              <p class="now-content">8.8</p>
+              <p class="unit">氧气m³</p>
+              <p class="now-content">3.2</p>
+
+            </div>
+            <div class="div-bottom-right">
+              <p class="unit">电量MWh</p>
+              <p class="electricity-content">13.6</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    </ion-scroll>
+
+    <div class="bottom">
+      <div id="medicalLine"></div>
+    </div>
+  </ion-content>
+</ion-view>

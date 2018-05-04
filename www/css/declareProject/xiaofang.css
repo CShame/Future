@@ -1,0 +1,99 @@
+.other-detail{
+  background: #353738;
+  color: #777;
+}
+
+.other-detail .top{
+  height:120px;
+  margin-top: 5px;
+}
+
+.other-detail .top .describe{
+  color: #bbb;
+  font-size: 10px;
+}
+
+.other-detail .top .ques-num{
+  color: #FF8B02;
+  font-size: 16px;
+}
+
+.other-detail .top .slash{
+  color: #777;
+  font-size: 16px;
+}
+
+.other-detail .top .total-num{
+  color: #25990E;
+  font-size: 16px;
+}
+
+.other-detail .top .mid ion-scroll{
+  height:120px;
+}
+
+.other-detail .top .mid{
+  color: #FF8B02;
+}
+
+.other-detail .bottom .sub-title{
+  background: #242627;
+  padding: 8px;
+  margin-bottom:5px;
+}
+
+.other-detail .bottom .sub-title{
+  color: #999;
+}
+
+.other-detail .bottom .sub-title .alert-num{
+  color: #FF8B02;
+  font-size: 18px;
+}
+
+.other-detail .bottom .sub-title .alert-des{
+  color: #999;
+  font-size: 10px;
+}
+
+.other-detail .content{
+  padding-left:0!important;
+  padding-right:0!important;
+}
+.other-detail .content .row{
+  padding: 0 5px 0 5px;
+}
+
+
+.other-detail .each-div{
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  min-height:60px;
+  padding-top: 2px;
+}
+
+.other-detail .each-div .line1{
+  color: #999;
+  font-size: 12px;
+}
+
+.other-detail .each-div .devi-value{
+  color: #25990E;
+}
+
+.other-detail .each-div .devi-unit{
+  color: #999;
+  font-size: 10px;
+  margin-left: -5px;
+}
+
+.other-detail .alert-div{
+  background: #FF8B02;
+}
+
+.other-detail .alert-div span{
+  color: #fff !important;
+}
+
+
+

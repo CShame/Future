@@ -1,0 +1,475 @@
+/* Empty. Add your own CSS if you like */
+.inputStyle{
+  margin-top:5px !important;
+  max-height: 46px;
+}
+
+.top-part{
+  height:45%;
+  display: flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding-bottom: 10px;
+}
+
+.title-font{
+  font-family: "Source HanSans CN Regular";
+  font-size: 14px;
+  color:#000000;
+}
+.title-font span{
+  font-family: "Roboto Light";
+  font-size: 9px;
+  color:#777777;
+}
+
+.input-div{
+  border:1px solid #1FB5FF;
+  border-radius: 5px;
+  padding:0 5px 0 5px!important;
+}
+
+.input-style{
+  width:48%;
+  display: inline-block !important;
+  color:#1FB5FF !important;
+  font-family: "Roboto Regular";
+  font-size:14px;
+}
+
+.border-right-color{
+  border-right:1px solid #1FB5FF !important;
+}
+
+
+.mid-part{
+  height:40%;
+  border:1px solid #D3D3D3;
+}
+
+.connect-line{
+  position: absolute;
+  height: 40%;bottom: 15%;
+  width: 100%;display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.connect-line div{
+  height:1px;
+  background-color: #d3d3d3;
+  margin:0 5px 0 10px;
+}
+
+.items-circle{
+  height:25%;
+  padding:0 5px 0 5px;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+
+.title-circle{
+  background-color: #DEF4FF;
+  height:40px;
+  width:40px;
+  border-radius:50%;
+  z-index: 10;
+  margin: auto 0;
+}
+
+.title-circle img{
+  margin-top:4px;
+  height:20px;
+}
+
+.title-circle p{
+  font-size: 7px;
+  font-family:"Source HanSans CN Light";
+  color:#555555;
+  margin-top:-8px;
+}
+
+.each-circle{
+  border:1px solid #25B004;
+  height:40px;
+  width:40px;
+  border-radius:50%;
+  z-index: 10;
+  margin: auto 0;
+  color:#25B004;
+  padding-top: 9px;
+  background-color: white;
+}
+
+
+.bottom-part{
+  height:15%;
+  display: flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.bottom-part div{
+  width:90%;
+  margin-left:5%;
+  min-height: 30px !important;
+  line-height: 35px !important;
+  margin-top:5%;
+  background-color: #1FB5FF;
+  color:white;
+}
+
+.bottom-part .button.activated{
+  background-color: #0d9de4;
+  color:white;
+  border-color: #0d9de4;
+}
+.bottom-part .button:hover{
+  color:white;
+}
+
+
+.noBorder{
+  border:0px;
+}
+
+.closeStyle{
+  border:1px solid #BBBBBB;
+  color:#BBBBBB;
+}
+
+
+/**=========================================================**/
+.main-pain{
+  background: white;
+  width:284px;
+  height:385px;
+  margin-top:15px;
+  position: relative;
+  margin-left:auto;
+  margin-right: auto;
+  border-radius: 6px;
+}
+
+.button-cha{
+  width:30px;
+  height:30px;
+  border-radius: 50%;
+  right:-15px;
+  top:-15px;
+  position: absolute;
+  background: rgba(255,255,255,0.5);
+  font-size: 36px;
+  color:#626262
+}
+
+
+.head-title{
+  width:100%;
+  height:45px;
+  background: #1FB5FF;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  font-size:21px;
+  font-family:"Source HanSans CN Normal";
+  color:white;
+  line-height: 42px;
+}
+
+.medical{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.medical .top{
+  width: 100%;
+  padding:5px 5px 0 5px;
+  display:flex;
+  border-bottom:1px solid #D9DEE2;
+}
+
+
+
+.medical .top .left div,.medical .top .right div{
+  border:1px solid #D9DEE2;
+  height:50px;
+  width:60px;
+  margin-top: 5px;
+}
+
+.medical .top p{
+  margin:-4px 0 -8px 2px !important;
+}
+
+.medical .top .unit{
+  font-size: 8px;
+  color:#777;
+}
+
+.medical .top .now-data{
+  font-size: 14px;
+  color:#222;
+}
+
+.medical .top .month-data{
+  font-size: 10px;
+  color:#222;
+}
+
+.medical .top .electricity p:nth-child(2){
+  color:#2EBC12;
+}
+
+/*========================中间部分============================*/
+.medical .middle{
+  padding:0;
+  /*border-top:1px solid #D9DEE2;*/
+}
+
+.medical .middle div:first-child{
+
+}
+
+.medical .middle .each-div{
+  border-bottom:1px solid #D9DEE2;
+  border-right:1px solid #D9DEE2;
+  height:100px;
+}
+
+.medical .middle .each-div p{
+  margin:-4px 0 -8px 2px !important;
+}
+
+.medical .middle .each-div .title{
+  font-size: 14px;
+  color: #555;
+  text-align: right;
+  padding:3px 2px 0 0;
+}
+
+.medical .middle .each-div .title2{
+  text-align: right;
+  padding:0 2px 0 0;
+}
+
+
+.medical .middle .div-bottom{
+  padding:2px;
+  height: 70px;
+  position: absolute;
+}
+
+.medical .middle .each-div .div-bottom-left{
+  /*width:30px;*/
+  left: 2px;
+  bottom: 0;
+  position: absolute;
+}
+
+.medical .middle .each-div .unit{
+  font-size: 7px;
+  color: #777;
+}
+
+.medical .middle .each-div .now-content{
+  font-size: 12px;
+  color: #222;
+}
+
+.medical .middle .each-div .div-bottom-right{
+  margin-left: 35px;
+  margin-top:10px;
+  text-align: center;
+}
+
+.medical .middle .each-div .electricity-content{
+  font-size: 18px;
+  color: #2EBC12;
+}
+
+
+/*========================底部部分========================*/
+.medical .bottom{
+  margin-bottom:3px;
+}
+
+#medicalPic{
+  width: 120px;
+  height:120px;
+  margin:auto;
+}
+
+#medicalLine{
+  width: 100%;
+  height:150px;
+}
+
+/**/
+/*html,*/
+/*body {*/
+  /*width: 100vw;*/
+  /*height: 100vh;*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+/*}*/
+
+/*body {*/
+  /*display: flex;*/
+  /*justify-content: flex-start;*/
+/*}*/
+
+/*.wrapper {*/
+  /*!*margin: 10px;*!*/
+/*}*/
+/*.wrapper:nth-child(1){*/
+  /*width: 500px;*/
+/*}*/
+/*.wrapper:nth-child(2) {*/
+  /*flex: 1;*/
+/*}*/
+/*pre {*/
+  /*display: block;*/
+  /*padding: 0.5em;*/
+  /*background: #002b36;*/
+  /*color: #839496;*/
+  /*min-height: 11rem;*/
+/*}*/
+
+#canvasOne {
+  /*border: 1px solid rgba(0, 0, 0, .4);*/
+  /*box-shadow: 0 0 3px rgba(0, 0, 0, .15);*/
+  /*border-radius: 5px;*/
+  bottom: 20px;
+  position: absolute;
+  background: #ccc;
+}
+
+
+.select-title{
+  width:100%;
+  height:50px;
+  line-height: 50px;
+  font-size: 19px;
+  color: #222;
+  border-bottom: 1px solid #1fb5ff;
+}
+
+.level-scroll{
+  padding: 20px 0 !important;
+  position: relative;
+}
+
+.level-scroll .each-scroll{
+  position: relative;
+}
+
+.level-scroll ion-scroll{
+   height:150px;
+ }
+
+.level-scroll .mid-scroll{
+  border-left: 1px solid #d2dee9;
+  border-right: 1px solid #d2dee9;
+}
+
+.level-scroll ion-scroll li{
+  height:30px;
+  line-height: 30px;
+  text-align: center;
+  color: #000;
+}
+
+.level-scroll .selected{
+  color: #000;
+  font-size: 14px;
+}
+
+/*.level-scroll .adjoining{*/
+  /*color: #555;*/
+  /*font-size: 12px;*/
+/*}*/
+
+/*.level-scroll .apart{*/
+  /*color: #999;*/
+  /*font-size: 9px;*/
+/*}*/
+
+/*蓝条*/
+.selected-style{
+  background: #f2f5f8;
+  position: absolute;
+  top:60px;
+  left:0;
+  width: 100%;
+  height:30px;
+}
+
+.bottom-button{
+  height:50px;
+  line-height: 50px;
+  padding:0 !important;
+}
+
+.bottom-button div:first-child{
+  background: #eee;
+  color: #222;
+}
+
+.bottom-button div:last-child{
+  background: #1fb5ff;
+  color: #fff;
+}
+
+.picker-above-highlight{
+  left: 0;
+  top: 0;
+  -webkit-transform: translate3d(0,0,90px);
+  transform: translate3d(0,0,90px);
+  position: absolute;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  height: 80px;
+  /*border-bottom: 1px solid #c8c7cc;*/
+  background: linear-gradient(to bottom,#fff 20%,rgba(255,255,255,.5) 100%);
+  pointer-events: none;
+}
+
+.picker-below-highlight{
+  left: 0;
+  top: 110px;
+  -webkit-transform: translate3d(0,0,90px);
+  transform: translate3d(0,0,90px);
+  position: absolute;
+  z-index: 11;
+  display: block;
+  width: 100%;
+  height: 80px;
+  /*border-top: 1px solid #c8c7cc;*/
+  /*background: -webkit-gradient(linear,left bottom,left top,color-stop(30%,#fff),to(rgba(255,255,255,.7)));*/
+  background: linear-gradient(to top,#fff 30%,rgba(255,255,255,.5) 100%);
+  pointer-events: none;
+}
+
+.start-record{
+  text-align: center;
+  background: aliceblue;
+  height: 100px;
+  line-height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 10px auto;
+}
+
+.play-record{
+  margin: auto;
+  text-align: center;
+  background: bisque;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  color: #fff;
+}

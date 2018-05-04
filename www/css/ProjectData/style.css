@@ -1,0 +1,187 @@
+
+/*---------------project-data-page------------------*/
+
+.project-data-page{
+  color: #222;
+}
+
+.project-data-page .each-item{
+  width:96%;
+  margin-left: 2%;
+  border-bottom: 1px solid #DCDDDF;
+  padding: 5px 0px;
+  height: 60px;
+  padding-top:5px !important;
+}
+
+.project-data-page .each-item img{
+  width: 20px;
+  height: 20px;
+  margin-top: 17px;
+}
+
+.project-data-page .each-item span{
+  line-height: 45px;
+}
+
+.project-data-page .self-divider{
+  width:100%;
+  height:5px;
+  background: #F1F5F8;
+}
+
+.border0{
+  border:0 !important;
+}
+
+/*-------------------------------------------------*/
+
+/*--------------architecture-page------------------*/
+
+.architecture-page{
+  color: #222;
+}
+
+.architecture-page .each-item{
+  width:96%;
+  margin-left: 2%;
+  border-bottom: 1px solid #DCDDDF;
+  padding: 5px 0px;
+  height: 50px;
+  line-height: 30px;
+  padding-top:5px !important;
+}
+
+
+.architecture-page .each-item .pos-input{
+   width: 100%;
+   text-align: right;
+    color: #999;
+}
+
+.architecture-page .each-item .type2-input{
+  width: 100%;
+  text-align: right;
+}
+
+
+.architecture-page .each-item .unit-div{
+  max-width: 18px;
+  padding-top: 8px;
+}
+
+.architecture-page  .builder-list{
+  width: 96%;
+  max-height: 200px;
+  background: #fff;
+  position: absolute;
+  border: 1px solid #dcddde;
+  margin-left: 2%;
+  margin-top: -1px;
+  z-index: 10;
+}
+
+
+.architecture-page  .builder-list .scroll{
+  max-height: 200px;
+}
+
+.architecture-page .each-builder{
+  border-bottom: 1px solid #dcddde;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+}
+
+
+.architecture-page #uploadImg{
+  display: none;
+}
+
+
+.architecture-page #btUpload{
+  border: 1px solid #dcddde;
+  font-size: 12px;
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+
+.architecture-page .preImg{
+  width: 96%;
+  margin-left: 2%;
+}
+.architecture-page .preImg img{
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+
+.submit{
+  background: #0589C9;
+  width: 60px;
+  height: 31px;
+  line-height: 31px;
+  text-align: center;
+  border-radius: 3px;
+  color: #fff;
+  padding-left: 10px;
+  border:none;
+}
+
+
+
+
+/*-----------------------物管-----------------------*/
+.wuguan-page{
+  color: #222;
+}
+
+.wuguan-page .each-item{
+  width:96%;
+  margin-left: 2%;
+  border-bottom: 1px solid #DCDDDF;
+  padding: 5px 0px;
+  height: 50px;
+  line-height: 30px;
+  padding-top:5px !important;
+}
+
+.wuguan-page .type2-input{
+  width: 100%;
+  text-align: right;
+}
+
+
+.wuguan-page .company-list{
+  width: 96%;
+  max-height: 200px;
+  background: #fff;
+  position: absolute;
+  border: 1px solid #dcddde;
+  margin-left: 2%;
+  margin-top: -1px;
+  z-index: 10;
+}
+
+.wuguan-page  .company-list .scroll{
+  max-height: 200px;
+}
+
+.wuguan-page .each-company{
+  border-bottom: 1px solid #dcddde;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.wuguan-page .each-item .describe{
+  color: #999;
+  font-size: 12px;
+}
+
+.wuguan-page .each-item .unit-div{
+  font-size: 12px;
+  padding-top: 8px;
+  max-width: 36px;
+}

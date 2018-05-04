@@ -1,0 +1,16 @@
+<ion-view>
+  <ion-content class="verified-page">
+    <div class="input-code text-center">
+      <p>我们已经发送了 <span style="color: #1fb5ff;">验证码</span> 到你的手机</p>
+      <p>+86 {{user.telNumber}}</p>
+      <div class="verified-code text-left">
+        <span>验证码</span>
+        <input  placeholder="请输入验证码" type="number" ng-model="user.code"/>
+        <img src="img/icon_delete.png" ng-if="user.code" ng-click="resetCode()"/>
+      </div>
+      <p class="info" ng-if="getCode">接受短信大约需要{{clock}}秒</p>
+      <p class="info2" ng-if="!getCode" ng-click="openModal('templates/declareProject/reSendCode.html')">收不到验证码？</p>
+      <div class="button finish-verified" ng-class="{'button_disable': !user.code}" ng-click="finishVerified()">完成</div>
+    </div>
+  </ion-content>
+</ion-view>

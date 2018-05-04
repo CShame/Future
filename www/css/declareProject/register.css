@@ -1,0 +1,286 @@
+/*修改ionic自带的css*/
+.loading-container .loading {
+  padding: 15px 20px 15px 20px !important;
+  border-radius: 0 !important;
+  background-color: #fff !important;
+  color: #000 !important;
+  font-size: 14px !important;
+}
+
+/*==============注册===============*/
+.register-page{
+  padding:0 3%;
+}
+
+.input-phone{
+  border-bottom:1px solid #E8E8E8;
+  margin-top: 40px;
+  width:100%;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.input-phone:hover{
+  border-bottom:1px solid #1FB5FF;
+}
+
+.input-phone span{
+  font-size: 18px;
+  color: #000;
+  vertical-align:middle !important;
+  padding: 0 20px 0 10px;
+}
+
+.input-phone input{
+  display: inline-block!important;
+  font-size: 18px !important;
+  padding-left: 20px !important;
+  max-width: 180px;
+}
+
+.input-phone img{
+  width:16px;
+  height:16px;
+  right: 10px;
+  top: 11px;
+  position: absolute;
+}
+/*========================================================*/
+.verified-page{
+  padding:0 3%;
+}
+
+.input-code p:first-child{
+  margin-top: 20px;
+  font-size: 15px;
+  color: #999;
+}
+
+.input-code p:nth-child(2){
+  margin-top: 20px;
+  font-size: 30px;
+  color: #353535;
+  font-weight: bold;
+}
+
+.input-code .verified-code{
+  margin-top:25px;
+  margin-left:3%;
+  width:94%;
+  height:48px;
+  border-bottom: 1px solid #E8E8E8;
+  position: relative;
+}
+
+.input-code .verified-code:hover{
+  border-bottom:1px solid #1FB5FF;
+}
+
+.input-code .verified-code span{
+  vertical-align: bottom;
+  font-size: 15px;
+  color: #222;
+  padding:0 40px 0 10px;
+}
+.input-code .verified-code input{
+  display: inline-block;
+  vertical-align: sub;
+  font-size: 24px;
+  padding-top: 10px;
+  max-width: 150px;
+}
+
+.input-code .verified-code img {
+  width: 16px;
+  height: 16px;
+  right: 10px;
+  top: 18px;
+  position: absolute;
+}
+
+.input-code .info{
+  font-size: 14px;
+  color: #353535;
+  margin-top:10px;
+}
+
+.input-code .info2{
+  font-size: 14px;
+  color: #576b95;
+  margin-top:10px;
+}
+
+
+.input-code .finish-verified,.register-page .next-step{
+  margin-top:25px;
+  width:100%;
+  min-height:42px !important;
+  background-color: #1fb5ff;
+  color: #fff !important;
+}
+
+.input-code .finish-verified.activated,.register-page .next-step.activated{
+  background-color: #04a2f0;
+  border-color: transparent;
+  /*color: #fff;*/
+}
+
+.input-code .button_disable,.register-page .button_disable{
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
+/*=================confirmPhoneModel && reSendCodeModel  &&　scanQrCodeModal=======================*/
+.confirmPhoneModel,.reSendCodeModel,.scanQrCodeModal{
+  background: rgba(0,0,0,0.5) !important;
+  display: flex !important;
+  justify-content: space-around;
+}
+
+.confirmPhone{
+  height:187px;
+  width:280px;
+  background: #fff;
+  margin:auto;
+  padding: 28px 20px 0 25px !important;
+}
+
+.confirmPhone .fist-title{
+  font-size: 21px;
+  color: #222;
+}
+
+.confirmPhone .sec-title{
+  margin-top:15px;
+  margin-bottom: 5px!important;
+  font-size: 16px;
+  color: #222;
+}
+
+.confirmPhone .thr-title{
+  margin-left: 5px !important;
+  font-size: 18px;
+  color: #222;
+}
+
+.confirmPhone .model-button{
+  margin-top:25px;
+  margin-left:130px;
+}
+
+.confirmPhone .model-button span:first-child{
+  font-size: 16px;
+  color: #222;
+  padding: 2px;
+}
+
+.confirmPhone .model-button span:first-child.activated{
+  color: #57A342;
+  background: #e6eaed;
+}
+
+.confirmPhone .model-button span:last-child{
+  font-size: 16px;
+  color: #1fb5ff;
+  margin-left:20px;
+  padding: 2px;
+}
+
+.confirmPhone .model-button span:last-child.activated{
+  color: #57A342;
+  background: #e6eaed;
+}
+
+
+.reSendCodeModel div{
+  margin:auto;
+  width:270px;
+  background: #fff;
+  color: #000;
+  height:46px;
+  padding-left: 20px;
+  line-height: 46px;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  font-size: 15px;
+  margin-top:5px;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+  font-size: 15px;
+  margin-top:5px;
+
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+  font-size: 15px;
+  margin-top:5px;
+
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  font-size: 15px;
+  margin-top:5px;
+}
+
+
+.scanQrCodeModal .scanQrCode{
+  padding: 0 10px;
+  background: white;
+  height: 350px;
+  width: 280px;
+  margin:auto;
+}
+
+.scanQrCodeModal .top p:first-child{
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+.scanQrCodeModal .top img{
+  width: 120px;
+  height: 120px;
+  margin-top: 20px;
+}
+
+.scanQrCodeModal .top p:last-child{
+  font-size: 12px;
+  color: #555;
+}
+
+
+.scanQrCodeModal .bottom{
+  border-top: 1px solid #A8A8A8;
+  margin-top: 30px;
+}
+
+.scanQrCodeModal .bottom span:first-child{
+  background: #fff;
+  top: -10px;
+  position: relative;
+  padding: 0 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+.scanQrCodeModal .describe div{
+  margin-bottom: 5px;
+}
+.scanQrCodeModal .describe div:first-child{
+  margin-top:-5px;
+}
+
+.scanQrCodeModal .describe i{
+  color: #bbb;
+  font-size: 12px;
+  margin-left: 50px;
+  margin-right: 10px;
+}
+.scanQrCodeModal .bottom hr{
+  width: 1px;
+  height: 40px;
+  background: #bbb;
+  border: 0px;
+  position: relative;
+  top: -62px;
+  left: -75px;
+}
