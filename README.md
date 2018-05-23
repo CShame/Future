@@ -2,4 +2,4 @@
 
 <a href='www.baidu.com'>test markdown</a>
 
-<a href="javascript:alert(1);">test</a>
+<a href="javascript:void(0);">test</a>
