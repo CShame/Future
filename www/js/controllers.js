@@ -881,226 +881,48 @@ angular.module('starter.controllers', [])
   })
 
   .controller('ChatsCtrl', function ($scope, Chats) {
-
-    var data = [{name: "总水费", value: 20}, {name: "总电费", value: 30}, {name: "总气费", value: 10}, {
-      name: "总氧气费",
-      value: 25
-    }];
-    var xdata = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
-    var ydata = [820, 932, 901, 934, 1290, 1330, 1320];
-
-    var theme = 'sun';
-    showMedicalPie('medicalPic', data, theme);
-    showMedicalLine('medicalLine', xdata, ydata, theme);
-
-    function showMedicalPie(id, dataList, theme) {
-      var colors = [
-        {pieBackground: ['#149ED8', '#0E79F3', '#00336D', '#2E53CA'], tooltipBackground: '#313131'},
-        {pieBackground: ['#4ECBFF', '#459CFF', '#3076C5', '#6B8EFF'], tooltipBackground: '#4D4D4D'}
-      ];
-      var color = colors[1];
-      if (theme == 'luna') {
-        color = colors[0];
-      }
-
-      var itemStyle;
-      for (var i = 0; i < dataList.length; i++) {
-        itemStyle = {emphasis: {color: color.pieBackground[i], borderColor: color.pieBackground[i]}};
-        dataList[i].itemStyle = itemStyle;
-      }
-
-      var element = echarts.init(document.getElementById(id));
-      var option = {
-        color: color.pieBackground,
-        tooltip: {
-          trigger: 'item',
-          formatter: function (data) {
-            return diyTooltip(data);
-          },
-          backgroundColor: color.tooltipBackground
-        },
-        title: {
-          text: "总用电量",
-          subtext: "98",
-          top: '30%',
-          x: 'center',
-          y: 'center',
-          textStyle: {
-            fontSize: '8',
-            fontWeight: 'bold',
-            color: "#777"
-          },
-          subtextStyle: {
-            fontSize: '24',
-            fontWeight: 'bold',
-            color: "#2EBC12"
-          }
-        },
-        series: [
-          {
-            name: '用电量',
-            type: 'pie',
-            selectedOffset: '5',
-            radius: ['70%', '85%'],
-            avoidLabelOverlap: false,
-            label: {
-              normal: {
-                show: false
-              },
-              emphasis: {
-                show: false
-              }
-            },
-            labelLine: {
-              normal: {
-                show: false
-              }
-            },
-            hoverAnimation: false,
-            itemStyle: {
-              emphasis: {
-                borderWidth: '2'
-              }
-            },
-            data: dataList
-          }]
-      };
-      element.setOption(option);
-
-      function diyTooltip(data) {
-        console.log(data);
-        var html = "<div>";
-        html += "<div style='font-size: 9px;color: #999;'>" + data.name + "%</div>";
-        html += "<div style='font-size: 20px;color:#d3d3d3 ;margin-top:-5px;'>" + data.percent + "</div>"
-        html += "</div>";
-        return html;
-      }
+    var username=prompt('请输入您的姓名');
+    if (!username){
+      alert('姓名必填');
+      history.go(0);
     }
+    // userId=genUid();
+    var userInfo={
+      'userid':1,
+      'username':username
+    };
 
-    function showMedicalLine(id, xdata, ydata, theme) {
-      var colors = [
-        {labelColor: '#777', tooltipBackground: '#313131', xLineColor: '#000'},
-        {labelColor: "#222", tooltipBackground: '#4D4D4D', xLineColor: '#E8E8E8'}
-      ];
-      var color = colors[1];
-      if (theme == 'luna') {
-        color = colors[0];
-      }
-      var element = echarts.init(document.getElementById(id));
-      var option = {
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            lineStyle: {
-              color: "#1fb5ff"
-            }
-          },
-          backgroundColor: color.tooltipBackground,
-          formatter: function (data) {
-            return diyTooltip(data);
-          }
-        },
-        grid: {
-          top: '10',
-          left: '5%',
-          right: '1%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: [
-          {
-            type: 'category',
-            boundaryGap: false,
-            axisLine: {
-              show: false,
-              lineStyle: {
-                color: color.labelColor
-              },
-            },
-            axisTick: {
-              lineStyle: {
-                color: color.xLineColor
-              }
-            },
-            axisLabel: {
-              textStyle: {
-                fontSize: "7"
-              }
-            },
-            splitNumber: 4,
-            data: xdata
-          }
-        ],
-        yAxis: [
-          {
-            type: 'value',
-            position: 'right',
-            axisLine: {
-              show: false,
-              lineStyle: {
-                color: color.labelColor
-              },
-            },
-            axisTick: {
-              lineStyle: {
-                color: color.xLineColor
-              }
-            },
-            splitLine: {
-              show: true,
-              lineStyle: {
-                color: color.xLineColor
-              }
-            },
-            axisLabel: {
-              textStyle: {
-                fontSize: "7"
-              }
-            }
-          }
-        ],
-        series: [
-          {
-            name: '费用',
-            type: 'line',
-            stack: '总量',
-            label: {
-              normal: {
-                show: false,
-                position: 'top'
-              }
-            },
-            lineStyle: {
-              normal: {
-                color: "#12ead5"
-              }
-            },
-            itemStyle: {
-              normal: {
-                color: "#12ead5",
-                borderColor: "#12ead5"
-              },
-              emphasis: {
-                color: "#12ead5",
-                borderColor: "#12ead5"
-              }
-            },
-            data: ydata
-          }
-        ]
-      };
-      element.setOption(option);
+    //连接socket后端服务器
+    var socket=io.connect("ws://39.108.154.196:4000");
+    //通知用户有用户登录
+    socket.emit('login',userInfo);
+    //监听新用户登录
+    socket.on('login',function (o) {
+      // updateMsg(o, 'login');
+      console.log(o);
+    });
+    //监听用户退出
+    socket.on('logout',function (o) {
+      // updateMsg(o, 'logout');
+      console.log(o);
 
-      function diyTooltip(data) {
-        console.log(data);
-        var html = "<div>";
-        html += "<div style='font-size: 12px;color: #d3d3d3;'>" + data[0].name + "</div>";
-        html += "<div style='font-size: 12px;color:#12ead5 ;'>" + data[0].value + "</div>";
-        html += "</div>";
-        return html;
-      }
-    }
-
+    });
+    //发送消息
+    // socket.on('message',function (obj) {
+    //   if(obj.userid==userId) {
+    //     var MsgHtml ='<section class="user clearfix">'
+    //       +'<span>'+obj.username+'</span>'
+    //       +'<div>'+obj.content+'</div>'
+    //       +'</section>';
+    //   }else{
+    //     var MsgHtml='<section class="server clearfix">'
+    //       +'<span>'+obj.username+'</span>'
+    //       +'<div>'+obj.content+'</div>'
+    //       +'</section>';
+    //   }
+    //   $('.main-body').append(MsgHtml);
+    //   $('.main-body').scrollTop(99999);
+    // })
 
   })
 
