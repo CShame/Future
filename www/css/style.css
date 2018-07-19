@@ -222,6 +222,17 @@
   color:#2EBC12;
 }
 
+.chats .parent{
+  height: 20px;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow: scroll;
+}
+
+.chats .children{
+  display: inline-block;
+}
+
 /*========================中间部分============================*/
 .medical .middle{
   padding:0;
@@ -472,4 +483,11 @@
   line-height: 40px;
   border-radius: 4px;
   color: #fff;
+}
+
+::-webkit-scrollbar
+{
+  width: 0;
+  height: 0;
+  background-color: transparent;
 }

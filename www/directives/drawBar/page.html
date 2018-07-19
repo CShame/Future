@@ -1,0 +1,15 @@
+<div class='dir-draw-bar'>
+  <div class="lines" style="height: 100%">
+    <div class="each-line text-right" ng-repeat="data in yLine"><span>{{data}}</span></div>
+  </div>
+  <div class="bars">
+    <div ng-repeat="data in barList track by $index" class="each-bar">
+      <div class="bg-bar" ng-style="drawBarStyle.bg" on-touch="showThisTooltip($index)" on-release="hideThisTooltip($index)">
+        <div class="full" ng-style="data.fullStyle">
+          <div class="tooltip">{{data[keyWordData]}}</div>
+        </div>
+      </div>
+      <div class="bar-name">{{data[keyWordName]}}</div>
+    </div>
+  </div>
+</div>

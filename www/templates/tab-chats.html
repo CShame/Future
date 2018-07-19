@@ -1,5 +1,36 @@
 <ion-view view-title="Chats">
-  <ion-content class="medical" scroll="false">
+  <ion-content class="chats" scroll="false">
+    <div class='parent' marquee options='options' is-change='isChange' change-callback='changeCallback()'>
+      <div class='children' ng-repeat='data in dataList'>{{data}}&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+
+    <div class="top" style="width: 100%;padding-left: 30px">
+      <div id="airportPie" style="width: 180px;height: 180px;"></div>
+      <div class="right">
+
+      </div>
+    </div>
+
+    <div style="margin:30px 0;height: 100px;">
+      <draw-bar bar-list='barList' line-width='10'  key-word-data="data" key-word-name="name" max-y='maxY'></draw-bar>
+    </div>
+
+
+
+    <canvas width="100" height="100" draw-pie percent="percent" line-width="6"></canvas>
+
+    <div ng-repeat='data in percentList track by $index' style="width: 80%;margin-left: 10%;margin-top: 10px">
+      <draw-line  percent="data.p" line-width="10"
+                  tooltip-title="data.title" tooltip-title1="data.title1"
+                  tooltip-title2="data.title2" tooltip-data1="data.data1"
+                  tooltip-data2="data.data2" tooltip-unit="data.unit"
+      >
+      </draw-line>
+    </div>
+
+
+
+
 
   </ion-content>
 </ion-view>

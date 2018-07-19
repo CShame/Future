@@ -880,49 +880,71 @@ angular.module('starter.controllers', [])
     }
   })
 
-  .controller('ChatsCtrl', function ($scope, Chats) {
-    var username=prompt('请输入您的姓名');
-    if (!username){
-      alert('姓名必填');
-      history.go(0);
-    }
-    // userId=genUid();
-    var userInfo={
-      'userid':1,
-      'username':username
+  .controller('ChatsCtrl', function ($scope,$interval, $timeout,chart) {
+
+    $scope.dataList = [
+      '通知1：拉拉阿拉啦啦啊啊啊啊啊啊',
+      '通知2：拉拉阿拉啦啦啊啊啊啊啊啊',
+      '通知3：拉拉阿拉啦啦啊啊啊啊啊啊',
+      '通知4：拉拉阿拉啦啦啊啊啊啊啊啊',
+      '通知5：拉拉阿拉啦啦啊啊啊啊啊啊',
+      '通知6：拉拉阿拉啦啦啊啊啊啊啊啊'
+    ];
+    console.log('第一次刷新');
+
+
+    $scope.options = {
+      step:1,
+      timer:18
+    };
+    $scope.isChange = false;
+
+    $scope.changeCallback = function () {
+      $scope.isChange = false;
+      console.log("变化完成后",$scope.isChange);
     };
 
-    //连接socket后端服务器
-    var socket=io.connect("ws://39.108.154.196:4000");
-    //通知用户有用户登录
-    socket.emit('login',userInfo);
-    //监听新用户登录
-    socket.on('login',function (o) {
-      // updateMsg(o, 'login');
-      console.log(o);
-    });
-    //监听用户退出
-    socket.on('logout',function (o) {
-      // updateMsg(o, 'logout');
-      console.log(o);
 
-    });
-    //发送消息
-    // socket.on('message',function (obj) {
-    //   if(obj.userid==userId) {
-    //     var MsgHtml ='<section class="user clearfix">'
-    //       +'<span>'+obj.username+'</span>'
-    //       +'<div>'+obj.content+'</div>'
-    //       +'</section>';
-    //   }else{
-    //     var MsgHtml='<section class="server clearfix">'
-    //       +'<span>'+obj.username+'</span>'
-    //       +'<div>'+obj.content+'</div>'
-    //       +'</section>';
-    //   }
-    //   $('.main-body').append(MsgHtml);
-    //   $('.main-body').scrollTop(99999);
-    // })
+    $timeout(function () {
+      $scope.dataList = [
+        '通知1：拉拉阿拉啦啦啊啊啊啊啊啊',
+        '通知2：拉拉阿拉啦啦啊啊啊啊啊啊',
+        '通知3：拉拉阿拉啦啦啊啊啊啊啊啊',
+      ];
+      console.log('第二次刷新');
+      $timeout(function () {
+        $scope.isChange = true;
+      })
+    },5000);
+
+
+    chart.showPie("airportPie");
+
+
+  $timeout(function () {
+    $scope.percentList = [{p:80,title:'保养',title1:'已完成',title2:'未完成',data1:'80',data2:'100',unit:'个'},
+      {p:80,title:'保养',title1:'已完成',title2:'未完成',data1:'70',data2:'100',unit:'个'},
+      {p:70,title:'保养',title1:'已完成',title2:'未完成',data1:'80',data2:'80',unit:'个'},
+      {p:60,title:'保养',title1:'已完成',title2:'未完成',data1:'20',data2:'90',unit:'个'},
+      {p:50,title:'保养',title1:'已完成',title2:'未完成',data1:'10',data2:'100',unit:'个'},
+      {p:40,title:'保养',title1:'已完成',title2:'未完成',data1:'20',data2:'20',unit:'个'},
+      {p:30,title:'保养',title1:'已完成',title2:'未完成',data1:'30',data2:'30',unit:'个'},
+      {p:20,title:'保养',title1:'已完成',title2:'未完成',data1:'40',data2:'50',unit:'个'}
+    ];
+    $scope.percent = 50;
+  },1000);
+
+
+    $scope.barList = [
+      {name:'切换',data:'10',per:83.3},
+      {name:'掉电',data:'6',per:50},
+      {name:'外场开路',data:'4',per:33.3},
+      {name:'过流',data:'2',per:16.7},
+    ]
+
+    $scope.maxY = 12;
+
+
 
   })
 
@@ -932,10 +954,6 @@ angular.module('starter.controllers', [])
 
   .controller('AccountCtrl', function ($scope, $rootScope, $ionicModal, $http, myNote, $state, $interval) {
 
-
-    // window.addEventListener('load', eventWindowLoaded, false);
-
-    // eventWindowLoaded();
 
     function eventWindowLoaded() {
       canvasApp();

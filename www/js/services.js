@@ -242,4 +242,64 @@ angular.module('starter.services', [], ["$httpProvider", function ($httpProvider
       sendCode:sendCode
     }
 })
+
+
+
+  .factory('chart', ['$rootScope', function ($rootScope) {
+
+    function getInstance(id) {
+      var node = document.getElementById(id);
+      return node && (echarts.getInstanceByDom(node) || echarts.init(node));
+    }
+
+    // 环图
+    return {
+      showPie: function (id, data) {
+        var element = getInstance(id);
+        var option = {
+          tooltip: {
+            trigger: 'item',
+            formatter: "{b} <br/>{c} ({d}%)"
+          },
+          series: [
+            {
+              name: '访问来源',
+              hoverOffset:5,
+              type: 'pie',
+              radius: ['60%', '80%'],
+              avoidLabelOverlap: false,
+              label: {
+                normal: {
+                  show: false,
+                  position: 'center'
+                },
+                emphasis: {
+                  show: false,
+                  textStyle: {
+                    fontSize: '30',
+                    fontWeight: 'bold'
+                  }
+                }
+              },
+              labelLine: {
+                normal: {
+                  show: false
+                }
+              },
+              data: [
+                {value: 24, name: '调光器', itemStyle: {normal: {color: "#FFCF54"}}},
+                {value: 8, name: '消防', itemStyle: {normal: {color: "#FF7777"}}},
+                {value: 74, name: '其它', itemStyle: {normal: {color: "#1fb5ff"}}},
+              ]
+            }
+          ]
+        };
+
+        element.setOption(option, true);
+
+      }
+
+    }
+
+  }])
 ;

@@ -1,0 +1,97 @@
+.dir-draw-bar{
+  height:100%;
+  width: 100%;
+  padding:0 5px;
+  position: relative;
+}
+
+.dir-draw-bar .lines{
+  height: 100%;
+}
+
+.dir-draw-bar .lines .each-line{
+  height:25%;
+  border-bottom: 1px dotted #e9e9e9;
+  color: #777;
+  font-size: 9px;
+}
+
+.dir-draw-bar .lines .each-line:last-child{
+  border-style: solid;
+}
+
+.dir-draw-bar .lines .each-line>span{
+  vertical-align: -8px;
+}
+
+.dir-draw-bar .bars{
+  width: 100%;
+  height: 75%;
+  position: absolute;
+  top: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dir-draw-bar .bars .each-bar{
+  min-width: 60px;
+  height: 100%;
+}
+
+.dir-draw-bar .bars .bg-bar{
+  background: rgb(232, 247, 255);
+  /*width:6px;*/
+  height: 100%;
+  margin: 0 auto;
+  /*border-top-left-radius: 50%;*/
+  /*border-top-right-radius: 50%;*/
+}
+
+.dir-draw-bar .bars .full{
+  background: #1fb5ff;
+  /*width:6px;*/
+  bottom: 0;
+  position: absolute;
+  /*border-top-left-radius: 50%;*/
+  /*border-top-right-radius: 50%;*/
+}
+
+.dir-draw-bar .bars .bar-name{
+  text-align: center;
+  color: #777;
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dir-draw-bar .bars .tooltip{
+  position: absolute;
+  background: rgba(31,181,255,0.2);
+  top: -20px;
+  padding: 3px 10px 0;
+  border-radius: 9px;
+  font-size: 9px;
+  color: #1fb5ff;
+  transform: translateX(-50%);
+  left: 50%;
+  line-height: 9px;
+  display: none;
+}
+
+.dir-draw-bar .bars .tooltip::before{
+  width: 0;
+  height: 0;
+  content: '';
+  border: 3px;
+  border-top: 4px;
+  position: absolute;
+  border-color: rgba(31,181,255,0.2);
+  border-style: solid;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  margin-top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -40,5 +40,6 @@
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
-    <engine name="android" spec="~6.4.0" />
+    <engine name="android" spec="~7.0.0" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
 </widget>
