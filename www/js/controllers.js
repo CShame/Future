@@ -918,6 +918,13 @@ angular.module('starter.controllers', [])
     },5000);
 
 
+    var a = document.getElementById("aa");
+
+    $interval(function () {
+      a.scrollTop += 44;
+    },1000);
+
+
     chart.showPie("airportPie");
 
 
