@@ -1,11 +1,24 @@
 <ion-view>
   <ion-content id="content">
-    <!--<div class="wrapper">-->
-      <!--<canvas id="canvasOne"></canvas>-->
-    <!--</div>-->
     <div>
-      <div class="item" ng-repeat="data in [1,2,3,4,5,6,7,8,9,10,11,12]">{{data}}</div>
+      <div class="switch-time">
+        <month-option map-time="timeCause(thisYear,thisMonth)"></month-option>
+      </div>
+      <div class="date-time animated bounceInRight" style="padding-left: 1%">
+        <div ng-repeat="data in ['周日','周一','周二','周三','周四','周五','周六']" class='text-center' style="width: 14%;display: inline-block">{{data}}</div>
+        <div>
+          <div class='text-center' style="width: 14%;display: inline-block" ng-repeat="time in thisMonthDate">
+            <p style="margin-bottom: 0;font-size: 25px;color: #222;">{{time.day}}</p>
+            <p style="margin-bottom: 0;font-size: 9px;color: #555;">{{ time.lunar.Term||time.lunar.IDayCn}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="item" ng-repeat="data in [1,2,3,4,5,6,7,8,9,10,11,12]">
+        <p class="animated bounceInLeft">{{data}}</p>
+      </div>
     </div>
   </ion-content>
-  <cutoff-line></cutoff-line>
+  <!--<cutoff-line></cutoff-line>-->
 </ion-view>
