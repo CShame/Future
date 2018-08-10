@@ -58,6 +58,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     }
   })
 
+    .state('tab.geoLocation', {
+      url: '/geoLocation',
+      views: {
+        'tab-dash': {
+          templateUrl: 'src/tab1/geolocation/page.html',
+          controller: 'geoLocationCtrl'
+        }
+      }
+    })
+
+
+
+
   .state('tab.chats', {
       url: '/chats',
       views: {

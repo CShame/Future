@@ -38,7 +38,7 @@ gulp.task('sass', function(done) {
 gulp.task('dev', ['allJs', 'allCss', 'allHtml']);
 
 gulp.task('allJs', function (done) {
-  gulp.src(['./www/js/**/*.js', './www/directives/**/*.js', './www/src/*/**/*.js', './www/config.js'])
+  gulp.src(['./www/js/**/*.js', './www/src/*/**/*.js', './www/config.js'])
     .pipe(ngAnnotate({ add: true }))
     .pipe(sourcemaps.init())
     .pipe(concat('all.js'))

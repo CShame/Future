@@ -1,6 +1,11 @@
 <ion-view view-title="首页">
   <ion-content>
 
+    <div class="item" ng-repeat="data in functionPoint">
+      <p class="animated bounceInLeft" ng-click='goPage(data.page)'>{{data.name}}</p>
+    </div>
+
+
     <linkage-select options="options"></linkage-select>
 
     <linkage-select2 options="options22"></linkage-select2>
@@ -9,15 +14,6 @@
     <multiple-select-box options="options1"></multiple-select-box>
 
     <select-box options='options2'></select-box>
-
-
-    <div id='m1' style='white-space: nowrap;overflow: hidden;text-overflow: ellipsis;height:20px;'>
-      <div ng-repeat="data in dataList">{{data}}</div>
-    </div>
-
-
-    <div class="text-center" style="margin-top: 100px;">{{levelOneValue.NodeText + '-'}}{{levelTwoValue.NodeText + '-'}}{{levelThreeValue.NodeText}}</div>
-
 
 
     <div on-hold='startRecord()'  on-release='stopAndSaveRecord()' on-drag-up="cancelRecord($event);" class="start-record">{{recordTitle}}</div>

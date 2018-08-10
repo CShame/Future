@@ -2,10 +2,25 @@ angular.module('starter.controllers', [])
 
   .controller('DashCtrl', function ($scope, $state, $ionicScrollDelegate, $timeout) {
 
+    $scope.functionPoint = [
+      {name:'基本下拉框',page:''},
+      {name:'下拉框加搜索',page:''},
+      {name:'二级联动选择框',page:''},
+      {name:'三级联动选择框',page:''},
+      {name:'多选下拉框加填写备注',page:''},
+      {name:'h5获取经纬度',page:'geoLocation'}
+
+    ];
+
+    $scope.goPage = function (pageUrl) {
+      $state.go('tab.'+pageUrl);
+    };
+
+
+
     $scope.goNext = function () {
       $state.go('tab.projectData');
     };
-
 
     //region 三级联动代码
     $scope.levelOneList = [
@@ -764,29 +779,6 @@ angular.module('starter.controllers', [])
       list: [{name: 'test1'}, {name: 'test2'}, {name: 'test3'}, {name: 'test4'}, {name: 'test5'}, {name: 'test6'}, {name: 'test7'}],
       attrName: 'name'
     };
-
-    function run() {
-      new Marquee({
-        ID: "m1",
-        Direction: "top",
-        Step: 1,
-        Width: 300,
-        Height: 20,
-        Timer: 100,
-        DelayTime: 2000,
-        WaitTime: 10000,
-        ScrollStep: 20
-      });
-    }
-
-    $timeout(function () {
-      run();
-    }, 2000);
-
-    $timeout(function () {
-      // run();
-      $scope.dataList = [10000];
-    }, 1000);
 
 
     $scope.recordTitle = '按住录音';

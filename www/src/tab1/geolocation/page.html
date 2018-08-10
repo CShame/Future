@@ -1,0 +1,17 @@
+<ion-view title="获取经纬度">
+  <ion-content>
+    <ion-item>
+      <span>经度：</span>
+      <span>{{position.latitude || 'loading'}}</span>
+    </ion-item>
+    <ion-item>
+      <span>纬度：</span>
+      <span>{{position.longitude || 'loading'}}</span>
+    </ion-item>
+    <ion-item ng-show="errrorHtml">
+    <span>失败原因：</span>
+    <span>{{errrorHtml}}</span>
+  </ion-item>
+    <button ng-click='getPosition()' class='button button-positive'>获取位置</button>
+  </ion-content>
+</ion-view>
