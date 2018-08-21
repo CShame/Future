@@ -5,23 +5,9 @@
       <p class="animated bounceInLeft" ng-click='goPage(data.page)'>{{data.name}}</p>
     </div>
 
-
-    <linkage-select options="options"></linkage-select>
-
-    <linkage-select2 options="options22"></linkage-select2>
-
-
-    <multiple-select-box options="options1"></multiple-select-box>
-
-    <select-box options='options2'></select-box>
-
-
     <div on-hold='startRecord()'  on-release='stopAndSaveRecord()' on-drag-up="cancelRecord($event);" class="start-record">{{recordTitle}}</div>
 
     <div ng-click="playRecord()" class="play-record">点击播放</div>
-
-    <div multiple-select  options='options3' ms-callback='btnOk()'>多选框加备注</div>
-    <div>{{options3.remark}}</div>
 
   </ion-content>
 </ion-view>

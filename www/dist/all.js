@@ -68,6 +68,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
       }
     })
 
+    .state('tab.baseSelect', {
+      url: '/baseSelect',
+      views: {
+        'tab-dash': {
+          templateUrl: 'src/tab1/baseSelect/page.html',
+          controller: 'baseSelectCtrl'
+        }
+      }
+    })
+
 
 
 
@@ -230,781 +240,12 @@ angular.module('starter.controllers', [])
   .controller('DashCtrl', ["$scope", "$state", "$ionicScrollDelegate", "$timeout", function ($scope, $state, $ionicScrollDelegate, $timeout) {
 
     $scope.functionPoint = [
-      {name:'基本下拉框',page:''},
-      {name:'下拉框加搜索',page:''},
-      {name:'二级联动选择框',page:''},
-      {name:'三级联动选择框',page:''},
-      {name:'多选下拉框加填写备注',page:''},
+      {name:'下拉框',page:'baseSelect'},
       {name:'h5获取经纬度',page:'geoLocation'}
-
     ];
 
     $scope.goPage = function (pageUrl) {
       $state.go('tab.'+pageUrl);
-    };
-
-
-
-    $scope.goNext = function () {
-      $state.go('tab.projectData');
-    };
-
-    //region 三级联动代码
-    $scope.levelOneList = [
-      {
-        "ProjectCode": null,
-        "NodeCode": "001",
-        "NodeText": "东北地区",
-        "Children": [
-          {
-            "ProjectCode": null,
-            "NodeCode": "001001",
-            "NodeText": "沈阳市",
-            "Children": [
-              {
-                "ProjectCode": null,
-                "NodeCode": "001001006",
-                "NodeText": "浑南区",
-                "Children": [{"ProjectCode": 395, "NodeCode": "001001006-395", "NodeText": "沈阳金地长青湾", "Children": []}]
-              }
-            ]
-          },
-          {
-            "ProjectCode": null,
-            "NodeCode": "001002",
-            "NodeText": "大连市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "001002004",
-              "NodeText": "甘井子区",
-              "Children": [{"ProjectCode": 394, "NodeCode": "001002004-394", "NodeText": "大连金地艺境", "Children": []}]
-            }]
-          }]
-      }, {
-        "ProjectCode": null,
-        "NodeCode": "002",
-        "NodeText": "华北地区",
-        "Children": [{
-          "ProjectCode": null,
-          "NodeCode": "002001",
-          "NodeText": "北京市",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "002001003",
-            "NodeText": "朝阳区",
-            "Children": [{"ProjectCode": 393, "NodeCode": "002001003-393", "NodeText": "北京金地国际花园", "Children": []}]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "002002",
-          "NodeText": "天津市",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "002002003",
-            "NodeText": "河东区",
-            "Children": [{"ProjectCode": 385, "NodeCode": "002002003-385", "NodeText": "天津金地紫乐府", "Children": []}]
-          }]
-        }]
-      }, {
-        "ProjectCode": null,
-        "NodeCode": "003",
-        "NodeText": "华中地区",
-        "Children": [{
-          "ProjectCode": null,
-          "NodeCode": "003001",
-          "NodeText": "武汉市",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "003001007",
-            "NodeText": "洪山区",
-            "Children": [{"ProjectCode": 388, "NodeCode": "003001007-388", "NodeText": "武汉金地圣爱米伦", "Children": []}]
-          }]
-        }]
-      }, {
-        "ProjectCode": null,
-        "NodeCode": "004",
-        "NodeText": "华东地区",
-        "Children": [{
-          "ProjectCode": null,
-          "NodeCode": "004001",
-          "NodeText": "上海市",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "004001014",
-            "NodeText": "青浦区",
-            "Children": [{"ProjectCode": 390, "NodeCode": "004001014-390", "NodeText": "上海金地天御", "Children": []}]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "004002",
-          "NodeText": "杭州市",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "004002007",
-            "NodeText": "萧山区",
-            "Children": [{"ProjectCode": 389, "NodeCode": "004002007-389", "NodeText": "杭州金地天逸", "Children": []}]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "004003",
-          "NodeText": "南京市",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "004003003",
-            "NodeText": "建邺区",
-            "Children": [{"ProjectCode": 391, "NodeCode": "004003003-391", "NodeText": "南京金地名京", "Children": []}]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "004004",
-          "NodeText": "烟台市",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "004004004",
-            "NodeText": "莱山区",
-            "Children": [{"ProjectCode": 51122, "NodeCode": "004004004-51122", "NodeText": "烟台金地澜悦", "Children": []}]
-          }]
-        }]
-      }, {
-        "ProjectCode": null,
-        "NodeCode": "005",
-        "NodeText": "华南地区",
-        "Children": [{
-          "ProjectCode": null,
-          "NodeCode": "005001",
-          "NodeText": "深圳市",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "005001001",
-            "NodeText": "南山区",
-            "Children": [{
-              "ProjectCode": 7,
-              "NodeCode": "005001001-7",
-              "NodeText": "亿达别苑",
-              "Children": []
-            }, {"ProjectCode": 396, "NodeCode": "005001001-396", "NodeText": "深圳金地国际公寓", "Children": []}]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "005001002",
-            "NodeText": "福田区",
-            "Children": [{
-              "ProjectCode": 9,
-              "NodeCode": "005001002-9",
-              "NodeText": "深圳金海湾花园",
-              "Children": []
-            }, {"ProjectCode": 12, "NodeCode": "005001002-12", "NodeText": "深圳金地翠堤湾", "Children": []}]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "005001007",
-            "NodeText": "龙华区",
-            "Children": [{"ProjectCode": 386, "NodeCode": "005001007-386", "NodeText": "深圳金地天悦湾", "Children": []}]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "005003",
-          "NodeText": "佛山市",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "005003003",
-            "NodeText": "顺德区",
-            "Children": [{"ProjectCode": 387, "NodeCode": "005003003-387", "NodeText": "佛山金地天玺", "Children": []}]
-          }]
-        }]
-      }, {
-        "ProjectCode": null,
-        "NodeCode": "007",
-        "NodeText": "西北地区",
-        "Children": [{
-          "ProjectCode": null,
-          "NodeCode": "007001",
-          "NodeText": "西安市",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "007001006",
-            "NodeText": "雁塔区",
-            "Children": [{"ProjectCode": 392, "NodeCode": "007001006-392", "NodeText": "西安湖城大境天第", "Children": []}]
-          }]
-        }]
-      }];
-
-    $scope.levelTwoList = [];
-    $scope.levelThreeList = [];
-
-
-    $scope.levelOneTimer = null; //一级滑动定时器
-    $scope.levelTwoTimer = null; //二级滑动定时器
-    $scope.levelThreeTimer = null; //三级滑动定时器
-
-
-    init();
-    function init() {
-      initLevelOne();
-      initLevelTwo();
-      initLevelThree();
-    }
-
-
-    //初始化一级
-    function initLevelOne() {
-      insertBlankData($scope.levelOneList);
-      $scope.levelOneValue = $scope.levelOneList[2];
-      $scope.levelOneValue.selected = true;
-      $scope.levelOneIndex = 2;
-
-      console.log($scope.levelOneList);
-    }
-
-    //初始化二级
-    function initLevelTwo() {
-      insertBlankData($scope.levelTwoList);
-      console.log($scope.levelTwoList);
-      if ($scope.levelOneValue.Children) {
-        $scope.levelTwoValue = $scope.levelOneValue.Children[2];
-      } else {
-        $scope.levelTwoValue = $scope.levelTwoList[2];
-      }
-      $scope.levelTwoValue.selected = true;
-      $scope.levelTwoIndex = 2;
-    }
-
-    //初始化三级
-    function initLevelThree() {
-      insertBlankData($scope.levelThreeList);
-      if ($scope.levelTwoValue.Children) {
-        $scope.levelThreeValue = $scope.levelTwoValue.Children[2];
-      } else {
-        $scope.levelThreeValue = $scope.levelThreeList[2];
-      }
-      $scope.levelThreeValue.selected = true;
-      $scope.levelThreeIndex = 2;
-    }
-
-    //滚动触发事件
-    $scope.scrollingEvent = function (type) {
-      var opEntity = getOperateEntity(type);
-
-      if ($scope[opEntity.scrollTimer]) {
-        $timeout.cancel($scope[opEntity.scrollTimer]);
-      }
-
-      var posi = $ionicScrollDelegate.$getByHandle(opEntity.scrollHandler).getScrollPosition();
-      var index = Math.abs(Math.round(posi.top / 30));
-      console.log(posi, index);
-      if (posi.top == index * 30) {
-        updateSelect(index + 2, type);
-      } else {
-        $scope[opEntity.scrollTimer] = $timeout(function () {
-          posi.top = index * 30;
-          updateSelect(index + 2, type);
-          scrollToPosi($ionicScrollDelegate.$getByHandle(opEntity.scrollHandler), posi);
-        }, 200);
-      }
-
-    };
-
-    //获取滚动条详细数据
-    function getOperateEntity(type) {
-      var entity = new Object();
-
-      switch (type) {
-        case 'levelOne':
-          entity.scrollTimer = 'levelOneTimer';
-          entity.type = type;
-          entity.scrollHandler = 'levelOneScroll';
-          entity.data = $scope.levelOneList;
-
-          break;
-        case 'levelTwo':
-          entity.scrollTimer = 'levelTwoTimer';
-          entity.type = type;
-          entity.scrollHandler = 'levelTwoScroll';
-          entity.data = $scope.levelTwoList;
-          break;
-        case 'levelThree':
-          entity.scrollTimer = 'levelThreeTimer';
-          entity.type = type;
-          entity.scrollHandler = 'levelThreeScroll';
-          entity.data = $scope.levelThreeList;
-          break;
-      }
-
-      return entity;
-    }
-
-
-    //更新选中的内容
-    function updateSelect(index, type) {
-      switch (type) {
-        case "levelOne":
-          //强制
-          $timeout(function () {
-            $scope.levelOneValue.selected = false;
-            $scope.levelOneList[index].selected = true;
-            $scope.levelOneIndex = index;
-            $scope.levelOneValue = $scope.levelOneList[index];
-          });
-          break;
-        case "levelTwo":
-          //强制
-          $timeout(function () {
-            $scope.levelTwoValue.selected = false;
-            $scope.levelTwoList[index].selected = true;
-            $scope.levelTwoIndex = index;
-            $scope.levelTwoValue = $scope.levelTwoList[index];
-            // console.log($scope.levelTwoIndex,$scope.levelTwoValue);
-
-          });
-          break;
-        case "levelThree":
-          //强制
-          $timeout(function () {
-            $scope.levelThreeValue.selected = false;
-            $scope.levelThreeList[index].selected = true;
-            $scope.levelThreeIndex = index;
-            $scope.levelThreeValue = $scope.levelThreeList[index];
-            // console.log($scope.levelThreeValue);
-          });
-          break;
-
-      }
-    }
-
-
-    $scope.$watch('levelOneIndex', function (newV, oldV) {
-      if (newV != oldV) {
-        if (newV != 2) {  //不是选择全部的时候
-          $scope.levelTwoList = $scope.levelOneList[newV].Children;
-        } else {
-          $scope.levelTwoList = [];
-        }
-        initLevelTwo();
-        $scope.levelTwoValue.selected = false;
-        $scope.levelTwoIndex = 2;
-        $scope.levelTwoValue = $scope.levelTwoList[2];
-        $scope.levelTwoValue.selected = true;
-      }
-    });
-
-    $scope.$watch('levelTwoIndex', function (newV, oldV) {
-      if (newV != oldV) {
-        if (newV != 2) { //不是选择全部的时候
-          $scope.levelThreeList = $scope.levelTwoList[newV].Children;
-        } else {
-          $scope.levelThreeList = [];
-        }
-        initLevelThree();
-        $scope.levelThreeValue.selected = false;
-        $scope.levelThreeIndex = 2;
-        $scope.levelThreeValue = $scope.levelThreeList[2];
-        $scope.levelThreeValue.selected = true;
-
-      }
-    });
-
-    //在数据列表前后插入俩个空数据
-    function insertBlankData(arr) {
-      if (arr[0] == '' && arr[1] == '' && arr[2].NodeText == '全部') {
-        return;
-      } else {
-        arr.unshift({NodeText: '全部'});
-        arr.unshift('');
-        arr.unshift('');
-        arr.push('');
-        arr.push('');
-      }
-    }
-
-    //滑动到指定位置
-    function scrollToPosi(scorllHandler, posi) {
-      scorllHandler && scorllHandler.scrollTo(posi.left, posi.top, true);
-    }
-
-    //endregion
-
-
-    $scope.options = {
-      list: [
-        {
-          "ProjectCode": null,
-          "NodeCode": "001",
-          "NodeText": "东北地区",
-          "Children": [
-            {
-              "ProjectCode": null,
-              "NodeCode": "001001",
-              "NodeText": "沈阳市",
-              "Children": [
-                {
-                  "ProjectCode": null,
-                  "NodeCode": "001001006",
-                  "NodeText": "浑南区",
-                  "Children": [{
-                    "ProjectCode": 395,
-                    "NodeCode": "001001006-395",
-                    "NodeText": "沈阳金地长青湾",
-                    "Children": []
-                  }]
-                }
-              ]
-            },
-            {
-              "ProjectCode": null,
-              "NodeCode": "001002",
-              "NodeText": "大连市",
-              "Children": [{
-                "ProjectCode": null,
-                "NodeCode": "001002004",
-                "NodeText": "甘井子区",
-                "Children": [{"ProjectCode": 394, "NodeCode": "001002004-394", "NodeText": "大连金地艺境", "Children": []}]
-              }]
-            }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "002",
-          "NodeText": "华北地区",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "002001",
-            "NodeText": "北京市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "002001003",
-              "NodeText": "朝阳区",
-              "Children": [{"ProjectCode": 393, "NodeCode": "002001003-393", "NodeText": "北京金地国际花园", "Children": []}]
-            }]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "002002",
-            "NodeText": "天津市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "002002003",
-              "NodeText": "河东区",
-              "Children": [{"ProjectCode": 385, "NodeCode": "002002003-385", "NodeText": "天津金地紫乐府", "Children": []}]
-            }]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "003",
-          "NodeText": "华中地区",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "003001",
-            "NodeText": "武汉市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "003001007",
-              "NodeText": "洪山区",
-              "Children": [{"ProjectCode": 388, "NodeCode": "003001007-388", "NodeText": "武汉金地圣爱米伦", "Children": []}]
-            }]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "004",
-          "NodeText": "华东地区",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "004001",
-            "NodeText": "上海市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "004001014",
-              "NodeText": "青浦区",
-              "Children": [{"ProjectCode": 390, "NodeCode": "004001014-390", "NodeText": "上海金地天御", "Children": []}]
-            }]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "004002",
-            "NodeText": "杭州市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "004002007",
-              "NodeText": "萧山区",
-              "Children": [{"ProjectCode": 389, "NodeCode": "004002007-389", "NodeText": "杭州金地天逸", "Children": []}]
-            }]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "004003",
-            "NodeText": "南京市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "004003003",
-              "NodeText": "建邺区",
-              "Children": [{"ProjectCode": 391, "NodeCode": "004003003-391", "NodeText": "南京金地名京", "Children": []}]
-            }]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "004004",
-            "NodeText": "烟台市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "004004004",
-              "NodeText": "莱山区",
-              "Children": [{
-                "ProjectCode": 51122,
-                "NodeCode": "004004004-51122",
-                "NodeText": "烟台金地澜悦",
-                "Children": []
-              }]
-            }]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "005",
-          "NodeText": "华南地区",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "005001",
-            "NodeText": "深圳市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "005001001",
-              "NodeText": "南山区",
-              "Children": [{
-                "ProjectCode": 7,
-                "NodeCode": "005001001-7",
-                "NodeText": "亿达别苑",
-                "Children": []
-              }, {"ProjectCode": 396, "NodeCode": "005001001-396", "NodeText": "深圳金地国际公寓", "Children": []}]
-            }, {
-              "ProjectCode": null,
-              "NodeCode": "005001002",
-              "NodeText": "福田区",
-              "Children": [{
-                "ProjectCode": 9,
-                "NodeCode": "005001002-9",
-                "NodeText": "深圳金海湾花园",
-                "Children": []
-              }, {"ProjectCode": 12, "NodeCode": "005001002-12", "NodeText": "深圳金地翠堤湾", "Children": []}]
-            }, {
-              "ProjectCode": null,
-              "NodeCode": "005001007",
-              "NodeText": "龙华区",
-              "Children": [{"ProjectCode": 386, "NodeCode": "005001007-386", "NodeText": "深圳金地天悦湾", "Children": []}]
-            }]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "005003",
-            "NodeText": "佛山市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "005003003",
-              "NodeText": "顺德区",
-              "Children": [{"ProjectCode": 387, "NodeCode": "005003003-387", "NodeText": "佛山金地天玺", "Children": []}]
-            }]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "007",
-          "NodeText": "西北地区",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "007001",
-            "NodeText": "西安市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "007001006",
-              "NodeText": "雁塔区",
-              "Children": [{"ProjectCode": 392, "NodeCode": "007001006-392", "NodeText": "西安湖城大境天第", "Children": []}]
-            }]
-          }]
-        }],
-      title: '项目范围选择',
-      levelOneAttr: 'NodeText',
-      levelTwoAttr: 'NodeText',
-      levelThreeAttr: 'NodeText',
-    };
-
-    $scope.options22 = {
-      list: [
-        {
-          "ProjectCode": null,
-          "NodeCode": "001",
-          "NodeText": "东北地区",
-          "Children": [
-            {
-              "ProjectCode": null,
-              "NodeCode": "001001",
-              "NodeText": "沈阳市",
-              "Children": []
-            },
-            {
-              "ProjectCode": null,
-              "NodeCode": "001002",
-              "NodeText": "大连市",
-              "Children": [{
-                "ProjectCode": null,
-                "NodeCode": "001002004",
-                "NodeText": "甘井子区",
-                "Children": []
-              }]
-            }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "002",
-          "NodeText": "华北地区",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "002001",
-            "NodeText": "北京市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "002001003",
-              "NodeText": "朝阳区",
-              "Children": []
-            }]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "002002",
-            "NodeText": "天津市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "002002003",
-              "NodeText": "河东区",
-              "Children": []
-            }]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "003",
-          "NodeText": "华中地区",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "003001",
-            "NodeText": "武汉市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "003001007",
-              "NodeText": "洪山区",
-              "Children": []
-            }]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "004",
-          "NodeText": "华东地区",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "004001",
-            "NodeText": "上海市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "004001014",
-              "NodeText": "青浦区",
-              "Children": []
-            }]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "004002",
-            "NodeText": "杭州市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "004002007",
-              "NodeText": "萧山区",
-              "Children": []
-            }]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "004003",
-            "NodeText": "南京市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "004003003",
-              "NodeText": "建邺区",
-              "Children": []
-            }]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "004004",
-            "NodeText": "烟台市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "004004004",
-              "NodeText": "莱山区",
-              "Children": [{
-                "ProjectCode": 51122,
-                "NodeCode": "004004004-51122",
-                "NodeText": "烟台金地澜悦",
-                "Children": []
-              }]
-            }]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "005",
-          "NodeText": "华南地区",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "005001",
-            "NodeText": "深圳市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "005001001",
-              "NodeText": "南山区",
-              "Children": [{
-                "ProjectCode": 7,
-                "NodeCode": "005001001-7",
-                "NodeText": "亿达别苑",
-                "Children": []
-              }, {"ProjectCode": 396, "NodeCode": "005001001-396", "NodeText": "深圳金地国际公寓", "Children": []}]
-            }, {
-              "ProjectCode": null,
-              "NodeCode": "005001002",
-              "NodeText": "福田区",
-              "Children": [{
-                "ProjectCode": 9,
-                "NodeCode": "005001002-9",
-                "NodeText": "深圳金海湾花园",
-                "Children": []
-              }, {"ProjectCode": 12, "NodeCode": "005001002-12", "NodeText": "深圳金地翠堤湾", "Children": []}]
-            }, {
-              "ProjectCode": null,
-              "NodeCode": "005001007",
-              "NodeText": "龙华区",
-              "Children": []
-            }]
-          }, {
-            "ProjectCode": null,
-            "NodeCode": "005003",
-            "NodeText": "佛山市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "005003003",
-              "NodeText": "顺德区",
-              "Children": []
-            }]
-          }]
-        }, {
-          "ProjectCode": null,
-          "NodeCode": "007",
-          "NodeText": "西北地区",
-          "Children": [{
-            "ProjectCode": null,
-            "NodeCode": "007001",
-            "NodeText": "西安市",
-            "Children": [{
-              "ProjectCode": null,
-              "NodeCode": "007001006",
-              "NodeText": "雁塔区",
-              "Children": []
-            }]
-          }]
-        }],
-      title: '项目范围选择',
-      levelOneAttr: 'NodeText',
-      levelTwoAttr: 'NodeText'
-    };
-
-    $scope.options1 = {
-      title: '选择项目',
-      list: [{name: '哈哈哈哈'}, {name: '遂宁市'}, {name: '是实打实的'}, {name: '试试'}, {name: '试试1'}, {name: '试试2'}, {name: '少时诵诗书'}],
-      attrName: 'name'
-    };
-
-    $scope.options2 = {
-      title: '请选择',
-      list: [{name: 'test1'}, {name: 'test2'}, {name: 'test3'}, {name: 'test4'}, {name: 'test5'}, {name: 'test6'}, {name: 'test7'}],
-      attrName: 'name'
     };
 
 
@@ -1088,18 +329,6 @@ angular.module('starter.controllers', [])
       mediaRec.play();
     }
 
-
-    $scope.options3 = {
-      title: '请选择原因',
-      list: [{value: 1, Remark: '道行不够'}, {value: 2, Remark: '材料不齐'}, {value: 3, Remark: '缺材料'}, {
-        value: 4,
-        Remark: '其它'
-      }],
-      attrName: 'Remark'
-    };
-    $scope.btnOk = function () {
-      console.log('点击成OK', $scope.options3);
-    }
   }])
 
   .controller('ChatsCtrl', ["$scope", "$interval", "$timeout", "chart", function ($scope, $interval, $timeout, chart) {
@@ -3733,6 +2962,2130 @@ angular.module('starter.services')
   }]);
 
 /**
+ * Created by ws on 2018/7/5.
+ */
+angular.module('starter.controllers')
+  .directive('marquee',['$timeout','$interval',function ($timeout,$interval) {
+
+    return{
+      restrict: 'A',
+      scope:{
+        options:'=',
+        isChange:'=',
+        changeCallback:'&'
+      },
+      link: function (scope, element,attr) {
+        /**
+        * options [obj]
+         * 属性 step  [int] 每一步滚动距离
+         * 属性 timer [int] 频率
+         * 属性
+        * */
+        var ele = element[0] ;
+        var obj = {};
+        obj.step = scope.options.step || 1;
+        obj.timer = scope.options.timer || 18;
+
+        var maxScroll;
+
+        //禁止手动滚动
+        ele.ontouchstart = function(){ return false;};
+
+        $timeout(function () {
+          maxScroll = ele.scrollWidth - window.innerWidth;
+          console.log('变化前的滚动区域',maxScroll);
+          $interval(function () {
+            if(ele.scrollLeft<maxScroll){
+              ele.scrollLeft += obj.step;
+            }else{
+              ele.scrollLeft = 0;
+            }
+          },obj.timer);
+        });
+
+        scope.$watch('isChange',function (newV,oldV) {
+          if(newV != oldV && newV==true){
+            $timeout(function () {
+              maxScroll = ele.scrollWidth - window.innerWidth;
+              console.log('变化后的滚动区域',maxScroll);
+              scope.changeCallback();
+              console.log('1111');
+            });
+          }
+        })
+      }
+    }
+  }])
+
+  .directive('repeatFinish',function(){
+    return {
+      link: function(scope,element,attr){
+        console.log(scope.$index)
+        if(scope.$last == true){
+          console.log('ng-repeat执行完毕')
+          scope.$eval( attr.repeatFinish )
+        }
+      }
+    }
+  })
+
+
+  .directive('drawPie',function(){
+    return {
+      restrict: 'A',
+      scope:{
+        lineWidth:'@',
+        percent:'=',
+        bgColor:'@',
+        levelColor:'@'
+      },
+      link: function (scope, element,attr) {
+
+        if(!scope.bgColor){
+          scope.bgColor = "#E8F7FF";
+        }
+        if(!scope.levelColor){
+          scope.levelColor = "#1fb5ff";
+        }
+
+        if(!attr.height){
+          console.log("height属性不能为空");
+          return;
+        }
+        if(!attr.width){
+          console.log("width属性不能为空");
+          return;
+        }
+        if(!scope.lineWidth){
+          console.log("lineWidth属性不能为空");
+          return;
+        }
+
+        console.log("11111",attr.width,attr.height,scope.percent);
+
+        scope.$watch("percent",function (newV,oldV) {
+          if(newV!=oldV && newV){
+            drawCircle(scope.percent);
+          }
+        });
+
+        function drawCircle(value) {
+          var canvas = element[0];
+          var endAngles = parseFloat(value) * 0.02 * Math.PI - Math.PI / 2;
+          var eleHeight = 100;
+
+          if (canvas.getContext) {
+            var ctx = canvas.getContext("2d");
+            ctx.beginPath();
+            ctx.strokeStyle = scope.bgColor;
+            ctx.lineWidth = scope.lineWidth;
+            ctx.lineCap = 'round';
+            var circle = {
+              x: eleHeight * 0.5,                   //圆心的x轴坐标值
+              y: eleHeight * 0.5,                   //圆心的y轴坐标值
+              r: eleHeight * 0.5 - scope.lineWidth*0.5    //圆的半径
+            };
+            //画背景圆环
+            ctx.arc(circle.x, circle.y, circle.r, -Math.PI / 2, 1.5*Math.PI, false);
+            ctx.stroke();
+
+            //画上层圆环
+            ctx.beginPath();
+            ctx.strokeStyle = scope.levelColor;
+            ctx.arc(circle.x, circle.y, circle.r, -Math.PI / 2, endAngles, false);
+            ctx.stroke();
+          }
+        }
+      }
+  }
+
+  })
+
+  .directive('drawLine2',function(){
+    return {
+      restrict: 'AE',
+      template:'<div ng-style="drawLineStyle.bgStyle">' +
+      '<div  ng-style="drawLineStyle.fullStyle"></div>' +
+      '<div style="position: absolute;font-size: 9px;color:#fff;background:rgba(38,42,53,0.5);padding:3px;border-radius: 3px" ng-style="drawLineStyle.box">' +
+      '<p>{{tooltipTitle}}</p><p></p></div>' +
+      '</div>',
+      replace:true,
+      scope:{
+        lineWidth:'@',
+        percent:'=',
+        bgColor:'@',
+        levelColor:'@',
+        tooltipTitle:'=',
+        tooltipTitle1:'=',
+        tooltipTitle2:'=',
+        tooltipData1:'=',
+        tooltipData2:'=',
+        tooltipUnit:'='
+      },
+      link: function (scope, element,attr) {
+
+        console.log(scope.tooltipTitle);
+        console.log(scope.tooltipData1);
+        console.log(scope.tooltipData2);
+
+        if(scope.tooltipTitle && scope.tooltipData1  &&scope.tooltipData2) {
+          element[0].addEventListener("touchstart", function (event) {
+            console.log(event);
+            scope.drawLineStyle.box = {
+              "left": event.targetTouches[0].pageX + 'px',
+              "display": "block"
+            }
+          });
+
+          element[0].addEventListener("touchmove", function (event) {
+            console.log(event);
+            scope.drawLineStyle.box = {
+              "left": event.targetTouches[0].pageX + 'px',
+              "display": "block"
+            }
+          });
+
+          element[0].addEventListener("touchend", function (event) {
+            scope.drawLineStyle.box = {
+              "display": "none"
+            }
+          });
+        }
+
+        if(!scope.bgColor){
+          scope.bgColor = "#E8F7FF";
+        }
+        if(!scope.levelColor){
+          scope.levelColor = "linear-gradient(to right,#1692FC,#1fb5ff)";
+        }
+
+        scope.drawLineStyle = {};
+
+        scope.$watch("percent",function (newV,oldV) {
+          if(newV){
+            drawLine();
+          }
+        });
+
+        function drawLine() {
+          scope.drawLineStyle.bgStyle = {
+            "background":scope.bgColor,
+            "width":"100%","height":scope.lineWidth+"px",
+            "border-top-right-radius": scope.lineWidth+"px",
+            "border-bottom-right-radius": scope.lineWidth+"px",
+            "position":"relative"
+          };
+          scope.drawLineStyle.fullStyle = {
+            "background":scope.levelColor,
+            "width":scope.percent+"%",
+            "height":scope.lineWidth+"px",
+            "border-top-right-radius": scope.lineWidth+"px",
+            "border-bottom-right-radius": scope.lineWidth+"px"
+          };
+
+          scope.drawLineStyle.box = {
+            "display":"none"
+          }
+        }
+      }
+    }
+
+  })
+
+
+;
+
+/**
+ * Created by ws on 2017/11/27.
+ */
+angular.module('starter.controllers')
+  .service('cutoffLineService', [function () {
+    var _this = this;
+    //页面中选择器数量 default : 0
+    _this.globalId = 0;
+    return _this;
+  }])
+
+  .directive('cutoffLine', ['$timeout', 'cutoffLineService','$interval',function ($timeout, cutoffLineService,$interval) {
+
+      return {
+        restrict: 'AE',
+        replace:false,
+        templateUrl: 'directives/cutoffLine/page.html',
+        scope: {
+
+        },
+        link: function (scope,element) {
+
+          scope.globalId = ++cutoffLineService.globalId;
+
+          // canvasApp();
+          $timeout(function () {
+            canvasApp();
+          },1000);
+          function canvasApp() {
+
+            var theCanvas = document.getElementById('canvasOne_' + scope.globalId );
+            console.log(theCanvas);
+            var ctx = theCanvas.getContext('2d');
+            theCanvas.width = window.innerWidth;
+            theCanvas.height = '100';
+
+            scope.lastPoint = {x:theCanvas.width*0.5,y:theCanvas.height};  //默认最后一个点为底部中间位置
+            var dsq;                                        //计时器变量
+
+            var point,style,dPoint;
+            var drag = null;
+
+
+            // define initial points
+            function init() {
+              point = {
+                p1: {
+                  x: -30,
+                  y: theCanvas.height
+                },
+                p2: {
+                  x: window.innerWidth + 30,
+                  y: theCanvas.height
+                },
+                cp1:{
+                  x: window.innerWidth * 0.5,
+                  y: theCanvas.height
+                }
+              };
+
+              // default styles
+              style = {
+                curve: {
+                  width: 1,
+                  color: 'transparent'
+                },
+                cpline: {
+                  width: 1,
+                  color: '#c00'
+                }
+              };
+
+              // var contentDiv = document.getElementById('content');
+
+
+              //event handles
+              element[0].addEventListener('touchstart', dragStart, false);
+              element[0].addEventListener('touchmove', dragging, false);
+              element[0].addEventListener('touchend', dragEnd, false);
+              // theCanvas.addEventListener('mouseout', dragEnd, false);
+
+              drawScreen();
+            }
+
+            var backTransparent = 0.44;
+            var goTransparent = 0.03;
+
+            // draw screen
+            function drawScreen(state) {
+              ctx.clearRect(0, 0, theCanvas.width, theCanvas.height);
+              // curve
+              ctx.lineWidth = style.curve.width;
+              ctx.strokeStyle = style.curve.color;
+
+              ctx.beginPath();
+              ctx.moveTo(point.p1.x, point.p1.y);
+              if (point.cp2) {
+                ctx.bezierCurveTo(point.cp1.x, point.cp1.y, point.cp2.x, point.cp2.y, point.p2.x, point.p2.y);
+              } else {
+                ctx.quadraticCurveTo(point.cp1.x, point.cp1.y, point.p2.x, point.p2.y);
+              }
+              ctx.moveTo(point.p2.x, point.p2.y);
+              ctx.lineTo(point.p1.x, point.p1.y);
+              ctx.stroke();
+              if(state == 'back'){
+                // console.log(backTransparent);
+                backTransparent = backTransparent - 0.01 <= 0.03 ? 0.03 : backTransparent - 0.01 ;
+                ctx.fillStyle = "rgba(0,0,0,"+backTransparent+")";
+              }else {
+                console.log(goTransparent);
+                goTransparent = goTransparent + 0.005 >= 0.44 ? 0.44 : goTransparent + 0.005 ;
+                ctx.fillStyle = "rgba(0,0,0,"+goTransparent+")";
+              }
+              ctx.fill();
+            }
+
+            // event parser
+            function MousePos(event) {
+              event = event ? event : window.event;
+              // console.log(event);
+
+              return {
+                x: event.touches[0].pageX - theCanvas.offsetLeft,
+                y: event.touches[0].pageY - theCanvas.offsetTop - 44
+              }
+            }
+
+            // start dragging
+            function dragStart(e) {
+              // console.log(e);
+              scope.startPointY = e.touches[0].pageY;
+              e = MousePos(e);
+              drag = point.cp1;
+              dPoint = e;
+              theCanvas.style.cursor = 'move';
+              if(dsq){
+                $interval.cancel(dsq);
+                backTransparent = 0.44;
+                goTransparent = 0.03;
+              }
+            }
+
+            function dragging(e) {
+              if (drag) {
+                e = MousePos(e);
+                point.cp1.x += e.x - dPoint.x;
+                point.cp1.y += e.y - dPoint.y;
+                if(point.cp1.x < 100 ){
+                  point.cp1.x = 100;
+                }else if(point.cp1.x >  window.innerWidth -100){
+                  point.cp1.x =   window.innerWidth -100;
+                }
+                if(point.cp1.y < theCanvas.height - 120){
+                  point.cp1.y = theCanvas.height - 120;
+                }
+                dPoint = e;
+                drawScreen();
+                scope.lastPoint = point.cp1;
+              }
+            }
+
+            function dragEnd(e) {
+              drag = null;
+              // console.log(dsq);
+              dsq = $interval(function () {
+                point.cp1.x = scope.lastPoint.x;
+                point.cp1.y = scope.lastPoint.y;
+                drawScreen('back');
+                scope.lastPoint.y += 3;
+              }, 16);
+              theCanvas.style.cursor = 'default';
+              backTransparent = goTransparent;
+            }
+
+            scope.$watch('lastPoint', function (newV) {
+              if (newV && newV.y >= theCanvas.height) {
+                $interval.cancel(dsq);
+                scope.lastPoint = {x:150,y:theCanvas.height};
+                drawScreen();
+                backTransparent = 0.44;
+                goTransparent = 0.03;
+              }
+            }, true);
+
+            // drawScreen();
+
+            init();
+
+          }
+
+        }
+      }
+    }])
+;
+
+/**
+ * Created by ws on 2018/7/18.
+ */
+/**
+ * Created by ws on 2018/7/17.
+ */
+angular.module('starter.controllers')
+  .directive('drawBar',[function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'directives/drawBar/page.html',
+      replace: true,
+      scope: {
+        barList:'=',
+        lineWidth:'@',
+        bgColor:'@',
+        fullColor:'@',
+        keyWordPer:'@',
+        keyWordData:'@',
+        keyWordName:'@',
+        maxY:"="
+      },
+      link: function (scope, element, attr) {
+
+        if(scope.maxY){
+          var min = scope.maxY/3;
+          scope.yLine = [scope.maxY,min*2,min,0];
+        }else{
+          scope.yLine = [12,8,4,0];
+        }
+
+        if(!scope.bgColor){
+          scope.bgColor = "#E8F7FF";
+        }
+        if(!scope.fullColor){
+          scope.fullColor = "linear-gradient(to top, rgb(22, 146, 252), rgb(31, 181, 255));"
+        }
+        if(!scope.lineWidth){
+          scope.lineWidth = 6;
+        }
+
+        scope.drawBarStyle = {};
+
+        scope.drawBarStyle.bg = {
+          "width":scope.lineWidth+"px",
+          "border-top-left-radius":scope.lineWidth*0.5 + "px",
+          "border-top-right-radius":scope.lineWidth*0.5+"px"
+        };
+
+        scope.$watch("barList",function (newV,oldV) {
+          if(newV && newV.length > 0){
+            scope.barList.forEach(function (each) {
+              each.fullStyle = {
+                "width":scope.lineWidth+"px",
+                "height":(scope.keyWordPer ?each[scope.keyWordPer]:(each[scope.keyWordData]*100/scope.maxY).toFixed(1)) + "%",
+                "border-top-left-radius":scope.lineWidth*0.5 + "px",
+                "border-top-right-radius":scope.lineWidth*0.5 + "px"
+              }
+            })
+          }
+        });
+
+        scope.showThisTooltip = function (index) {
+          element[0].getElementsByClassName("tooltip")[index].style.display = "block";
+        };
+
+        scope.hideThisTooltip = function (index) {
+          element[0].getElementsByClassName("tooltip")[index].style.display = "none";
+        };
+
+      }
+    }
+
+  }]);
+
+/**
+ * Created by ws on 2018/7/17.
+ */
+angular.module('starter.controllers')
+  .directive('drawLine',[function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'directives/drawLine/page.html',
+      replace:true,
+      scope:{
+        lineWidth:'@',
+        percent:'=',
+        bgColor:'@',
+        levelColor:'@',
+        tooltipTitle:'=',
+        tooltipTitle1:'=',
+        tooltipTitle2:'=',
+        tooltipData1:'=',
+        tooltipData2:'=',
+        tooltipUnit:'='
+      },
+      link: function (scope, element,attr) {
+
+        console.log(scope.tooltipTitle);
+        console.log(scope.tooltipData1);
+        console.log(scope.tooltipData2);
+
+        if(scope.tooltipTitle && scope.tooltipData1  &&scope.tooltipData2) {
+          element[0].addEventListener("touchstart", function (event) {
+            element[0].getElementsByClassName("tooltip")[0].style.display = "block";
+            element[0].getElementsByClassName("tooltip")[0].style.left = event.targetTouches[0].pageX - getLeft(element[0]) + getScrollLeft(element[0]) + 'px';
+            element[0].getElementsByClassName("tooltip")[0].style.top = event.targetTouches[0].pageY - getTop(element[0]) + getScrollTop(element[0]) + element[0].offsetTop -60+ 'px';
+          });
+
+          element[0].addEventListener("touchmove", function (event) {
+            console.log(event);
+            event.preventDefault();
+            computePosition(event);
+          });
+
+          element[0].addEventListener("touchend", function (event) {
+            element[0].getElementsByClassName("tooltip")[0].style.display = "none";
+          });
+        }
+
+        //获取元素的纵坐标（相对于窗口）
+        function getTop(e){
+          var offset=e.offsetTop;
+          if(e.offsetParent!=null) offset+=getTop(e.offsetParent);
+          return offset;
+        }
+
+        //获取元素的横坐标（相对于窗口）
+        function getLeft(e){
+          var offset=e.offsetLeft;
+          if(e.offsetParent!=null) offset+=getLeft(e.offsetParent);
+          return offset;
+        }
+
+        //获取滚动的高度
+        function getScrollTop(e) {
+          var offset = e.scrollTop;
+          if(e.offsetParent!=null) offset+=getScrollTop(e.offsetParent);
+          return offset;
+        }
+
+        //获取滚动的宽度
+        function getScrollLeft(e) {
+          var offset = e.scrollLeft;
+          if(e.offsetParent!=null) offset+=getScrollLeft(e.offsetParent);
+          return offset;
+        }
+
+
+        function computePosition(event) {
+          var div = element[0];
+          console.log(getTop(div));
+          var x=event.targetTouches[0].clientX + getScrollLeft(element[0]);
+          var y=event.targetTouches[0].clientY + getScrollTop(element[0]);
+          var divx1 = getLeft(div);
+          var divy1 = getTop(div) - 5;
+          var divx2 = divx1 + div.offsetWidth;
+          var divy2 = getTop(div) + div.offsetHeight + 5;
+          console.log(y,divy1,divy2);
+          if( x < divx1 || x > divx2 || y < divy1 || y > divy2){
+            console.log('out');
+            element[0].getElementsByClassName("tooltip")[0].style.display = "none";
+          }else{
+            console.log('in');
+            element[0].getElementsByClassName("tooltip")[0].style.display = "block";
+            element[0].getElementsByClassName("tooltip")[0].style.left = event.targetTouches[0].pageX - getLeft(element[0]) + getScrollLeft(element[0]) + 'px';
+            element[0].getElementsByClassName("tooltip")[0].style.top = event.targetTouches[0].pageY - getTop(element[0]) + getScrollTop(element[0]) + element[0].offsetTop -60+ 'px';
+          }
+        };
+
+
+        if(!scope.bgColor){
+          scope.bgColor = "#E8F7FF";
+        }
+        if(!scope.levelColor){
+          scope.levelColor = "linear-gradient(to right,#1692FC,#1fb5ff)";
+        }
+
+        scope.drawLineStyle = {};
+
+        scope.$watch("percent",function (newV,oldV) {
+          if(newV){
+            drawLine();
+          }
+        });
+
+        function drawLine() {
+          scope.drawLineStyle.bgStyle = {
+            "background":scope.bgColor,
+            "width":"100%","height":scope.lineWidth+"px",
+            "border-top-right-radius": scope.lineWidth+"px",
+            "border-bottom-right-radius": scope.lineWidth+"px",
+          };
+          scope.drawLineStyle.fullStyle = {
+            "background":scope.levelColor,
+            "width":scope.percent+"%",
+            "height":scope.lineWidth+"px",
+            "border-top-right-radius": scope.lineWidth+"px",
+            "border-bottom-right-radius": scope.lineWidth+"px"
+          };
+
+          scope.drawLineStyle.box = {
+            "display":"none"
+          }
+        }
+      }
+    }
+
+  }]);
+
+/**
+ * Created by ws on 2018/3/27.
+ */
+angular.module('starter.controllers')
+  .service('linkageSelect2Service', [function () {
+    var _this = this;
+    //页面中选择器数量 default : 0
+    _this.globalId = 0;
+    return _this;
+  }])
+
+  .directive('linkageSelect2', ['$timeout', '$ionicScrollDelegate', 'linkageSelect2Service', '$ionicModal',
+    function ($timeout, $ionicScrollDelegate, linkageSelect2Service, $ionicModal) {
+
+    return {
+      restrict: 'E',
+      templateUrl: 'directives/linkageSelect2/page.html',
+      scope: {
+        options: "=",
+        callback: "&"
+      },
+      link: function (scope) {
+
+        scope.globalId = ++linkageSelect2Service.globalId;
+        // scope.showData = '全部 全部';
+
+        scope.levelOneList = [];
+        scope.levelTwoList = [];
+
+        scope.levelOneTimer = null; //一级滑动定时器
+        scope.levelTwoTimer = null; //二级滑动定时器
+
+        var posi;          //实时滚动位置
+        var lastTimePosi;  //上一次位置
+
+        scope.$watch('options.list', function (newV) {
+          if (newV && scope.options.list.length > 0) {
+            scope.levelOneList = scope.options.list;
+            init();
+          }
+        });
+
+        /*-------------------------------------------------------*/
+        //打开模型
+        scope.openModal = function () {
+          if (scope.modal) {
+            scope.modal.show();
+          } else {
+            $ionicModal.fromTemplateUrl(
+              'directives/linkageSelect2/modal.html',
+              {
+                scope: scope,
+                animation: 'fade-in'
+              }).then(function (modal) {
+              scope.modal = modal;
+              scope.modal.show();
+            });
+          }
+        };
+
+        scope.cancelModal = function () {
+          scope.modal.hide();
+        };
+
+        //确定
+        scope.submitValue = function () {
+          scope.showData = scope.levelOneValue.NodeText + ' ' + scope.levelTwoValue.NodeText;
+          scope.options.selectedValues = [];
+          scope.options.selectedValues.push(scope.levelOneValue);
+          scope.options.selectedValues.push(scope.levelTwoValue);
+          scope.modal.hide();
+        };
+        /*-------------------------------------------------------*/
+
+
+        function init() {
+          initLevelOne();
+          initLevelTwo();
+          scope.showData = scope.levelOneValue.NodeText + ' ' + scope.levelTwoValue.NodeText;
+        }
+
+
+        //初始化一级
+        function initLevelOne() {
+          insertBlankData(scope.levelOneList);
+          scope.levelOneValue = scope.levelOneList[2];
+          scope.levelOneValue.selected = true;
+          scope.levelOneIndex = 2;
+        }
+
+        //初始化二级
+        function initLevelTwo() {
+          if (scope.levelOneValue.Children) {
+            scope.levelTwoList = scope.levelOneValue.Children;
+            insertBlankData(scope.levelTwoList);
+            scope.levelTwoValue = scope.levelOneValue.Children[2];
+          } else {
+            scope.levelTwoList = [];
+            insertBlankData(scope.levelTwoList);
+            scope.levelTwoValue = scope.levelTwoList[2];
+          }
+          scope.levelTwoValue.selected = true;
+          scope.levelTwoIndex = 2;
+        }
+
+
+        //滚动触发事件
+        scope.scrollingEvent = function (type) {
+          var opEntity = getOperateEntity(type);
+          var index;
+          if (scope[opEntity.scrollTimer]) {
+            $timeout.cancel(scope[opEntity.scrollTimer]);
+          }
+          if (posi) { lastTimePosi = posi; }
+
+          posi = $ionicScrollDelegate.$getByHandle(opEntity.scrollHandler).getScrollPosition();
+
+          if(lastTimePosi) {
+            if (posi.top > lastTimePosi.top) {
+              index = Math.abs(Math.ceil(posi.top / 30));
+            } else if (posi.top <= lastTimePosi.top) {
+              index = parseInt(posi.top / 30);
+            }
+          }
+          if (posi.top == index * 30) {
+            updateSelect(index + 2, type);
+          } else {
+            scope[opEntity.scrollTimer] = $timeout(function () {
+              posi.top = index * 30;
+              updateSelect(index + 2, type);
+              scrollToPosi($ionicScrollDelegate.$getByHandle(opEntity.scrollHandler), posi);
+            }, 200);
+          }
+        };
+
+
+        //点击Event
+        scope.selectEvent = function (type, index) {
+          var opEntity = getOperateEntity(type);
+          var nowPosi = {};
+          if(index < 2 || index >= scope[opEntity.data].length -2){
+            return;
+          }
+          nowPosi.top = (index -2) * 30;
+          nowPosi.left = 0;
+          updateSelect(index, type);
+          scrollToPosi($ionicScrollDelegate.$getByHandle(opEntity.scrollHandler), nowPosi);
+        };
+
+        //获取滚动条详细数据
+        function getOperateEntity(type) {
+          var entity = new Object();
+
+          switch (type) {
+            case 'levelOne':
+              entity.scrollTimer = 'levelOneTimer';
+              entity.type = type;
+              entity.scrollHandler = 'levelOneScroll_' + scope.globalId;
+              entity.data = 'levelOneList';
+              break;
+            case 'levelTwo':
+              entity.scrollTimer = 'levelTwoTimer';
+              entity.type = type;
+              entity.scrollHandler = 'levelTwoScroll_' + scope.globalId;
+              entity.data = 'levelTwoList';
+              break;
+          }
+          return entity;
+        }
+
+
+        //更新选中的内容
+        function updateSelect(index, type) {
+          switch (type) {
+            case "levelOne":
+              //强制
+              $timeout(function () {
+                scope.levelOneValue.selected = false;
+                scope.levelOneList[index].selected = true;
+                scope.levelOneIndex = index;
+                scope.levelOneValue = scope.levelOneList[index];
+              });
+              break;
+            case "levelTwo":
+              //强制
+              $timeout(function () {
+                scope.levelTwoValue.selected = false;
+                scope.levelTwoList[index].selected = true;
+                scope.levelTwoIndex = index;
+                scope.levelTwoValue = scope.levelTwoList[index];
+              });
+              break;
+          }
+        }
+
+        scope.$watch('levelOneIndex', function (newV, oldV) {
+          if (newV != oldV) {
+              scope.levelTwoList = scope.levelOneList[newV].Children;
+            initLevelTwo();
+            scope.levelTwoValue.selected = false;
+            scope.levelTwoIndex = 2;
+            scope.levelTwoValue = scope.levelTwoList[2];
+            scope.levelTwoValue.selected = true;
+            scrollToPosi($ionicScrollDelegate.$getByHandle('levelTwoScroll_' + scope.globalId), {top:0,left:0});
+          }
+        });
+
+        //在数据列表前后插入俩个空数据
+        function insertBlankData(arr) {
+          if (arr[0] == '' && arr[1] == '') {
+            return;
+          } else {
+            arr.unshift('');
+            arr.unshift('');
+            arr.push('');
+            arr.push('');
+          }
+        }
+
+        //滑动到指定位置
+        function scrollToPosi(scorllHandler, posi) {
+          scorllHandler && scorllHandler.scrollTo(posi.left, posi.top, true);
+        }
+
+      }
+    }
+
+  }]);
+
+/**
+ * Created by ws on 2017/11/24.
+ */
+angular.module('starter.controllers')
+  .service('linkageSelectService', [function () {
+    var _this = this;
+    //页面中选择器数量 default : 0
+    _this.globalId = 0;
+    return _this;
+  }])
+
+  .directive('linkageSelect', ['$timeout', '$ionicScrollDelegate', 'linkageSelectService', '$ionicModal', function ($timeout, $ionicScrollDelegate, linkageSelectService, $ionicModal) {
+
+    return {
+      restrict: 'E',
+      templateUrl: 'directives/linkageSelect/page.html',
+      scope: {
+        options: "=",
+        callback: "&"
+      },
+      link: function (scope) {
+
+        scope.globalId = ++linkageSelectService.globalId;
+        scope.showData = '全部 全部 全部';
+
+        scope.$watch('options.list', function (newV) {
+          if (newV && scope.options.list.length > 0) {
+            scope.levelOneList = scope.options.list;
+            init();
+          }
+        });
+
+
+        scope.levelTwoList = [];
+        scope.levelThreeList = [];
+
+
+        scope.levelOneTimer = null; //一级滑动定时器
+        scope.levelTwoTimer = null; //二级滑动定时器
+        scope.levelThreeTimer = null; //三级滑动定时器
+
+
+        /*-------------------------------------------------------*/
+        //打开模型
+        scope.openModal = function () {
+          if (scope.modal) {
+            scope.modal.show();
+          } else {
+            $ionicModal.fromTemplateUrl(
+              'directives/linkageSelect/modal.html',
+              {
+                scope: scope,
+                animation: 'fade-in'
+              }).then(function (modal) {
+              scope.modal = modal;
+              scope.modal.show();
+            });
+          }
+        };
+
+        scope.cancelModal = function () {
+          scope.modal.hide();
+        };
+
+        //确定
+        scope.submitValue = function () {
+          scope.showData = scope.levelOneValue.NodeText + ' ' + scope.levelTwoValue.NodeText + ' ' + scope.levelThreeValue.NodeText;
+          scope.options.selectedValues = [];
+          scope.options.selectedValues.push(scope.levelOneValue);
+          scope.options.selectedValues.push(scope.levelTwoValue);
+          scope.options.selectedValues.push(scope.levelThreeValue);
+          scope.modal.hide();
+        };
+        /*-------------------------------------------------------*/
+
+
+        function init() {
+          initLevelOne();
+          initLevelTwo();
+          initLevelThree();
+        }
+
+
+        //初始化一级
+        function initLevelOne() {
+
+          insertBlankData(scope.levelOneList);
+          scope.levelOneValue = scope.levelOneList[2];
+          scope.levelOneValue.selected = true;
+          scope.levelOneIndex = 2;
+
+          // console.log(scope.levelOneList);
+        }
+
+        //初始化二级
+        function initLevelTwo() {
+          insertBlankData(scope.levelTwoList);
+          // console.log(scope.levelTwoList);
+          if (scope.levelOneValue.Children) {
+            scope.levelTwoValue = scope.levelOneValue.Children[2];
+          } else {
+            scope.levelTwoValue = scope.levelTwoList[2];
+          }
+          scope.levelTwoValue.selected = true;
+          scope.levelTwoIndex = 2;
+        }
+
+        //初始化三级
+        function initLevelThree() {
+          insertBlankData(scope.levelThreeList);
+          if (scope.levelTwoValue.Children) {
+            scope.levelThreeValue = scope.levelTwoValue.Children[2];
+          } else {
+            scope.levelThreeValue = scope.levelThreeList[2];
+          }
+          scope.levelThreeValue.selected = true;
+          scope.levelThreeIndex = 2;
+        }
+
+        var posi;          //实时滚动位置
+        var lastTimePosi;  //上一次位置
+
+        //滚动触发事件
+        scope.scrollingEvent = function (type) {
+          var opEntity = getOperateEntity(type);
+
+          if (scope[opEntity.scrollTimer]) {
+            $timeout.cancel(scope[opEntity.scrollTimer]);
+          }
+
+          if (posi) {
+            lastTimePosi = posi;
+          }
+
+          posi = $ionicScrollDelegate.$getByHandle(opEntity.scrollHandler).getScrollPosition();
+
+          var index;
+          if(lastTimePosi) {
+            if (posi.top > lastTimePosi.top) {
+              index = Math.abs(Math.ceil(posi.top / 30));
+            } else if (posi.top <= lastTimePosi.top) {
+              index = parseInt(posi.top / 30);
+            }
+          }
+
+          // var index = Math.abs(Math.round(posi.top / 30));
+          // console.log(posi, index);
+          if (posi.top == index * 30) {
+            updateSelect(index + 2, type);
+          } else {
+            scope[opEntity.scrollTimer] = $timeout(function () {
+              posi.top = index * 30;
+              updateSelect(index + 2, type);
+              scrollToPosi($ionicScrollDelegate.$getByHandle(opEntity.scrollHandler), posi);
+            }, 200);
+          }
+        };
+
+
+        //点击Event
+        scope.selectEvent = function (type, index) {
+          var opEntity = getOperateEntity(type);
+
+          if(index < 2 || index >= scope[opEntity.data].length -2){
+            return;
+          }
+
+
+            var nowPosi = {};
+          nowPosi.top = (index -2) * 30;
+          nowPosi.left = 0;
+          updateSelect(index, type);
+          scrollToPosi($ionicScrollDelegate.$getByHandle(opEntity.scrollHandler), nowPosi);
+        };
+
+        //获取滚动条详细数据
+        function getOperateEntity(type) {
+          var entity = new Object();
+
+          switch (type) {
+            case 'levelOne':
+              entity.scrollTimer = 'levelOneTimer';
+              entity.type = type;
+              entity.scrollHandler = 'levelOneScroll_' + scope.globalId;
+              entity.data = 'levelOneList';
+
+              break;
+            case 'levelTwo':
+              entity.scrollTimer = 'levelTwoTimer';
+              entity.type = type;
+              entity.scrollHandler = 'levelTwoScroll_' + scope.globalId;
+              entity.data = 'levelTwoList';
+              break;
+            case 'levelThree':
+              entity.scrollTimer = 'levelThreeTimer';
+              entity.type = type;
+              entity.scrollHandler = 'levelThreeScroll_' + scope.globalId;
+              entity.data = 'levelThreeList';
+              break;
+          }
+
+          return entity;
+        }
+
+
+        //更新选中的内容
+        function updateSelect(index, type) {
+          switch (type) {
+            case "levelOne":
+              //强制
+              $timeout(function () {
+                scope.levelOneValue.selected = false;
+                scope.levelOneList[index].selected = true;
+                scope.levelOneIndex = index;
+                scope.levelOneValue = scope.levelOneList[index];
+              });
+              break;
+            case "levelTwo":
+              //强制
+              $timeout(function () {
+                scope.levelTwoValue.selected = false;
+                scope.levelTwoList[index].selected = true;
+                scope.levelTwoIndex = index;
+                scope.levelTwoValue = scope.levelTwoList[index];
+                // console.log(scope.levelTwoIndex,scope.levelTwoValue);
+
+              });
+              break;
+            case "levelThree":
+              //强制
+              $timeout(function () {
+                scope.levelThreeValue.selected = false;
+                scope.levelThreeList[index].selected = true;
+                scope.levelThreeIndex = index;
+                scope.levelThreeValue = scope.levelThreeList[index];
+                // console.log(scope.levelThreeValue);
+              });
+              break;
+
+          }
+        }
+
+
+        scope.$watch('levelOneIndex', function (newV, oldV) {
+          if (newV != oldV) {
+            if (newV != 2) {  //不是选择全部的时候
+              scope.levelTwoList = scope.levelOneList[newV].Children;
+            } else {
+              scope.levelTwoList = [];
+            }
+            initLevelTwo();
+            scope.levelTwoValue.selected = false;
+            scope.levelTwoIndex = 2;
+            scope.levelTwoValue = scope.levelTwoList[2];
+            scope.levelTwoValue.selected = true;
+            scrollToPosi($ionicScrollDelegate.$getByHandle('levelTwoScroll_' + scope.globalId), {top:0,left:0});
+          }
+        });
+
+        scope.$watch('levelTwoIndex', function (newV, oldV) {
+          if (newV != oldV) {
+            if (newV != 2) { //不是选择全部的时候
+              scope.levelThreeList = scope.levelTwoList[newV].Children;
+            } else {
+              scope.levelThreeList = [];
+            }
+            initLevelThree();
+            scope.levelThreeValue.selected = false;
+            scope.levelThreeIndex = 2;
+            scope.levelThreeValue = scope.levelThreeList[2];
+            scope.levelThreeValue.selected = true;
+            scrollToPosi($ionicScrollDelegate.$getByHandle('levelThreeScroll_' + scope.globalId), {top:0,left:0});
+          }
+        });
+
+        //在数据列表前后插入俩个空数据
+        function insertBlankData(arr) {
+          if (arr[0] == '' && arr[1] == '' && arr[2].NodeText == '全部') {
+            return;
+          } else {
+            arr.unshift({NodeText: '全部'});
+            arr.unshift('');
+            arr.unshift('');
+            arr.push('');
+            arr.push('');
+          }
+        }
+
+        //滑动到指定位置
+        function scrollToPosi(scorllHandler, posi) {
+          scorllHandler && scorllHandler.scrollTo(posi.left, posi.top, true);
+        }
+
+
+      }
+    }
+
+  }]);
+
+/**
+ * Created by Administrator on 2017/2/21 0021.
+ */
+angular.module('starter.controllers')
+  .directive('monthOption', [ '$filter', function ( $filter) {
+    return {
+      restrict: 'E',
+      replace: true,
+      scope: {
+        mapTime: '&',
+      },
+      templateUrl: 'directives/monthOption/page.html',
+      link: function (scope) {
+
+        var now = new Date();
+        scope.thisYear = now.getYear() + 1900;
+        scope.thisMonth = now.getMonth()+1;
+
+
+        scope.canAdd = false;
+
+        scope.$watch('state.reset', function (nVal) {
+          if (nVal) {
+            scope.timeType = scope.yearOrMonth;
+            now = new Date();
+            scope.nowData = $filter('date')(now, 'yyyy/MM');
+          }
+        });
+
+        scope.setTime = function (side) {
+          if(side == -1){
+            if(scope.thisMonth >1){
+              scope.thisMonth--;
+            }else{
+              scope.thisYear--;
+              scope.thisMonth = 12;
+            }
+          }else{
+            if(scope.thisMonth < 12){
+              scope.thisMonth++;
+            }else{
+              scope.thisYear++;
+              scope.thisMonth = 1;
+            }
+          }
+          scope.mapTime({thisYear: scope.thisYear, thisMonth: scope.thisMonth});
+        };
+      }
+    }
+  }]);
+
+/**
+ * Created by ws on 2018/4/4.
+ */
+angular.module('starter.controllers')
+  .directive('multipleSelect',['$ionicModal','$ionicScrollDelegate',function ($ionicModal,$ionicScrollDelegate) {
+    return {
+      restrict: 'A',
+      // templateUrl: 'directives/multipleSelect/page.html',
+      scope: {
+        options: "=",
+        msCallback:'&'
+      },
+      link: function (scope,element) {
+
+        //打开模型
+        element.on('click', function (e) {
+          $ionicModal.fromTemplateUrl(
+            'directives/multipleSelect/modal.html',
+            {
+              scope: scope,
+              animation: 'fade-in'
+            }).then(function (modal) {
+            scope.modal = modal;
+            scope.modal.show();
+          });
+        });
+
+        //选择item
+        scope.seletedItem = function (data) {
+          if(data.checked === undefined){
+            data.checked = true;
+          }else{
+            data.checked = !data.checked;
+          }
+        };
+
+        scope.btnCancel = function () {
+          scope.modal.hide();
+          scope.modal.remove();
+        };
+
+        scope.btnOk = function () {
+          scope.options.value = [];
+          if(scope.options.attrName) {
+            scope.options.list.forEach(function (each) {
+              if(each.checked){
+                scope.options.value.push(each);
+              }
+            });
+          }
+          scope.msCallback();
+          scope.btnCancel();
+        };
+
+      }
+    }
+  }]);
+
+/**
+ * Created by ws on 2017/12/8.
+ */
+angular.module('starter.controllers')
+  .directive('multipleSelectBox',['$ionicModal','$ionicScrollDelegate',function ($ionicModal,$ionicScrollDelegate) {
+    return {
+      restrict: 'E',
+      templateUrl: 'directives/multipleSelectBox/page.html',
+      scope: {
+        options: "="
+      },
+      link: function (scope) {
+
+        scope.$watch('options.list',function (newV) {
+          if(newV && scope.options.list.length>0) {
+            if(!!scope.options.value){
+              scope.seletedFont = '';
+              for(var i=0;i<scope.options.list.length;i++){
+                for(var j=0;j<scope.options.value.length;j++){
+                  if(scope.options.list[i][scope.options.attrName] == scope.options.value[j][scope.options.attrName]){
+                    scope.options.list[i].checked = true;
+                  }
+                  if(scope.seletedFont == ''){
+                    scope.seletedFont += scope.options.value[j][scope.options.attrName];
+                  }else{
+                    scope.seletedFont += '、';
+                    scope.seletedFont += scope.options.value[j][scope.options.attrName];
+                  }
+                }
+              }
+            }else{
+              scope.options.value = [];
+              scope.options.value.push(scope.options.list[0]);
+              scope.options.list[0].checked = true;
+              scope.seletedFont = scope.options.list[0][scope.options.attrName];
+            }
+          }
+        });
+
+        scope.clearInfo = function () {
+          scope.options.selectKey = '';
+        };
+
+        //打开模型
+        scope.openModal = function () {
+          $ionicModal.fromTemplateUrl(
+            'directives/multipleSelectBox/modal.html',
+            {
+              scope: scope,
+              animation: 'fade-in'
+            }).then(function (modal) {
+            scope.modal = modal;
+            scope.modal.show();
+            // eleScrollTo();
+          });
+        };
+
+        //选择item
+        scope.seletedItem = function (data) {
+          if(data.checked === undefined){
+            data.checked = true;
+          }else{
+            data.checked = !data.checked;
+          }
+        };
+
+        scope.btnCancel = function () {
+          scope.modal.hide();
+          scope.modal.remove();
+        };
+
+        scope.btnOK = function () {
+          scope.seletedFont = '';
+          scope.options.value = [];
+          if(scope.options.attrName) {
+            scope.options.list.forEach(function (each) {
+              if(each.checked){
+                scope.options.value.push(each);
+                if(scope.seletedFont == ''){
+                  scope.seletedFont += each[scope.options.attrName];
+                }else{
+                  scope.seletedFont += '、';
+                  scope.seletedFont += each[scope.options.attrName];
+                }
+              }
+            });
+          }
+
+          scope.btnCancel();
+        };
+
+      }
+    }
+  }]);
+
+/**
+ * Created by ws on 2017/2/17.
+ */
+angular.module('starter.controllers')
+  .directive('selectBox',['$ionicModal','$ionicScrollDelegate',function ($ionicModal,$ionicScrollDelegate) {
+    return {
+      restrict : 'E',
+      templateUrl : 'directives/selectBox/selectBox.html',
+      scope: {
+        options: "=",
+        callback:"&"
+      },
+      link : function (scope) {
+
+        scope.$watch('options.list',function (newV) {
+          if(newV && scope.options.list.length>0) {
+            if(!!scope.options.value){
+              scope.options.index = getIndex(scope.options.list,scope.options.value);
+            }
+            if(!scope.options.index){
+              scope.options.index = 0;
+              scope.options.value = scope.options.list[0];
+            }
+            if(scope.options.attrName) {
+              scope.seletedFont = scope.options.list[scope.options.index][scope.options.attrName];
+            }else{
+              scope.seletedFont = scope.options.list[scope.options.index];
+            }
+            scope.selectId = scope.options.index;
+          }
+        });
+
+        scope.seletedItem = function (index) {
+          scope.selectId = index;
+          scope.options.index = index;
+          scope.options.value =  scope.options.list[index];
+          if(scope.options.attrName) {
+            scope.seletedFont = scope.options.list[index][scope.options.attrName];
+          }else{
+            scope.seletedFont = scope.options.list[index];
+          }
+          scope.closeModel();
+          if(scope.callback instanceof Function){
+            scope.callback({value:scope.options.list[index]});
+          }
+        };
+
+
+        //打开模型
+         scope.openModal = function () {
+          $ionicModal.fromTemplateUrl(
+            'directives/selectBox/model.html',
+            {
+            scope: scope,
+            animation: 'fade-in'
+          }).then(function (modal) {
+            scope.modal = modal;
+            scope.modal.show();
+            eleScrollTo();
+          });
+        }
+
+
+        function eleScrollTo() {
+          if(scope.options.index > 7) {
+            var top = (scope.options.index - 3) * 40;
+            $ionicScrollDelegate.$getByHandle('scorllHandler').scrollTo(0, top, true);
+          }
+        }
+
+        //关闭模型
+        scope.closeModel = function () {
+          scope.modal.hide();
+          scope.modal.remove();
+        }
+
+        //根据value寻找index
+        function getIndex(arr,obj) {
+          if(obj) {
+            for (var i = 0; i < arr.length; i++) {
+              if(!!scope.options.attrName) {
+                if (arr[i][scope.options.attrName] == obj[scope.options.attrName]) {
+                  return i;
+                }
+              }else{
+                if (arr[i] == obj) {
+                  return i;
+                }
+              }
+            }
+          }
+          return 0;
+        };
+
+      }
+    }
+  }])
+;
+
+/**
+ * Created by ws on 2017/3/14.
+ */
+angular.module('starter.controllers')
+  .directive('progressBar',[function () {
+    return {
+      restrict : 'E',
+      templateUrl : 'directives/progressBar/progressBar.html',
+      scope : {
+        progress :'='
+      },
+      link : function (scope) {
+        console.log(2131213);
+        // scope.progressPercent = {width:scope.progress.data};
+      }
+    }
+  }])
+;
+
+/**
+ * Created by ws on 2017/12/22.
+ */
+angular.module('starter.controllers')
+.directive('like-marquee', ['$timeout', '$ionicScrollDelegate', 'linkageSelectService', '$ionicModal',
+  function ($timeout, $ionicScrollDelegate, linkageSelectService, $ionicModal) {
+
+  return {
+    restrict: 'E',
+    templateUrl: 'directives/likemarquee/page.html',
+    scope: {
+      options: "=",
+
+    },
+    link: function (scope,element) {
+
+    }
+  }
+}]);
+
+/****************************************************************
+ - Marquee.js
+ - 参数：
+ - ID：滚动对象（必须）
+ - Direction：滚动方向（"top": 0, "up": 0, "bottom": 1, "down": 1, "left": 2, "right": 3）
+ - Step：步伐
+ - Width：宽度
+ - Height：高度
+ - Timer：影响步伐滚动速度
+ - DelayTime：延时时间
+ - WaitTime：初始化时的等待时间
+ - ScrollStep：卷页步伐
+ *****************************************************************/
+function Marquee(obt) {
+  if (obt == null || obt == "") {
+    return;
+  }
+
+  this.ID = document.getElementById(obt.ID);
+  if (!this.ID) {
+    alert("初始化错误\r\n请检查标签id设置是否正确!");
+    this.id = -1;
+    return;
+  }
+
+  this.Direction = this.Width = this.Height = this.DelayTime = this.WaitTime = this.CTL = this.StartID = this.Stop = this.MouseOver = 0;
+  this.Step = 1;
+  this.Timer = 30;
+  this.DirectionArray = { "top": 0, "up": 0, "bottom": 1, "down": 1, "left": 2, "right": 3 };
+  if (typeof obt.Direction == "number" && obt.Direction) this.Direction = obt.Direction;
+  if (typeof obt.Direction == "string" && obt.Direction) this.Direction = this.DirectionArray[obt.Direction.toString().toLowerCase()];
+  if (typeof obt.Step == "number" && obt.Step) this.Step = obt.Step;
+  if (typeof obt.Width == "number" && obt.Width) this.Width = obt.Width;
+  if (typeof obt.Height == "number" && obt.Height) this.Height = obt.Height;
+  if (typeof obt.Timer == "number" && obt.Timer) this.Timer = obt.Timer;
+  if (typeof obt.DelayTime == "number" && obt.DelayTime) this.DelayTime = obt.DelayTime;
+  if (typeof obt.WaitTime == "number" && obt.WaitTime) this.WaitTime = obt.WaitTime;
+  if (typeof obt.ScrollStep == "number" && obt.ScrollStep) this.ScrollStep = obt.ScrollStep;
+
+  this.ID.style.overflow = this.ID.style.overflowX = this.ID.style.overflowY = "hidden";
+  this.ID.noWrap = true;
+  this.IsNotOpera = (navigator.userAgent.toLowerCase().indexOf("opera") == -1);
+  this.Start();
+}
+
+Marquee.prototype.Start = function() {
+  if (this.ID == -1) return;
+  if (this.Width == 0) this.Width = parseInt(this.ID.style.width);
+  if (this.Height == 0) this.Height = parseInt(this.ID.style.height);
+  if (this.Timer < 20) this.Timer = 20;
+  if (this.WaitTime < 800) this.WaitTime = 800;
+  this.HalfWidth = Math.round(this.Width / 2);
+  this.HalfHeight = Math.round(this.Height / 2);
+  this.BakStep = this.Step;
+  this.ID.style.width = this.Width + "px";
+  this.ID.style.height = this.Height + "px";
+  if (typeof this.ScrollStep != "number") this.ScrollStep = this.Direction > 1 ? this.Width : this.Height;
+  var templateLeft = "<table cellspacing='0' cellpadding='0' style='border-collapse:collapse;display:inline;'><tr><td noWrap=true style='white-space: nowrap;word-break:keep-all;'>MSCLASS_TEMP_HTML</td><td noWrap=true style='white-space: nowrap;word-break:keep-all;'>MSCLASS_TEMP_HTML</td></tr></table>";
+  var templateTop = "<table cellspacing='0' cellpadding='0' style='border-collapse:collapse;'><tr><td>MSCLASS_TEMP_HTML</td></tr><tr><td>MSCLASS_TEMP_HTML</td></tr></table>";
+  var msobj = this;
+  msobj.tempHTML = msobj.ID.innerHTML;
+  if (msobj.Direction <= 1) {
+    msobj.ID.innerHTML = templateTop.replace(/MSCLASS_TEMP_HTML/g, msobj.ID.innerHTML);
+  }
+  else {
+    if (msobj.ScrollStep == 0 && msobj.DelayTime == 0) {
+      msobj.ID.innerHTML += msobj.ID.innerHTML;
+    }
+    else {
+      msobj.ID.innerHTML = templateLeft.replace(/MSCLASS_TEMP_HTML/g, msobj.ID.innerHTML);
+    }
+  }
+  var timer = this.Timer;
+  var delaytime = this.DelayTime;
+  var waittime = this.WaitTime;
+  msobj.StartID = function() { msobj.Scroll() }
+  msobj.Continue = function() {
+    if (msobj.MouseOver == 1) {
+      setTimeout(msobj.Continue, delaytime);
+    }
+    else {
+      clearInterval(msobj.TimerID);
+      msobj.CTL = msobj.Stop = 0;
+      msobj.TimerID = setInterval(msobj.StartID, timer);
+    }
+  }
+
+  msobj.Pause = function() {
+    msobj.Stop = 1;
+    clearInterval(msobj.TimerID);
+    setTimeout(msobj.Continue, delaytime);
+  }
+
+  msobj.Begin = function() {
+    msobj.ClientScroll = msobj.Direction > 1 ? msobj.ID.scrollWidth / 2 : msobj.ID.scrollHeight / 2;
+    if ((msobj.Direction <= 1 && msobj.ClientScroll <= msobj.Height + msobj.Step) || (msobj.Direction > 1 && msobj.ClientScroll <= msobj.Width + msobj.Step)) {
+      msobj.ID.innerHTML = msobj.tempHTML;
+      delete (msobj.tempHTML);
+      return;
+    }
+    delete (msobj.tempHTML);
+    msobj.TimerID = setInterval(msobj.StartID, timer);
+    if (msobj.ScrollStep < 0) return;
+    msobj.ID.onmousemove = function(event) {
+      if (msobj.ScrollStep == 0 && msobj.Direction > 1) {
+        var event = event || window.event;
+        if (window.event) {
+          if (msobj.IsNotOpera) {
+            msobj.EventLeft = event.srcElement.id == msobj.ID.id ? event.offsetX - msobj.ID.scrollLeft : event.srcElement.offsetLeft - msobj.ID.scrollLeft + event.offsetX;
+          }
+          else {
+            msobj.ScrollStep = null;
+            return;
+          }
+        }
+        else {
+          msobj.EventLeft = event.layerX - msobj.ID.scrollLeft;
+        }
+        msobj.Direction = msobj.EventLeft > msobj.HalfWidth ? 3 : 2;
+        msobj.AbsCenter = Math.abs(msobj.HalfWidth - msobj.EventLeft);
+        msobj.Step = Math.round(msobj.AbsCenter * (msobj.BakStep * 2) / msobj.HalfWidth);
+      }
+    }
+    msobj.ID.onmouseover = function() {
+      if (msobj.ScrollStep == 0) return;
+      msobj.MouseOver = 1;
+      clearInterval(msobj.TimerID);
+    }
+    msobj.ID.onmouseout = function() {
+      if (msobj.ScrollStep == 0) {
+        if (msobj.Step == 0) msobj.Step = 1;
+        return;
+      }
+      msobj.MouseOver = 0;
+      if (msobj.Stop == 0) {
+        clearInterval(msobj.TimerID);
+        msobj.TimerID = setInterval(msobj.StartID, timer);
+      }
+    }
+  }
+  setTimeout(msobj.Begin, waittime);
+}
+
+Marquee.prototype.Scroll = function() {
+  switch (this.Direction) {
+    case 0:
+      this.CTL += this.Step;
+      if (this.CTL >= this.ScrollStep && this.DelayTime > 0) {
+        this.ID.scrollTop += this.ScrollStep + this.Step - this.CTL;
+        this.Pause();
+        return;
+      }
+      else {
+        if (this.ID.scrollTop >= this.ClientScroll) {
+          this.ID.scrollTop -= this.ClientScroll;
+        }
+        this.ID.scrollTop += this.Step;
+      }
+      break;
+
+    case 1:
+      this.CTL += this.Step;
+      if (this.CTL >= this.ScrollStep && this.DelayTime > 0) {
+        this.ID.scrollTop -= this.ScrollStep + this.Step - this.CTL;
+        this.Pause();
+        return;
+      }
+      else {
+        if (this.ID.scrollTop <= 0) {
+          this.ID.scrollTop += this.ClientScroll;
+        }
+        this.ID.scrollTop -= this.Step;
+      }
+      break;
+
+    case 2:
+      this.CTL += this.Step;
+      if (this.CTL >= this.ScrollStep && this.DelayTime > 0) {
+        this.ID.scrollLeft += this.ScrollStep + this.Step - this.CTL;
+        this.Pause();
+        return;
+      }
+      else {
+        if (this.ID.scrollLeft >= this.ClientScroll) {
+          this.ID.scrollLeft -= this.ClientScroll;
+        }
+        this.ID.scrollLeft += this.Step;
+      }
+      break;
+
+    case 3:
+      this.CTL += this.Step;
+      if (this.CTL >= this.ScrollStep && this.DelayTime > 0) {
+        this.ID.scrollLeft -= this.ScrollStep + this.Step - this.CTL;
+        this.Pause();
+        return;
+      }
+      else {
+        if (this.ID.scrollLeft <= 0) {
+          this.ID.scrollLeft += this.ClientScroll;
+        }
+        this.ID.scrollLeft -= this.Step;
+      }
+      break;
+  }
+}
+
+/**
+ * Created by ws on 2018/8/6.
+ */
+angular.module('starter.controllers')
+  .controller('baseSelectCtrl', ["$scope", function ($scope) {
+
+    $scope.options = {
+      title: '请选择',
+      list: [{name: 'test1'}, {name: 'test2'}, {name: 'test3'}, {name: 'test4'}, {name: 'test5'}, {name: 'test6'}, {name: 'test7'}],
+      attrName: 'name'
+    };
+
+    $scope.options1 = {
+      title: '选择项目',
+      list: [{name: '哈哈哈哈'}, {name: '遂宁市'}, {name: '是实打实的'}, {name: '试试'}, {name: '试试1'}, {name: '试试2'}, {name: '少时诵诗书'}],
+      attrName: 'name'
+    };
+
+    $scope.options2 = {
+      list: [
+        {
+          "ProjectCode": null,
+          "NodeCode": "001",
+          "NodeText": "东北地区",
+          "Children": [
+            {
+              "ProjectCode": null,
+              "NodeCode": "001001",
+              "NodeText": "沈阳市",
+              "Children": []
+            },
+            {
+              "ProjectCode": null,
+              "NodeCode": "001002",
+              "NodeText": "大连市",
+              "Children": [{
+                "ProjectCode": null,
+                "NodeCode": "001002004",
+                "NodeText": "甘井子区",
+                "Children": []
+              }]
+            }]
+        }, {
+          "ProjectCode": null,
+          "NodeCode": "002",
+          "NodeText": "华北地区",
+          "Children": [{
+            "ProjectCode": null,
+            "NodeCode": "002001",
+            "NodeText": "北京市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "002001003",
+              "NodeText": "朝阳区",
+              "Children": []
+            }]
+          }, {
+            "ProjectCode": null,
+            "NodeCode": "002002",
+            "NodeText": "天津市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "002002003",
+              "NodeText": "河东区",
+              "Children": []
+            }]
+          }]
+        }, {
+          "ProjectCode": null,
+          "NodeCode": "003",
+          "NodeText": "华中地区",
+          "Children": [{
+            "ProjectCode": null,
+            "NodeCode": "003001",
+            "NodeText": "武汉市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "003001007",
+              "NodeText": "洪山区",
+              "Children": []
+            }]
+          }]
+        }, {
+          "ProjectCode": null,
+          "NodeCode": "004",
+          "NodeText": "华东地区",
+          "Children": [{
+            "ProjectCode": null,
+            "NodeCode": "004001",
+            "NodeText": "上海市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "004001014",
+              "NodeText": "青浦区",
+              "Children": []
+            }]
+          }, {
+            "ProjectCode": null,
+            "NodeCode": "004002",
+            "NodeText": "杭州市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "004002007",
+              "NodeText": "萧山区",
+              "Children": []
+            }]
+          }, {
+            "ProjectCode": null,
+            "NodeCode": "004003",
+            "NodeText": "南京市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "004003003",
+              "NodeText": "建邺区",
+              "Children": []
+            }]
+          }, {
+            "ProjectCode": null,
+            "NodeCode": "004004",
+            "NodeText": "烟台市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "004004004",
+              "NodeText": "莱山区",
+              "Children": [{
+                "ProjectCode": 51122,
+                "NodeCode": "004004004-51122",
+                "NodeText": "烟台金地澜悦",
+                "Children": []
+              }]
+            }]
+          }]
+        }, {
+          "ProjectCode": null,
+          "NodeCode": "005",
+          "NodeText": "华南地区",
+          "Children": [{
+            "ProjectCode": null,
+            "NodeCode": "005001",
+            "NodeText": "深圳市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "005001001",
+              "NodeText": "南山区",
+              "Children": [{
+                "ProjectCode": 7,
+                "NodeCode": "005001001-7",
+                "NodeText": "亿达别苑",
+                "Children": []
+              }, {"ProjectCode": 396, "NodeCode": "005001001-396", "NodeText": "深圳金地国际公寓", "Children": []}]
+            }, {
+              "ProjectCode": null,
+              "NodeCode": "005001002",
+              "NodeText": "福田区",
+              "Children": [{
+                "ProjectCode": 9,
+                "NodeCode": "005001002-9",
+                "NodeText": "深圳金海湾花园",
+                "Children": []
+              }, {"ProjectCode": 12, "NodeCode": "005001002-12", "NodeText": "深圳金地翠堤湾", "Children": []}]
+            }, {
+              "ProjectCode": null,
+              "NodeCode": "005001007",
+              "NodeText": "龙华区",
+              "Children": []
+            }]
+          }, {
+            "ProjectCode": null,
+            "NodeCode": "005003",
+            "NodeText": "佛山市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "005003003",
+              "NodeText": "顺德区",
+              "Children": []
+            }]
+          }]
+        }, {
+          "ProjectCode": null,
+          "NodeCode": "007",
+          "NodeText": "西北地区",
+          "Children": [{
+            "ProjectCode": null,
+            "NodeCode": "007001",
+            "NodeText": "西安市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "007001006",
+              "NodeText": "雁塔区",
+              "Children": []
+            }]
+          }]
+        }],
+      title: '项目范围选择',
+      levelOneAttr: 'NodeText',
+      levelTwoAttr: 'NodeText'
+    };
+
+    $scope.options3 = {
+      list: [
+        {
+          "ProjectCode": null,
+          "NodeCode": "001",
+          "NodeText": "东北地区",
+          "Children": [
+            {
+              "ProjectCode": null,
+              "NodeCode": "001001",
+              "NodeText": "沈阳市",
+              "Children": [
+                {
+                  "ProjectCode": null,
+                  "NodeCode": "001001006",
+                  "NodeText": "浑南区",
+                  "Children": [{
+                    "ProjectCode": 395,
+                    "NodeCode": "001001006-395",
+                    "NodeText": "沈阳金地长青湾",
+                    "Children": []
+                  }]
+                }
+              ]
+            },
+            {
+              "ProjectCode": null,
+              "NodeCode": "001002",
+              "NodeText": "大连市",
+              "Children": [{
+                "ProjectCode": null,
+                "NodeCode": "001002004",
+                "NodeText": "甘井子区",
+                "Children": [{"ProjectCode": 394, "NodeCode": "001002004-394", "NodeText": "大连金地艺境", "Children": []}]
+              }]
+            }]
+        }, {
+          "ProjectCode": null,
+          "NodeCode": "002",
+          "NodeText": "华北地区",
+          "Children": [{
+            "ProjectCode": null,
+            "NodeCode": "002001",
+            "NodeText": "北京市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "002001003",
+              "NodeText": "朝阳区",
+              "Children": [{"ProjectCode": 393, "NodeCode": "002001003-393", "NodeText": "北京金地国际花园", "Children": []}]
+            }]
+          }, {
+            "ProjectCode": null,
+            "NodeCode": "002002",
+            "NodeText": "天津市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "002002003",
+              "NodeText": "河东区",
+              "Children": [{"ProjectCode": 385, "NodeCode": "002002003-385", "NodeText": "天津金地紫乐府", "Children": []}]
+            }]
+          }]
+        }, {
+          "ProjectCode": null,
+          "NodeCode": "003",
+          "NodeText": "华中地区",
+          "Children": [{
+            "ProjectCode": null,
+            "NodeCode": "003001",
+            "NodeText": "武汉市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "003001007",
+              "NodeText": "洪山区",
+              "Children": [{"ProjectCode": 388, "NodeCode": "003001007-388", "NodeText": "武汉金地圣爱米伦", "Children": []}]
+            }]
+          }]
+        }, {
+          "ProjectCode": null,
+          "NodeCode": "004",
+          "NodeText": "华东地区",
+          "Children": [{
+            "ProjectCode": null,
+            "NodeCode": "004001",
+            "NodeText": "上海市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "004001014",
+              "NodeText": "青浦区",
+              "Children": [{"ProjectCode": 390, "NodeCode": "004001014-390", "NodeText": "上海金地天御", "Children": []}]
+            }]
+          }, {
+            "ProjectCode": null,
+            "NodeCode": "004002",
+            "NodeText": "杭州市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "004002007",
+              "NodeText": "萧山区",
+              "Children": [{"ProjectCode": 389, "NodeCode": "004002007-389", "NodeText": "杭州金地天逸", "Children": []}]
+            }]
+          }, {
+            "ProjectCode": null,
+            "NodeCode": "004003",
+            "NodeText": "南京市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "004003003",
+              "NodeText": "建邺区",
+              "Children": [{"ProjectCode": 391, "NodeCode": "004003003-391", "NodeText": "南京金地名京", "Children": []}]
+            }]
+          }, {
+            "ProjectCode": null,
+            "NodeCode": "004004",
+            "NodeText": "烟台市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "004004004",
+              "NodeText": "莱山区",
+              "Children": [{
+                "ProjectCode": 51122,
+                "NodeCode": "004004004-51122",
+                "NodeText": "烟台金地澜悦",
+                "Children": []
+              }]
+            }]
+          }]
+        }, {
+          "ProjectCode": null,
+          "NodeCode": "005",
+          "NodeText": "华南地区",
+          "Children": [{
+            "ProjectCode": null,
+            "NodeCode": "005001",
+            "NodeText": "深圳市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "005001001",
+              "NodeText": "南山区",
+              "Children": [{
+                "ProjectCode": 7,
+                "NodeCode": "005001001-7",
+                "NodeText": "亿达别苑",
+                "Children": []
+              }, {"ProjectCode": 396, "NodeCode": "005001001-396", "NodeText": "深圳金地国际公寓", "Children": []}]
+            }, {
+              "ProjectCode": null,
+              "NodeCode": "005001002",
+              "NodeText": "福田区",
+              "Children": [{
+                "ProjectCode": 9,
+                "NodeCode": "005001002-9",
+                "NodeText": "深圳金海湾花园",
+                "Children": []
+              }, {"ProjectCode": 12, "NodeCode": "005001002-12", "NodeText": "深圳金地翠堤湾", "Children": []}]
+            }, {
+              "ProjectCode": null,
+              "NodeCode": "005001007",
+              "NodeText": "龙华区",
+              "Children": [{"ProjectCode": 386, "NodeCode": "005001007-386", "NodeText": "深圳金地天悦湾", "Children": []}]
+            }]
+          }, {
+            "ProjectCode": null,
+            "NodeCode": "005003",
+            "NodeText": "佛山市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "005003003",
+              "NodeText": "顺德区",
+              "Children": [{"ProjectCode": 387, "NodeCode": "005003003-387", "NodeText": "佛山金地天玺", "Children": []}]
+            }]
+          }]
+        }, {
+          "ProjectCode": null,
+          "NodeCode": "007",
+          "NodeText": "西北地区",
+          "Children": [{
+            "ProjectCode": null,
+            "NodeCode": "007001",
+            "NodeText": "西安市",
+            "Children": [{
+              "ProjectCode": null,
+              "NodeCode": "007001006",
+              "NodeText": "雁塔区",
+              "Children": [{"ProjectCode": 392, "NodeCode": "007001006-392", "NodeText": "西安湖城大境天第", "Children": []}]
+            }]
+          }]
+        }],
+      title: '项目范围选择',
+      levelOneAttr: 'NodeText',
+      levelTwoAttr: 'NodeText',
+      levelThreeAttr: 'NodeText',
+    };
+
+    $scope.options4 = {
+      title: '请选择原因',
+      list: [{value: 1, Remark: '道行不够'}, {value: 2, Remark: '材料不齐'}, {value: 3, Remark: '缺材料'}, {
+        value: 4,
+        Remark: '其它'
+      }],
+      attrName: 'Remark'
+    };
+
+    $scope.btnOk = function () {
+      console.log('点击成OK', $scope.options4);
+    }
+
+
+
+  }]);
+
+/**
  * Created by Administrator on 2018/8/8.
  */
 /**
@@ -3770,21 +5123,6 @@ angular.module('starter.controllers')
       }
 
     } ;
-
-  }]);
-
-/**
- * Created by ws on 2018/8/6.
- */
-angular.module('starter.controllers')
-  .controller('baseSelectCtrl', ["$scope", function ($scope) {
-
-    $scope.options2 = {
-      title: '请选择',
-      list: [{name: 'test1'}, {name: 'test2'}, {name: 'test3'}, {name: 'test4'}, {name: 'test5'}, {name: 'test6'}, {name: 'test7'}],
-      attrName: 'name'
-    };
-
 
   }]);
 

@@ -68,8 +68,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
       }
     })
 
-
-
+    .state('tab.baseSelect', {
+      url: '/baseSelect',
+      views: {
+        'tab-dash': {
+          templateUrl: 'src/tab1/baseSelect/page.html',
+          controller: 'baseSelectCtrl'
+        }
+      }
+    })
 
   .state('tab.chats', {
       url: '/chats',

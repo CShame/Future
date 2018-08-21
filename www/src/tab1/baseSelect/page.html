@@ -1,5 +1,25 @@
-<ion-view title="基础下拉框">
+<ion-view title="下拉框">
   <ion-content>
-    <select-box options='options2'></select-box>
+    <div class="item">
+      <span>普通下拉框</span>
+      <select-box options='options'></select-box>
+    </div>
+    <div class="item">
+    <span>加搜索的下拉框</span>
+    <multiple-select-box options="options1"></multiple-select-box>
+    </div>
+    <div class="item">
+      <span>二级联动下拉框</span>
+      <linkage-select2 options="options2"></linkage-select2>
+    </div>
+    <div class="item">
+      <span>三级联动下拉框</span>
+      <linkage-select options="options3"></linkage-select>
+    </div>
+    <div class="item">
+      <span>多选下拉框加备注</span>
+      <div multiple-select  options='options4' ms-callback='btnOk()'>点我弹出下拉框</div>
+      <div>备注是：{{options4.remark}}</div>
+    </div>
   </ion-content>
 </ion-view>
