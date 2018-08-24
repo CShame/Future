@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/www/js/controllers.js" line="221" />
+    <bookmark url="file://$PROJECT_DIR$/www/js/controllers.js" line="208" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b9f94db-f19e-4881-89a6-06a63b2aabdf" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directives/selectBox2/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directives/selectBox2/model.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directives/selectBox2/selectBox.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directives/selectBox2/selectBox.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directives/selectBox2/selectBox.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/directives/mycalendar/mycalendar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/directives/mycalendar/page.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/directives/mycalendar/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/src/config0.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/src/tab1/config1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/src/tab2/config2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/src/tab3/config3.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/ProjectData/architecture.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/ProjectData/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/ProjectData/wuguan.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/declareProject/add.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/declareProject/addProject.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/declareProject/confirmPhone.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/declareProject/list.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/declareProject/myProject.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/declareProject/operateProject.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/declareProject/reSendCode.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/declareProject/register.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/declareProject/scanQrCode.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/declareProject/setPassword.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/declareProject/verification.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/directives/selectBox/selectBox.css" afterPath="$PROJECT_DIR$/www/directives/selectBox/selectBox.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/directives/monthOption/style.css" afterPath="$PROJECT_DIR$/www/directives/monthOption/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/dist/all.js" afterPath="$PROJECT_DIR$/www/dist/all.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/dist/all.js.map" afterPath="$PROJECT_DIR$/www/dist/all.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/dist/all.min.css" afterPath="$PROJECT_DIR$/www/dist/all.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/dist/templates.js" afterPath="$PROJECT_DIR$/www/dist/templates.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/tab1/baseSelect/controller.js" afterPath="$PROJECT_DIR$/www/src/tab1/baseSelect/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/tab1/baseSelect/page.html" afterPath="$PROJECT_DIR$/www/src/tab1/baseSelect/page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-dash.html" afterPath="$PROJECT_DIR$/www/templates/tab-dash.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-account.html" afterPath="$PROJECT_DIR$/www/templates/tab-account.html" />
     </list>
     <ignored path="Future.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,85 +59,116 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tab-dash.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/tab-dash.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="multipleSelect.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/directives/multipleSelect/multipleSelect.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1058">
-              <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+            <state relative-caret-position="322">
+              <caret line="345" column="0" selection-start-line="345" selection-start-column="0" selection-end-line="345" selection-end-column="0" />
               <folding>
-                <element signature="e#399#736#0" expanded="false" />
-                <element signature="e#812#1300#0" expanded="false" />
-                <element signature="e#1360#1540#0" expanded="false" />
-                <element signature="e#1603#1832#0" expanded="false" />
-                <element signature="e#1882#2271#0" expanded="false" />
-                <element signature="e#2352#4298#0" expanded="false" />
-                <element signature="e#5212#9808#0" expanded="false" />
-                <element signature="e#7887#8124#0" expanded="false" />
-                <element signature="e#13911#16142#0" expanded="false" />
-                <element signature="e#17934#25296#0" expanded="false" />
-                <element signature="e#26253#26449#0" expanded="false" />
-                <element signature="e#29443#30895#0" expanded="false" />
-                <element signature="e#31102#31286#0" expanded="false" />
-                <element signature="e#31483#31933#0" expanded="false" />
-                <element signature="e#32143#32198#0" expanded="false" />
-                <element signature="e#32481#36237#0" expanded="false" />
-                <element signature="e#36622#38292#0" expanded="false" />
+                <element signature="e#395#732#0" expanded="false" />
+                <element signature="e#808#1296#0" expanded="false" />
+                <element signature="e#1356#1536#0" expanded="false" />
+                <element signature="e#1599#1828#0" expanded="false" />
+                <element signature="e#1878#2267#0" expanded="false" />
+                <element signature="e#2348#4294#0" expanded="false" />
+                <element signature="e#4739#9335#0" expanded="false" />
+                <element signature="e#7414#7651#0" expanded="false" />
+                <element signature="e#9409#12986#0" expanded="false" />
+                <element signature="e#13042#38122#0" expanded="false" />
+                <element signature="e#13629#15860#0" expanded="false" />
+                <element signature="e#17652#25014#0" expanded="false" />
+                <element signature="e#25971#26167#0" expanded="false" />
+                <element signature="e#29161#30613#0" expanded="false" />
+                <element signature="e#30820#31004#0" expanded="false" />
+                <element signature="e#31201#31651#0" expanded="false" />
+                <element signature="e#31861#31916#0" expanded="false" />
+                <element signature="e#32199#35955#0" expanded="false" />
+                <element signature="e#36340#38010#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="page.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/src/tab1/baseSelect/page.html">
+        <entry file="file://$PROJECT_DIR$/www/directives/mycalendar/page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/src/tab1/baseSelect/controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="401" column="42" selection-start-line="401" selection-start-column="42" selection-end-line="401" selection-end-column="42" />
+            <state relative-caret-position="391">
+              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
               <folding>
-                <element signature="e#557#5807#0" expanded="false" />
-                <element signature="e#571#5714#0" expanded="false" />
-                <element signature="e#5832#12386#0" expanded="false" />
-                <element signature="e#5846#12258#0" expanded="false" />
-                <element signature="e#12411#12612#0" expanded="false" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/directives/mycalendar/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="78" column="6" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
+            <state relative-caret-position="520">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tab-account.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/templates/tab-account.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="498" column="24" selection-start-line="498" selection-start-column="24" selection-end-line="498" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mycalendar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/directives/mycalendar/mycalendar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="36" column="41" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="monthOption.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/directives/monthOption/monthOption.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="42" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/directives/monthOption/page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -135,8 +180,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
-        <option value="CSS File" />
         <option value="HTML File" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -147,14 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/directives/cutoffLine/cutoffLine.js" />
-        <option value="$PROJECT_DIR$/www/directives/linkageSelect/linkageSelect.js" />
-        <option value="$PROJECT_DIR$/www/directives/linkageSelect/README" />
-        <option value="$PROJECT_DIR$/www/directives/selectBox/model.html" />
-        <option value="$PROJECT_DIR$/www/directives/multipleSelectBox/page.html" />
-        <option value="$PROJECT_DIR$/www/directives/multipleSelectBox/modal.html" />
-        <option value="$PROJECT_DIR$/www/directives/multipleSelectBox/style.css" />
-        <option value="$PROJECT_DIR$/www/directives/multipleSelectBox/multipleSelectBox.js" />
         <option value="$PROJECT_DIR$/www/directives/likemarquee/page.html" />
         <option value="$PROJECT_DIR$/www/directives/likemarquee/style.css" />
         <option value="$PROJECT_DIR$/www/directives/likemarquee/likemarquee.js" />
@@ -183,21 +220,29 @@
         <option value="$PROJECT_DIR$/www/directives/MonthOption/timeOption3.js" />
         <option value="$PROJECT_DIR$/www/directives/monthOption/timeOption3.js" />
         <option value="$PROJECT_DIR$/www/directives/monthOption/page.html" />
-        <option value="$PROJECT_DIR$/www/directives/monthOption/style.css" />
         <option value="$PROJECT_DIR$/www/directives/monthOption/monthOption.js" />
-        <option value="$PROJECT_DIR$/www/templates/tab-account.html" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/www/src/tab1/geolocation/page.html" />
         <option value="$PROJECT_DIR$/www/src/tab1/geolocation/controller.js" />
-        <option value="$PROJECT_DIR$/www/index.html" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
-        <option value="$PROJECT_DIR$/www/css/style.css" />
         <option value="$PROJECT_DIR$/www/directives/selectBox/selectBox.css" />
         <option value="$PROJECT_DIR$/www/src/tab1/baseSelect/controller.js" />
         <option value="$PROJECT_DIR$/www/src/tab1/baseSelect/page.html" />
-        <option value="$PROJECT_DIR$/www/js/controllers.js" />
         <option value="$PROJECT_DIR$/www/templates/tab-dash.html" />
+        <option value="$PROJECT_DIR$/www/src/tab2/config2.js" />
+        <option value="$PROJECT_DIR$/www/src/config.js" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/www/src/tab3/config3.js" />
+        <option value="$PROJECT_DIR$/www/src/config0.js" />
         <option value="$PROJECT_DIR$/www/js/app.js" />
+        <option value="$PROJECT_DIR$/www/src/tab1/config1.js" />
+        <option value="$PROJECT_DIR$/www/directives/monthOption/style.css" />
+        <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/directives/mycalendar/page.html" />
+        <option value="$PROJECT_DIR$/www/directives/mycalendar/style.css" />
+        <option value="$PROJECT_DIR$/www/css/style.css" />
+        <option value="$PROJECT_DIR$/www/directives/mycalendar/mycalendar.js" />
+        <option value="$PROJECT_DIR$/www/js/controllers.js" />
+        <option value="$PROJECT_DIR$/www/templates/tab-account.html" />
       </list>
     </option>
   </component>
@@ -374,37 +419,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tab1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="geolocation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Future" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Future" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tab1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baseSelect" />
+              <option name="myItemId" value="tab3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -441,6 +456,68 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Future" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Future" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mycalendar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Future" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Future" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="monthOption" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Future" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Future" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -605,16 +682,16 @@
       <workItem from="1533008966196" duration="17906000" />
       <workItem from="1533546803078" duration="16381000" />
       <workItem from="1534244883121" duration="679000" />
-      <workItem from="1534729192696" duration="5360000" />
+      <workItem from="1534729192696" duration="23687000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="876035000" />
+    <option name="totallyTimeSpent" value="894362000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19946666" sideWeight="0.5502392" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19946666" sideWeight="0.44976076" order="0" side_tool="false" content_ui="combo" />
@@ -674,55 +751,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/directives/multipleSelectBox/modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/directives/multipleSelect/modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="60" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/directives/multipleSelectBox/multipleSelectBox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1978">
-          <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/directives/multipleSelectBox/page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/directives/multipleSelectBox/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/directives/multipleSelect/page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/lib/socket.io.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="0" column="2225" selection-start-line="0" selection-start-column="2225" selection-end-line="0" selection-end-column="2225" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ionic.config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -850,38 +878,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/directives/monthOption/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/directives/monthOption/page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/directives/monthOption/monthOption.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
           <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tab-account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -924,26 +924,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/directives/selectBox/selectBox.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="40" column="57" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
           <folding />
         </state>
       </provider>
@@ -964,14 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="373" column="0" selection-start-line="373" selection-start-column="0" selection-end-line="373" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/directives/selectBox2/selectBox.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-276">
@@ -984,14 +960,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/dist/all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="5251" column="13" selection-start-line="5251" selection-start-column="13" selection-end-line="5251" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1012,10 +980,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/tab1/baseSelect/page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/src/tab1/baseSelect/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="401" column="42" selection-start-line="401" selection-start-column="42" selection-end-line="401" selection-end-column="42" />
+        <state relative-caret-position="667">
+          <caret line="405" column="0" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
           <folding>
             <element signature="e#557#5807#0" expanded="false" />
             <element signature="e#571#5714#0" expanded="false" />
@@ -1026,29 +1002,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
+    <entry file="file://$PROJECT_DIR$/www/src/tab2/config2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        <state relative-caret-position="529">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
           <folding>
-            <element signature="e#399#736#0" expanded="false" />
-            <element signature="e#812#1300#0" expanded="false" />
-            <element signature="e#1360#1540#0" expanded="false" />
-            <element signature="e#1603#1832#0" expanded="false" />
-            <element signature="e#1882#2271#0" expanded="false" />
-            <element signature="e#2352#4298#0" expanded="false" />
-            <element signature="e#5212#9808#0" expanded="false" />
-            <element signature="e#7887#8124#0" expanded="false" />
-            <element signature="e#13911#16142#0" expanded="false" />
-            <element signature="e#17934#25296#0" expanded="false" />
-            <element signature="e#26253#26449#0" expanded="false" />
-            <element signature="e#29443#30895#0" expanded="false" />
-            <element signature="e#31102#31286#0" expanded="false" />
-            <element signature="e#31483#31933#0" expanded="false" />
-            <element signature="e#32143#32198#0" expanded="false" />
-            <element signature="e#32481#36237#0" expanded="false" />
-            <element signature="e#36622#38292#0" expanded="false" />
+            <marker date="1534929207133" expanded="true" signature="179:364" ph="{...}" />
+            <marker date="1534929207133" expanded="true" signature="219:356" ph="{...}" />
+            <marker date="1534929207133" expanded="true" signature="244:346" ph="{...}" />
+            <marker date="1534929207133" expanded="true" signature="398:598" ph="{...}" />
+            <marker date="1534929207133" expanded="true" signature="446:590" ph="{...}" />
+            <marker date="1534929207133" expanded="true" signature="471:580" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="48" column="3" selection-start-line="48" selection-start-column="3" selection-end-line="48" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/tab3/config3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/config0.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/tab1/config1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1060,18 +1065,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/tab1/baseSelect/page.html">
+    <entry file="file://$PROJECT_DIR$/www/directives/monthOption/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+        <state relative-caret-position="552">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+    <entry file="file://$PROJECT_DIR$/www/directives/monthOption/page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="78" column="6" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
+        <state relative-caret-position="230">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/directives/mycalendar/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="498" column="24" selection-start-line="498" selection-start-column="24" selection-end-line="498" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/dist/all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="4428" column="0" selection-start-line="4428" selection-start-column="0" selection-end-line="4428" selection-end-column="0" />
+          <folding>
+            <marker date="1535096617254" expanded="true" signature="89294:89399" ph="..." />
+            <marker date="1535096617254" expanded="true" signature="107659:107699" ph="..." />
+            <marker date="1535096617254" expanded="true" signature="107728:107768" ph="..." />
+            <marker date="1535096617254" expanded="true" signature="107815:107855" ph="..." />
+            <marker date="1535096617254" expanded="true" signature="107962:107987" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/directives/monthOption/monthOption.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/directives/mycalendar/page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/directives/mycalendar/mycalendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="36" column="41" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="345" column="0" selection-start-line="345" selection-start-column="0" selection-end-line="345" selection-end-column="0" />
+          <folding>
+            <element signature="e#395#732#0" expanded="false" />
+            <element signature="e#808#1296#0" expanded="false" />
+            <element signature="e#1356#1536#0" expanded="false" />
+            <element signature="e#1599#1828#0" expanded="false" />
+            <element signature="e#1878#2267#0" expanded="false" />
+            <element signature="e#2348#4294#0" expanded="false" />
+            <element signature="e#4739#9335#0" expanded="false" />
+            <element signature="e#7414#7651#0" expanded="false" />
+            <element signature="e#9409#12986#0" expanded="false" />
+            <element signature="e#13042#38122#0" expanded="false" />
+            <element signature="e#13629#15860#0" expanded="false" />
+            <element signature="e#17652#25014#0" expanded="false" />
+            <element signature="e#25971#26167#0" expanded="false" />
+            <element signature="e#29161#30613#0" expanded="false" />
+            <element signature="e#30820#31004#0" expanded="false" />
+            <element signature="e#31201#31651#0" expanded="false" />
+            <element signature="e#31861#31916#0" expanded="false" />
+            <element signature="e#32199#35955#0" expanded="false" />
+            <element signature="e#36340#38010#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/tab-account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>

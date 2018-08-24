@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ngCordovaBluetoothLE','whcyit-immerse'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','starter.config','starter.directives','ngCordovaBluetoothLE','whcyit-immerse'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,194 +40,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
-
-  // Each tab has its own nav history stack:
-
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
-
-    .state('tab.geoLocation', {
-      url: '/geoLocation',
-      views: {
-        'tab-dash': {
-          templateUrl: 'src/tab1/geolocation/page.html',
-          controller: 'geoLocationCtrl'
-        }
-      }
-    })
-
-    .state('tab.baseSelect', {
-      url: '/baseSelect',
-      views: {
-        'tab-dash': {
-          templateUrl: 'src/tab1/baseSelect/page.html',
-          controller: 'baseSelectCtrl'
-        }
-      }
-    })
-
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
-
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
-      }
-    }
-  })
-
-
-    .state('register', {
-      url: '/declareProject/register',
-      templateUrl: 'templates/declareProject/register.html',
-      controller: 'registerCtrl'
-    })
-
-  .state('verification', {
-    url: '/declareProject/verification',
-    params: {
-      'phone' : null,
-      'openId' : null
-    },
-    templateUrl: 'templates/declareProject/verification.html',
-    controller: 'verificationCtrl'
-  })
-
-    .state('myProject', {
-      url: '/declareProject/myProject',
-      cache:false,
-      templateUrl: 'templates/declareProject/myProject.html',
-      controller: 'myProjectCtrl'
-    })
-
-    .state('setPassword', {
-      url: '/declareProject/setPassword',
-      templateUrl: 'templates/declareProject/setPassword.html',
-      controller: 'setPasswordCtrl'
-  })
-
-    .state('addProject', {
-      url: '/declareProject/addProject',
-      templateUrl: 'templates/declareProject/addProject.html',
-      controller: 'addProjectCtrl'
-    })
-
-    .state('systemList', {
-      url: '/declareProject/systemList',
-      cache:false,
-      params :{
-        'ProjectCode' : null
-      },
-      templateUrl: 'templates/declareProject/list.html',
-      controller: 'systemListCtrl'
-    })
-
-
-    .state('deviceList', {
-      url: '/declareProject/deviceList',
-      cache:false,
-      params:{
-        'RoomID' : null,
-        'ProjectCode' :null,
-        'RoomName' : null
-      },
-      templateUrl: 'templates/declareProject/list.html',
-      controller: 'deviceListCtrl'
-    })
-
-    .state('addRoom', {
-      url: '/declareProject/addRoom',
-      params:{
-        'RoomName' : null,
-        'SystemCode' : null,
-        'projectCode' : null,
-        'SystemName' : null
-      },
-      templateUrl: 'templates/declareProject/add.html',
-      controller: 'addRoomCtrl'
-    })
-
-    .state('addDevice', {
-      url: '/declareProject/addDevice',
-      params :{
-        'projectCode' : null,
-        'DeviceType' : null,
-        'TypeName' : null,
-        'RoomID' : null
-      },
-      templateUrl: 'templates/declareProject/add.html',
-      controller: 'addDeviceCtrl'
-    })
-
-    .state('tab.projectData', {
-      url: '/declareProject/projectData',
-      // templateUrl: 'templates/ProjectData/index.html',
-      // controller: 'projectDataCtrl'
-      views: {
-        'tab-dash': {
-          templateUrl: 'templates/ProjectData/index.html',
-          controller: 'projectDataCtrl'
-        }
-      }
-    })
-
-    .state('tab.architecture', {
-      url: '/declareProject/architecture',
-      // templateUrl: 'templates/ProjectData/architecture.html',
-      // controller: 'architectureCtrl'
-      views: {
-        'tab-dash': {
-          templateUrl: 'templates/ProjectData/architecture.html',
-          controller: 'architectureCtrl'
-        }
-      }
-    })
-
-    .state('tab.wuguan', {
-      url: '/declareProject/wuguan',
-      // templateUrl: 'templates/ProjectData/architecture.html',
-      // controller: 'architectureCtrl'
-      views: {
-        'tab-dash': {
-          templateUrl: 'templates/ProjectData/wuguan.html',
-          controller: 'wuguanCtrl'
-        }
-      }
-    })
-  ;
+  //   .state('tab', {
+  //   url: '/tab',
+  //   abstract: true,
+  //   templateUrl: 'templates/tabs.html'
+  // })
+  //
+  // .state('tab.account', {
+  //   url: '/account',
+  //   views: {
+  //     'tab-account': {
+  //       templateUrl: 'templates/tab-account.html',
+  //       controller: 'AccountCtrl'
+  //     }
+  //   }
+  // })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 
 });
+
+angular.module('starter.controllers', []);
+angular.module('starter.directives', []);
+angular.module('starter.config', [ 'starter.config1','starter.config2','starter.config3']);

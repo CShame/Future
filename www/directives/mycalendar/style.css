@@ -1,0 +1,49 @@
+.my-calculator .week-title{
+  height: 22px;
+  line-height: 22px;
+  color: #bbb;
+  font-size: 12px;
+  display: inline-block;
+  width: 14%;
+}
+
+.my-calculator .each-date{
+  width: 14%;
+  display: inline-block;
+  height: 50px;
+  position: relative;
+  vertical-align: bottom;
+}
+
+.my-calculator .each-date>div{
+  height:38px;
+  width:38px;
+  border-radius: 19px;
+  margin: 6px auto 0;
+  color: #222;
+}
+
+.my-calculator .each-date .dateSelect{
+  background: #1FB5FF;
+  color: #fff;
+}
+
+.my-calculator .each-date .gl{
+  margin-bottom: 0;
+  font-size: 18px;
+  line-height: 38px;
+}
+
+.my-calculator .each-date .nl{
+  margin-bottom: 0;
+  font-size: 8px;
+  color: #999;
+  margin-top: -15px;
+}
+
+.my-calculator .each-date span{
+  font-size: 8px;
+  position: absolute;
+  top: 7px;
+  right: 6px;
+}

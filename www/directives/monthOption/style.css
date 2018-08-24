@@ -3,39 +3,17 @@
 }
 
 .month-option .type-part {
-    padding: 0;
-    font-size: 12px;
+    padding: 1px 0;
 }
-
-/*.base-sun .month-option .type-part {*/
-    /*background-color: #F2F5F8;*/
-/*}*/
-
-/*.base-luna .month-option .type-part {*/
-    /*background-color: #242627;*/
-/*}*/
 
 .month-option .type-part span {
     padding: 3px 20px;
     vertical-align: middle;
 }
 
-.base-sun .month-option .type-part span {
-    color: #222;
-}
-
-.base-sun .month-option .type-part span.activated {
+.month-option .type-part span.activated {
     background-color: #DEE7EF;
     border-radius: 15px;
-}
-
-.base-luna .month-option .type-part span.activated {
-    background-color: #182024;
-    border-radius: 15px;
-}
-
-.month-option .type-part span.selected {
-    color: #1FB5FF;
 }
 
 .month-option .type-part i {
@@ -45,38 +23,7 @@
     vertical-align: middle;
 }
 
-.base-sun .month-option .option-part{
-  padding: 5px;
-  line-height: 8px;
-  background-color: #F2F5F8;
-}
-.base-luna .month-option .option-part{
-  padding: 5px;
-  line-height: 8px;
-  background-color: #242627;
-}
-
-.month-option .option-part .title{
-  font-size: 8px;
-}
-
-.base-sun  .month-option .option-part .title {
-    color: #555;
-}
-
-.base-luna  .month-option .option-part .title {
-    color: #999;
-}
-
 .month-option .show-time{
-  font-size: 14px;
-  color: #222;
-}
-
-.base-sun .month-option .show-time {
-    color: #555;
-}
-
-.base-luna .month-option .show-time {
-    color: #999;
+  font-size: 15px;
+  color: #555;
 }

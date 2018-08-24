@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers')
 
   .controller('DashCtrl', function ($scope, $state, $ionicScrollDelegate, $timeout) {
 
@@ -174,21 +174,8 @@ angular.module('starter.controllers', [])
 
   .controller('AccountCtrl', function ($scope, $rootScope, $ionicModal, $http, myNote, $state, $interval, CalenderService,lunarCalendar,$filter) {
 
-    $scope.thisMonthDate = [];
-
-    var nowDate = new Date();
-    var thisYear = nowDate.getYear();
-    var thisMonth = nowDate.getMonth()+1;
-    var thisDate = nowDate.getDate();
-
-    $scope.thisMonthDate = CalenderService.initCalendar(thisYear, thisMonth, thisDate);
-    console.log($scope.thisMonthDate);
-    console.log(lunarCalendar.solar2lunar(2018,8,1));
-
-
-    $scope.timeCause = function (year, month) {
-      $scope.thisMonthDate = CalenderService.initCalendar(year-1900, month, thisDate);
-      console.log($scope.thisMonthDate);
+    $scope.dateResult = function (result) {
+      console.log(result);
     };
 
     function eventWindowLoaded() {
@@ -360,6 +347,8 @@ angular.module('starter.controllers', [])
 
   })
 
+
+  //日历服务
   .factory('CalenderService', function (lunarCalendar) {
     var _monthday = [];//存放日历
     var _months = [];//年份下各月天数
@@ -402,7 +391,8 @@ angular.module('starter.controllers', [])
         var firstweek = this.getMonthFirstDayWeek(_year, _month, 1);
         firstweek = firstweek == 0 ? 7 : firstweek;
         //上月空余日期填补
-        for (j = firstweek; j > 0; j--) {
+        // for (j = firstweek; j > 0; j--) {  周日开头
+          for (j = firstweek -1; j > 0; j--) {
           var temp1 = angular.copy(cal);
           temp1.month = _month - 1 == 0 ? 12 : _month - 1;
           temp1.year = _month - 1 == 0 ? _year - 1 : _year;
@@ -424,8 +414,10 @@ angular.module('starter.controllers', [])
         //本月最后一天是周几
         var lastweek = this.getMonthFirstDayWeek(_year, _month, monthnum);
         //下月空余日期填补
-        if (lastweek != 6) {
-          for (j = 1; j < 7 - lastweek; j++) {
+        // if (lastweek != 6) {                  //周日开头
+        // for (j = 1; j < 7 - lastweek; j++) {  //周日开头
+        if (lastweek != 0) {
+          for (j = 1; j <= 7 - lastweek; j++) {
             var temp3 = angular.copy(cal);
             temp3.month = _month + 1 == 13 ? 1 : _month + 1;
             temp3.year = _month + 1 == 13 ? _year + 1 : _year;
@@ -464,6 +456,7 @@ angular.module('starter.controllers', [])
   })
 
 
+  //公里、农历互转
   .factory('lunarCalendar', function () {
 
     /**

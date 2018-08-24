@@ -1,0 +1,18 @@
+<div class="my-calculator">
+  <div class="switch-time">
+    <month-option map-time="timeCause(thisYear,thisMonth)"></month-option>
+  </div>
+  <div class="date-time" style="padding-left: 1%">
+    <div ng-repeat="data in ['周一','周二','周三','周四','周五','周六','周日']" class='text-center  week-title'>{{data}}</div>
+    <div style="padding-bottom: 9px;">
+      <div class='text-center each-date' ng-repeat="time in thisMonthDate">
+        <div ng-click="selectDate(time)" ng-class='{"dateSelect":time.askForLeave}'>
+          <p class="gl">{{time.day}}</p>
+          <p class="nl" ng-show='time.askForLeave != true'>{{ time.lunar.Term||time.lunar.IDayCn}}</p>
+          <span style='color: #1fb5ff;' ng-show='false && time.askForLeave != true'>休</span>
+          <span style='color: #F15654;' ng-show='true && time.askForLeave != true'>班</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
