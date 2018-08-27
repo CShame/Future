@@ -4383,25 +4383,6 @@ angular.module('starter.controllers')
   }]);
 
 /**
- * Created by ws on 2017/3/14.
- */
-angular.module('starter.controllers')
-  .directive('progressBar',[function () {
-    return {
-      restrict : 'E',
-      templateUrl : 'directives/progressBar/progressBar.html',
-      scope : {
-        progress :'='
-      },
-      link : function (scope) {
-        console.log(2131213);
-        // scope.progressPercent = {width:scope.progress.data};
-      }
-    }
-  }])
-;
-
-/**
  * Created by ws on 2018/8/23.
  */
 angular.module('starter.directives')
@@ -4443,6 +4424,25 @@ angular.module('starter.directives')
       }
     }
   }]);
+
+/**
+ * Created by ws on 2017/3/14.
+ */
+angular.module('starter.controllers')
+  .directive('progressBar',[function () {
+    return {
+      restrict : 'E',
+      templateUrl : 'directives/progressBar/progressBar.html',
+      scope : {
+        progress :'='
+      },
+      link : function (scope) {
+        console.log(2131213);
+        // scope.progressPercent = {width:scope.progress.data};
+      }
+    }
+  }])
+;
 
 /**
  * Created by ws on 2017/2/17.
@@ -4995,33 +4995,6 @@ angular.module('starter.controllers')
 /**
  * Created by ws on 2018/8/22.
  */
-angular.module('starter.config2', [])
-  .config(["$stateProvider", function ($stateProvider) {
-    $stateProvider
-      .state('tab.chats', {
-        url: '/chats',
-        views: {
-          'tab-chats': {
-            templateUrl: 'templates/tab-chats.html',
-            controller: 'ChatsCtrl'
-          }
-        }
-      })
-      .state('tab.chat-detail', {
-        url: '/chats/:chatId',
-        views: {
-          'tab-chats': {
-            templateUrl: 'templates/chat-detail.html',
-            controller: 'ChatDetailCtrl'
-          }
-        }
-      })
-  }])
-;
-
-/**
- * Created by ws on 2018/8/22.
- */
 angular.module('starter.config1', [])
   .config(["$stateProvider", function ($stateProvider,$urlRouterProvider) {
     $stateProvider
@@ -5063,6 +5036,33 @@ angular.module('starter.config1', [])
 
     // if none of the above states are matched, use this as the fallback
     // $urlRouterProvider.otherwise('/tab/dash');
+  }])
+;
+
+/**
+ * Created by ws on 2018/8/22.
+ */
+angular.module('starter.config2', [])
+  .config(["$stateProvider", function ($stateProvider) {
+    $stateProvider
+      .state('tab.chats', {
+        url: '/chats',
+        views: {
+          'tab-chats': {
+            templateUrl: 'templates/tab-chats.html',
+            controller: 'ChatsCtrl'
+          }
+        }
+      })
+      .state('tab.chat-detail', {
+        url: '/chats/:chatId',
+        views: {
+          'tab-chats': {
+            templateUrl: 'templates/chat-detail.html',
+            controller: 'ChatDetailCtrl'
+          }
+        }
+      })
   }])
 ;
 
