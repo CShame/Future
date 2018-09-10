@@ -36,6 +36,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','s
   //设置navbar上标题的位置
   $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
   $ionicConfigProvider.platform.android.navBar.alignTitle('center');
+  //设置后退文本为空
+  $ionicConfigProvider.backButton.text('');
+  //根据平台设置返回icon
+  $ionicConfigProvider.platform.ios.backButton.icon('ion-ios-arrow-thin-left');
+  $ionicConfigProvider.platform.android.backButton.icon('ion-ios-arrow-left');
+  //是否启用将上一页面的标题作为本页面返回按钮标题
+  $ionicConfigProvider.backButton.previousTitleText(false);
+  //关闭android端过渡动画效果
+  $ionicConfigProvider.platform.android.views.transition('none');
 
   $stateProvider
 
@@ -71,7 +80,7 @@ angular.module('starter.controllers')
 
     $scope.functionPoint = [
       {name:'下拉框',page:'baseSelect'},
-      {name:'h5获取经纬度',page:'geoLocation'}
+      {name:'获取经纬度',page:'geoLocation'}
     ];
 
     $scope.goPage = function (pageUrl) {
@@ -3424,6 +3433,305 @@ angular.module('starter.controllers')
   }]);
 
 /**
+ * Created by ws on 2017/11/24.
+ */
+angular.module('starter.controllers')
+  .service('linkageSelectService', [function () {
+    var _this = this;
+    //页面中选择器数量 default : 0
+    _this.globalId = 0;
+    return _this;
+  }])
+
+  .directive('linkageSelect', ['$timeout', '$ionicScrollDelegate', 'linkageSelectService', '$ionicModal', function ($timeout, $ionicScrollDelegate, linkageSelectService, $ionicModal) {
+
+    return {
+      restrict: 'E',
+      templateUrl: 'directives/linkageSelect/page.html',
+      scope: {
+        options: "=",
+        callback: "&"
+      },
+      link: function (scope) {
+
+        scope.globalId = ++linkageSelectService.globalId;
+        scope.showData = '全部 全部 全部';
+
+        scope.$watch('options.list', function (newV) {
+          if (newV && scope.options.list.length > 0) {
+            scope.levelOneList = scope.options.list;
+            init();
+          }
+        });
+
+
+        scope.levelTwoList = [];
+        scope.levelThreeList = [];
+
+
+        scope.levelOneTimer = null; //一级滑动定时器
+        scope.levelTwoTimer = null; //二级滑动定时器
+        scope.levelThreeTimer = null; //三级滑动定时器
+
+
+        /*-------------------------------------------------------*/
+        //打开模型
+        scope.openModal = function () {
+          if (scope.modal) {
+            scope.modal.show();
+          } else {
+            $ionicModal.fromTemplateUrl(
+              'directives/linkageSelect/modal.html',
+              {
+                scope: scope,
+                animation: 'fade-in'
+              }).then(function (modal) {
+              scope.modal = modal;
+              scope.modal.show();
+            });
+          }
+        };
+
+        scope.cancelModal = function () {
+          scope.modal.hide();
+        };
+
+        //确定
+        scope.submitValue = function () {
+          scope.showData = scope.levelOneValue.NodeText + ' ' + scope.levelTwoValue.NodeText + ' ' + scope.levelThreeValue.NodeText;
+          scope.options.selectedValues = [];
+          scope.options.selectedValues.push(scope.levelOneValue);
+          scope.options.selectedValues.push(scope.levelTwoValue);
+          scope.options.selectedValues.push(scope.levelThreeValue);
+          scope.modal.hide();
+        };
+        /*-------------------------------------------------------*/
+
+
+        function init() {
+          initLevelOne();
+          initLevelTwo();
+          initLevelThree();
+        }
+
+
+        //初始化一级
+        function initLevelOne() {
+
+          insertBlankData(scope.levelOneList);
+          scope.levelOneValue = scope.levelOneList[2];
+          scope.levelOneValue.selected = true;
+          scope.levelOneIndex = 2;
+
+          // console.log(scope.levelOneList);
+        }
+
+        //初始化二级
+        function initLevelTwo() {
+          insertBlankData(scope.levelTwoList);
+          // console.log(scope.levelTwoList);
+          if (scope.levelOneValue.Children) {
+            scope.levelTwoValue = scope.levelOneValue.Children[2];
+          } else {
+            scope.levelTwoValue = scope.levelTwoList[2];
+          }
+          scope.levelTwoValue.selected = true;
+          scope.levelTwoIndex = 2;
+        }
+
+        //初始化三级
+        function initLevelThree() {
+          insertBlankData(scope.levelThreeList);
+          if (scope.levelTwoValue.Children) {
+            scope.levelThreeValue = scope.levelTwoValue.Children[2];
+          } else {
+            scope.levelThreeValue = scope.levelThreeList[2];
+          }
+          scope.levelThreeValue.selected = true;
+          scope.levelThreeIndex = 2;
+        }
+
+        var posi;          //实时滚动位置
+        var lastTimePosi;  //上一次位置
+
+        //滚动触发事件
+        scope.scrollingEvent = function (type) {
+          var opEntity = getOperateEntity(type);
+
+          if (scope[opEntity.scrollTimer]) {
+            $timeout.cancel(scope[opEntity.scrollTimer]);
+          }
+
+          if (posi) {
+            lastTimePosi = posi;
+          }
+
+          posi = $ionicScrollDelegate.$getByHandle(opEntity.scrollHandler).getScrollPosition();
+
+          var index;
+          if(lastTimePosi) {
+            if (posi.top > lastTimePosi.top) {
+              index = Math.abs(Math.ceil(posi.top / 30));
+            } else if (posi.top <= lastTimePosi.top) {
+              index = parseInt(posi.top / 30);
+            }
+          }
+
+          // var index = Math.abs(Math.round(posi.top / 30));
+          // console.log(posi, index);
+          if (posi.top == index * 30) {
+            updateSelect(index + 2, type);
+          } else {
+            scope[opEntity.scrollTimer] = $timeout(function () {
+              posi.top = index * 30;
+              updateSelect(index + 2, type);
+              scrollToPosi($ionicScrollDelegate.$getByHandle(opEntity.scrollHandler), posi);
+            }, 200);
+          }
+        };
+
+
+        //点击Event
+        scope.selectEvent = function (type, index) {
+          var opEntity = getOperateEntity(type);
+
+          if(index < 2 || index >= scope[opEntity.data].length -2){
+            return;
+          }
+
+
+            var nowPosi = {};
+          nowPosi.top = (index -2) * 30;
+          nowPosi.left = 0;
+          updateSelect(index, type);
+          scrollToPosi($ionicScrollDelegate.$getByHandle(opEntity.scrollHandler), nowPosi);
+        };
+
+        //获取滚动条详细数据
+        function getOperateEntity(type) {
+          var entity = new Object();
+
+          switch (type) {
+            case 'levelOne':
+              entity.scrollTimer = 'levelOneTimer';
+              entity.type = type;
+              entity.scrollHandler = 'levelOneScroll_' + scope.globalId;
+              entity.data = 'levelOneList';
+
+              break;
+            case 'levelTwo':
+              entity.scrollTimer = 'levelTwoTimer';
+              entity.type = type;
+              entity.scrollHandler = 'levelTwoScroll_' + scope.globalId;
+              entity.data = 'levelTwoList';
+              break;
+            case 'levelThree':
+              entity.scrollTimer = 'levelThreeTimer';
+              entity.type = type;
+              entity.scrollHandler = 'levelThreeScroll_' + scope.globalId;
+              entity.data = 'levelThreeList';
+              break;
+          }
+
+          return entity;
+        }
+
+
+        //更新选中的内容
+        function updateSelect(index, type) {
+          switch (type) {
+            case "levelOne":
+              //强制
+              $timeout(function () {
+                scope.levelOneValue.selected = false;
+                scope.levelOneList[index].selected = true;
+                scope.levelOneIndex = index;
+                scope.levelOneValue = scope.levelOneList[index];
+              });
+              break;
+            case "levelTwo":
+              //强制
+              $timeout(function () {
+                scope.levelTwoValue.selected = false;
+                scope.levelTwoList[index].selected = true;
+                scope.levelTwoIndex = index;
+                scope.levelTwoValue = scope.levelTwoList[index];
+                // console.log(scope.levelTwoIndex,scope.levelTwoValue);
+
+              });
+              break;
+            case "levelThree":
+              //强制
+              $timeout(function () {
+                scope.levelThreeValue.selected = false;
+                scope.levelThreeList[index].selected = true;
+                scope.levelThreeIndex = index;
+                scope.levelThreeValue = scope.levelThreeList[index];
+                // console.log(scope.levelThreeValue);
+              });
+              break;
+
+          }
+        }
+
+
+        scope.$watch('levelOneIndex', function (newV, oldV) {
+          if (newV != oldV) {
+            if (newV != 2) {  //不是选择全部的时候
+              scope.levelTwoList = scope.levelOneList[newV].Children;
+            } else {
+              scope.levelTwoList = [];
+            }
+            initLevelTwo();
+            scope.levelTwoValue.selected = false;
+            scope.levelTwoIndex = 2;
+            scope.levelTwoValue = scope.levelTwoList[2];
+            scope.levelTwoValue.selected = true;
+            scrollToPosi($ionicScrollDelegate.$getByHandle('levelTwoScroll_' + scope.globalId), {top:0,left:0});
+          }
+        });
+
+        scope.$watch('levelTwoIndex', function (newV, oldV) {
+          if (newV != oldV) {
+            if (newV != 2) { //不是选择全部的时候
+              scope.levelThreeList = scope.levelTwoList[newV].Children;
+            } else {
+              scope.levelThreeList = [];
+            }
+            initLevelThree();
+            scope.levelThreeValue.selected = false;
+            scope.levelThreeIndex = 2;
+            scope.levelThreeValue = scope.levelThreeList[2];
+            scope.levelThreeValue.selected = true;
+            scrollToPosi($ionicScrollDelegate.$getByHandle('levelThreeScroll_' + scope.globalId), {top:0,left:0});
+          }
+        });
+
+        //在数据列表前后插入俩个空数据
+        function insertBlankData(arr) {
+          if (arr[0] == '' && arr[1] == '' && arr[2].NodeText == '全部') {
+            return;
+          } else {
+            arr.unshift({NodeText: '全部'});
+            arr.unshift('');
+            arr.unshift('');
+            arr.push('');
+            arr.push('');
+          }
+        }
+
+        //滑动到指定位置
+        function scrollToPosi(scorllHandler, posi) {
+          scorllHandler && scorllHandler.scrollTo(posi.left, posi.top, true);
+        }
+
+
+      }
+    }
+
+  }]);
+
+/**
  * Created by ws on 2017/12/22.
  */
 angular.module('starter.controllers')
@@ -3880,57 +4188,6 @@ angular.module('starter.controllers')
   }]);
 
 /**
- * Created by Administrator on 2017/2/21 0021.
- */
-angular.module('starter.controllers')
-  .directive('monthOption', [ '$filter', function ( $filter) {
-    return {
-      restrict: 'E',
-      replace: true,
-      scope: {
-        mapTime: '&',
-      },
-      templateUrl: 'directives/monthOption/page.html',
-      link: function (scope) {
-
-        var now = new Date();
-        scope.thisYear = now.getYear() + 1900;
-        scope.thisMonth = now.getMonth()+1;
-
-
-        scope.canAdd = false;
-
-        scope.$watch('state.reset', function (nVal) {
-          if (nVal) {
-            scope.timeType = scope.yearOrMonth;
-            now = new Date();
-            scope.nowData = $filter('date')(now, 'yyyy/MM');
-          }
-        });
-
-        scope.setTime = function (side) {
-          if(side == -1){
-            if(scope.thisMonth >1){
-              scope.thisMonth--;
-            }else{
-              scope.thisYear--;
-              scope.thisMonth = 12;
-            }
-          }else{
-            if(scope.thisMonth < 12){
-              scope.thisMonth++;
-            }else{
-              scope.thisYear++;
-              scope.thisMonth = 1;
-            }
-          }
-          scope.mapTime({thisYear: scope.thisYear, thisMonth: scope.thisMonth});
-        };
-      }
-    }
-  }]);
-
-/**
  * Created by ws on 2018/4/4.
  */
 angular.module('starter.controllers')
@@ -3984,6 +4241,57 @@ angular.module('starter.controllers')
           scope.btnCancel();
         };
 
+      }
+    }
+  }]);
+
+/**
+ * Created by Administrator on 2017/2/21 0021.
+ */
+angular.module('starter.controllers')
+  .directive('monthOption', [ '$filter', function ( $filter) {
+    return {
+      restrict: 'E',
+      replace: true,
+      scope: {
+        mapTime: '&',
+      },
+      templateUrl: 'directives/monthOption/page.html',
+      link: function (scope) {
+
+        var now = new Date();
+        scope.thisYear = now.getYear() + 1900;
+        scope.thisMonth = now.getMonth()+1;
+
+
+        scope.canAdd = false;
+
+        scope.$watch('state.reset', function (nVal) {
+          if (nVal) {
+            scope.timeType = scope.yearOrMonth;
+            now = new Date();
+            scope.nowData = $filter('date')(now, 'yyyy/MM');
+          }
+        });
+
+        scope.setTime = function (side) {
+          if(side == -1){
+            if(scope.thisMonth >1){
+              scope.thisMonth--;
+            }else{
+              scope.thisYear--;
+              scope.thisMonth = 12;
+            }
+          }else{
+            if(scope.thisMonth < 12){
+              scope.thisMonth++;
+            }else{
+              scope.thisYear++;
+              scope.thisMonth = 1;
+            }
+          }
+          scope.mapTime({thisYear: scope.thisYear, thisMonth: scope.thisMonth});
+        };
       }
     }
   }]);
@@ -4127,6 +4435,25 @@ angular.module('starter.directives')
   }]);
 
 /**
+ * Created by ws on 2017/3/14.
+ */
+angular.module('starter.controllers')
+  .directive('progressBar',[function () {
+    return {
+      restrict : 'E',
+      templateUrl : 'directives/progressBar/progressBar.html',
+      scope : {
+        progress :'='
+      },
+      link : function (scope) {
+        console.log(2131213);
+        // scope.progressPercent = {width:scope.progress.data};
+      }
+    }
+  }])
+;
+
+/**
  * Created by ws on 2017/2/17.
  */
 angular.module('starter.controllers')
@@ -4222,416 +4549,6 @@ angular.module('starter.controllers')
 
       }
     }
-  }])
-;
-
-/**
- * Created by ws on 2017/11/24.
- */
-angular.module('starter.controllers')
-  .service('linkageSelectService', [function () {
-    var _this = this;
-    //页面中选择器数量 default : 0
-    _this.globalId = 0;
-    return _this;
-  }])
-
-  .directive('linkageSelect', ['$timeout', '$ionicScrollDelegate', 'linkageSelectService', '$ionicModal', function ($timeout, $ionicScrollDelegate, linkageSelectService, $ionicModal) {
-
-    return {
-      restrict: 'E',
-      templateUrl: 'directives/linkageSelect/page.html',
-      scope: {
-        options: "=",
-        callback: "&"
-      },
-      link: function (scope) {
-
-        scope.globalId = ++linkageSelectService.globalId;
-        scope.showData = '全部 全部 全部';
-
-        scope.$watch('options.list', function (newV) {
-          if (newV && scope.options.list.length > 0) {
-            scope.levelOneList = scope.options.list;
-            init();
-          }
-        });
-
-
-        scope.levelTwoList = [];
-        scope.levelThreeList = [];
-
-
-        scope.levelOneTimer = null; //一级滑动定时器
-        scope.levelTwoTimer = null; //二级滑动定时器
-        scope.levelThreeTimer = null; //三级滑动定时器
-
-
-        /*-------------------------------------------------------*/
-        //打开模型
-        scope.openModal = function () {
-          if (scope.modal) {
-            scope.modal.show();
-          } else {
-            $ionicModal.fromTemplateUrl(
-              'directives/linkageSelect/modal.html',
-              {
-                scope: scope,
-                animation: 'fade-in'
-              }).then(function (modal) {
-              scope.modal = modal;
-              scope.modal.show();
-            });
-          }
-        };
-
-        scope.cancelModal = function () {
-          scope.modal.hide();
-        };
-
-        //确定
-        scope.submitValue = function () {
-          scope.showData = scope.levelOneValue.NodeText + ' ' + scope.levelTwoValue.NodeText + ' ' + scope.levelThreeValue.NodeText;
-          scope.options.selectedValues = [];
-          scope.options.selectedValues.push(scope.levelOneValue);
-          scope.options.selectedValues.push(scope.levelTwoValue);
-          scope.options.selectedValues.push(scope.levelThreeValue);
-          scope.modal.hide();
-        };
-        /*-------------------------------------------------------*/
-
-
-        function init() {
-          initLevelOne();
-          initLevelTwo();
-          initLevelThree();
-        }
-
-
-        //初始化一级
-        function initLevelOne() {
-
-          insertBlankData(scope.levelOneList);
-          scope.levelOneValue = scope.levelOneList[2];
-          scope.levelOneValue.selected = true;
-          scope.levelOneIndex = 2;
-
-          // console.log(scope.levelOneList);
-        }
-
-        //初始化二级
-        function initLevelTwo() {
-          insertBlankData(scope.levelTwoList);
-          // console.log(scope.levelTwoList);
-          if (scope.levelOneValue.Children) {
-            scope.levelTwoValue = scope.levelOneValue.Children[2];
-          } else {
-            scope.levelTwoValue = scope.levelTwoList[2];
-          }
-          scope.levelTwoValue.selected = true;
-          scope.levelTwoIndex = 2;
-        }
-
-        //初始化三级
-        function initLevelThree() {
-          insertBlankData(scope.levelThreeList);
-          if (scope.levelTwoValue.Children) {
-            scope.levelThreeValue = scope.levelTwoValue.Children[2];
-          } else {
-            scope.levelThreeValue = scope.levelThreeList[2];
-          }
-          scope.levelThreeValue.selected = true;
-          scope.levelThreeIndex = 2;
-        }
-
-        var posi;          //实时滚动位置
-        var lastTimePosi;  //上一次位置
-
-        //滚动触发事件
-        scope.scrollingEvent = function (type) {
-          var opEntity = getOperateEntity(type);
-
-          if (scope[opEntity.scrollTimer]) {
-            $timeout.cancel(scope[opEntity.scrollTimer]);
-          }
-
-          if (posi) {
-            lastTimePosi = posi;
-          }
-
-          posi = $ionicScrollDelegate.$getByHandle(opEntity.scrollHandler).getScrollPosition();
-
-          var index;
-          if(lastTimePosi) {
-            if (posi.top > lastTimePosi.top) {
-              index = Math.abs(Math.ceil(posi.top / 30));
-            } else if (posi.top <= lastTimePosi.top) {
-              index = parseInt(posi.top / 30);
-            }
-          }
-
-          // var index = Math.abs(Math.round(posi.top / 30));
-          // console.log(posi, index);
-          if (posi.top == index * 30) {
-            updateSelect(index + 2, type);
-          } else {
-            scope[opEntity.scrollTimer] = $timeout(function () {
-              posi.top = index * 30;
-              updateSelect(index + 2, type);
-              scrollToPosi($ionicScrollDelegate.$getByHandle(opEntity.scrollHandler), posi);
-            }, 200);
-          }
-        };
-
-
-        //点击Event
-        scope.selectEvent = function (type, index) {
-          var opEntity = getOperateEntity(type);
-
-          if(index < 2 || index >= scope[opEntity.data].length -2){
-            return;
-          }
-
-
-            var nowPosi = {};
-          nowPosi.top = (index -2) * 30;
-          nowPosi.left = 0;
-          updateSelect(index, type);
-          scrollToPosi($ionicScrollDelegate.$getByHandle(opEntity.scrollHandler), nowPosi);
-        };
-
-        //获取滚动条详细数据
-        function getOperateEntity(type) {
-          var entity = new Object();
-
-          switch (type) {
-            case 'levelOne':
-              entity.scrollTimer = 'levelOneTimer';
-              entity.type = type;
-              entity.scrollHandler = 'levelOneScroll_' + scope.globalId;
-              entity.data = 'levelOneList';
-
-              break;
-            case 'levelTwo':
-              entity.scrollTimer = 'levelTwoTimer';
-              entity.type = type;
-              entity.scrollHandler = 'levelTwoScroll_' + scope.globalId;
-              entity.data = 'levelTwoList';
-              break;
-            case 'levelThree':
-              entity.scrollTimer = 'levelThreeTimer';
-              entity.type = type;
-              entity.scrollHandler = 'levelThreeScroll_' + scope.globalId;
-              entity.data = 'levelThreeList';
-              break;
-          }
-
-          return entity;
-        }
-
-
-        //更新选中的内容
-        function updateSelect(index, type) {
-          switch (type) {
-            case "levelOne":
-              //强制
-              $timeout(function () {
-                scope.levelOneValue.selected = false;
-                scope.levelOneList[index].selected = true;
-                scope.levelOneIndex = index;
-                scope.levelOneValue = scope.levelOneList[index];
-              });
-              break;
-            case "levelTwo":
-              //强制
-              $timeout(function () {
-                scope.levelTwoValue.selected = false;
-                scope.levelTwoList[index].selected = true;
-                scope.levelTwoIndex = index;
-                scope.levelTwoValue = scope.levelTwoList[index];
-                // console.log(scope.levelTwoIndex,scope.levelTwoValue);
-
-              });
-              break;
-            case "levelThree":
-              //强制
-              $timeout(function () {
-                scope.levelThreeValue.selected = false;
-                scope.levelThreeList[index].selected = true;
-                scope.levelThreeIndex = index;
-                scope.levelThreeValue = scope.levelThreeList[index];
-                // console.log(scope.levelThreeValue);
-              });
-              break;
-
-          }
-        }
-
-
-        scope.$watch('levelOneIndex', function (newV, oldV) {
-          if (newV != oldV) {
-            if (newV != 2) {  //不是选择全部的时候
-              scope.levelTwoList = scope.levelOneList[newV].Children;
-            } else {
-              scope.levelTwoList = [];
-            }
-            initLevelTwo();
-            scope.levelTwoValue.selected = false;
-            scope.levelTwoIndex = 2;
-            scope.levelTwoValue = scope.levelTwoList[2];
-            scope.levelTwoValue.selected = true;
-            scrollToPosi($ionicScrollDelegate.$getByHandle('levelTwoScroll_' + scope.globalId), {top:0,left:0});
-          }
-        });
-
-        scope.$watch('levelTwoIndex', function (newV, oldV) {
-          if (newV != oldV) {
-            if (newV != 2) { //不是选择全部的时候
-              scope.levelThreeList = scope.levelTwoList[newV].Children;
-            } else {
-              scope.levelThreeList = [];
-            }
-            initLevelThree();
-            scope.levelThreeValue.selected = false;
-            scope.levelThreeIndex = 2;
-            scope.levelThreeValue = scope.levelThreeList[2];
-            scope.levelThreeValue.selected = true;
-            scrollToPosi($ionicScrollDelegate.$getByHandle('levelThreeScroll_' + scope.globalId), {top:0,left:0});
-          }
-        });
-
-        //在数据列表前后插入俩个空数据
-        function insertBlankData(arr) {
-          if (arr[0] == '' && arr[1] == '' && arr[2].NodeText == '全部') {
-            return;
-          } else {
-            arr.unshift({NodeText: '全部'});
-            arr.unshift('');
-            arr.unshift('');
-            arr.push('');
-            arr.push('');
-          }
-        }
-
-        //滑动到指定位置
-        function scrollToPosi(scorllHandler, posi) {
-          scorllHandler && scorllHandler.scrollTo(posi.left, posi.top, true);
-        }
-
-
-      }
-    }
-
-  }]);
-
-/**
- * Created by ws on 2017/3/14.
- */
-angular.module('starter.controllers')
-  .directive('progressBar',[function () {
-    return {
-      restrict : 'E',
-      templateUrl : 'directives/progressBar/progressBar.html',
-      scope : {
-        progress :'='
-      },
-      link : function (scope) {
-        console.log(2131213);
-        // scope.progressPercent = {width:scope.progress.data};
-      }
-    }
-  }])
-;
-
-/**
- * Created by ws on 2018/8/22.
- */
-angular.module('starter.config1', [])
-  .config(["$stateProvider", function ($stateProvider,$urlRouterProvider) {
-    $stateProvider
-      .state('tab', {
-        url: '/tab',
-        abstract: true,
-        templateUrl: 'templates/tabs.html'
-      })
-
-      .state('tab.dash', {
-        url: '/dash',
-        views: {
-          'tab-dash': {
-            templateUrl: 'templates/tab-dash.html',
-            controller: 'DashCtrl'
-          }
-        }
-      })
-
-      .state('tab.geoLocation', {
-        url: '/geoLocation',
-        views: {
-          'tab-dash': {
-            templateUrl: 'src/tab1/geolocation/page.html',
-            controller: 'geoLocationCtrl'
-          }
-        }
-      })
-
-      .state('tab.baseSelect', {
-        url: '/baseSelect',
-        views: {
-          'tab-dash': {
-            templateUrl: 'src/tab1/baseSelect/page.html',
-            controller: 'baseSelectCtrl'
-          }
-        }
-      });
-
-    // if none of the above states are matched, use this as the fallback
-    // $urlRouterProvider.otherwise('/tab/dash');
-  }])
-;
-
-/**
- * Created by ws on 2018/8/22.
- */
-angular.module('starter.config2', [])
-  .config(["$stateProvider", function ($stateProvider) {
-    $stateProvider
-      .state('tab.chats', {
-        url: '/chats',
-        views: {
-          'tab-chats': {
-            templateUrl: 'templates/tab-chats.html',
-            controller: 'ChatsCtrl'
-          }
-        }
-      })
-      .state('tab.chat-detail', {
-        url: '/chats/:chatId',
-        views: {
-          'tab-chats': {
-            templateUrl: 'templates/chat-detail.html',
-            controller: 'ChatDetailCtrl'
-          }
-        }
-      })
-  }])
-;
-
-/**
- * Created by ws on 2018/8/22.
- */
-angular.module('starter.config3', [])
-  .config(["$stateProvider", function ($stateProvider) {
-    $stateProvider
-      .state('tab.account', {
-        url: '/account',
-        views: {
-          'tab-account': {
-            templateUrl: 'templates/tab-account.html',
-            controller: 'AccountCtrl'
-          }
-        }
-      });
   }])
 ;
 
@@ -5052,11 +4969,9 @@ angular.module('starter.controllers')
 angular.module('starter.controllers')
   .controller('geoLocationCtrl', ["$scope", "$interval", function ($scope,$interval) {
 
-    $interval(function () {
-      $scope.getPosition
-    },5000);
     $scope.position = {};
-    $scope.getPosition = function () {
+
+    $scope.getPosition111 = function () {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
           console.log(position);
@@ -5082,6 +4997,131 @@ angular.module('starter.controllers')
 
     } ;
 
+
+    //获取经纬度
+    $scope.getLatAndLon = function(callback) {
+      var point = {longitude:null,latitude:null};
+      if (ionic.Platform.isAndroid() && window.cordova) {
+        baidumap_location.getCurrentPosition(function (data) {
+          console.log("getLatAndLon android success,定位成功",data);
+          point.longitude  = data.longitude;
+          point.latitude  = data.latitude;
+          callback(point);
+        }, function (err) {
+          // 没有权限进入error code -1
+          console.log("getLatAndLon error,手机定位功能未开启(Android)");
+        });
+      }else{
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function (position) {
+            console.log("(IOS)Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude);
+            point.longitude  = position.coords.longitude;
+            point.latitude  = position.coords.latitude;
+            callback(point);
+          })
+        }
+      }
+    }
+
+
+    $scope.getPosition = function () {
+      $scope.getLatAndLon(function (data) {
+        $scope.position = data;
+      })
+    }
+
   }]);
+
+/**
+ * Created by ws on 2018/8/22.
+ */
+angular.module('starter.config1', [])
+  .config(["$stateProvider", function ($stateProvider,$urlRouterProvider) {
+    $stateProvider
+      .state('tab', {
+        url: '/tab',
+        abstract: true,
+        templateUrl: 'templates/tabs.html'
+      })
+
+      .state('tab.dash', {
+        url: '/dash',
+        views: {
+          'tab-dash': {
+            templateUrl: 'templates/tab-dash.html',
+            controller: 'DashCtrl'
+          }
+        }
+      })
+
+      .state('tab.geoLocation', {
+        url: '/geoLocation',
+        views: {
+          'tab-dash': {
+            templateUrl: 'src/tab1/geolocation/page.html',
+            controller: 'geoLocationCtrl'
+          }
+        }
+      })
+
+      .state('tab.baseSelect', {
+        url: '/baseSelect',
+        views: {
+          'tab-dash': {
+            templateUrl: 'src/tab1/baseSelect/page.html',
+            controller: 'baseSelectCtrl'
+          }
+        }
+      });
+
+    // if none of the above states are matched, use this as the fallback
+    // $urlRouterProvider.otherwise('/tab/dash');
+  }])
+;
+
+/**
+ * Created by ws on 2018/8/22.
+ */
+angular.module('starter.config2', [])
+  .config(["$stateProvider", function ($stateProvider) {
+    $stateProvider
+      .state('tab.chats', {
+        url: '/chats',
+        views: {
+          'tab-chats': {
+            templateUrl: 'templates/tab-chats.html',
+            controller: 'ChatsCtrl'
+          }
+        }
+      })
+      .state('tab.chat-detail', {
+        url: '/chats/:chatId',
+        views: {
+          'tab-chats': {
+            templateUrl: 'templates/chat-detail.html',
+            controller: 'ChatDetailCtrl'
+          }
+        }
+      })
+  }])
+;
+
+/**
+ * Created by ws on 2018/8/22.
+ */
+angular.module('starter.config3', [])
+  .config(["$stateProvider", function ($stateProvider) {
+    $stateProvider
+      .state('tab.account', {
+        url: '/account',
+        views: {
+          'tab-account': {
+            templateUrl: 'templates/tab-account.html',
+            controller: 'AccountCtrl'
+          }
+        }
+      });
+  }])
+;
 
 //# sourceMappingURL=all.js.map

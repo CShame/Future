@@ -36,6 +36,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','s
   //设置navbar上标题的位置
   $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
   $ionicConfigProvider.platform.android.navBar.alignTitle('center');
+  //设置后退文本为空
+  $ionicConfigProvider.backButton.text('');
+  //根据平台设置返回icon
+  $ionicConfigProvider.platform.ios.backButton.icon('ion-ios-arrow-thin-left');
+  $ionicConfigProvider.platform.android.backButton.icon('ion-ios-arrow-left');
+  //是否启用将上一页面的标题作为本页面返回按钮标题
+  $ionicConfigProvider.backButton.previousTitleText(false);
+  //关闭android端过渡动画效果
+  $ionicConfigProvider.platform.android.views.transition('none');
 
   $stateProvider
 

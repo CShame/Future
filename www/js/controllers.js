@@ -4,7 +4,7 @@ angular.module('starter.controllers')
 
     $scope.functionPoint = [
       {name:'下拉框',page:'baseSelect'},
-      {name:'h5获取经纬度',page:'geoLocation'}
+      {name:'获取经纬度',page:'geoLocation'}
     ];
 
     $scope.goPage = function (pageUrl) {
