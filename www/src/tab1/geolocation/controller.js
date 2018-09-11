@@ -7,34 +7,10 @@
 angular.module('starter.controllers')
   .controller('geoLocationCtrl', function ($scope,$interval) {
 
-    $scope.position = {};
-
-    $scope.getPosition111 = function () {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          console.log(position);
-          $scope.position = position.coords;
-          console.log($scope.position);
-        }, function showError(error) {
-          switch (error.code) {
-            case error.PERMISSION_DENIED:
-              $scope.errrorHtml = "User denied the request for Geolocation."
-              break;
-            case error.POSITION_UNAVAILABLE:
-              $scope.errrorHtml = "Location information is unavailable."
-              break;
-            case error.TIMEOUT:
-              $scope.errrorHtml = "The request to get user location timed out."
-              break;
-            case error.UNKNOWN_ERROR:
-              $scope.errrorHtml = "An unknown error occurred."
-              break;
-          }
-        });
-      }
-
-    } ;
-
+    $scope.position = {
+      latitude:'...',
+      longitude:'...'
+    };
 
     //获取经纬度
     $scope.getLatAndLon = function(callback) {
@@ -59,13 +35,17 @@ angular.module('starter.controllers')
           })
         }
       }
-    }
+    };
 
 
     $scope.getPosition = function () {
+      $scope.position = {
+        latitude:'loading',
+        longitude:'loading'
+      };
       $scope.getLatAndLon(function (data) {
         $scope.position = data;
       })
-    }
+    };
 
   });

@@ -2,16 +2,18 @@
   <ion-content>
     <ion-item>
       <span>经度：</span>
-      <span>{{position.latitude || 'loading'}}</span>
+      <span>{{position.latitude}}</span>
     </ion-item>
     <ion-item>
       <span>纬度：</span>
-      <span>{{position.longitude || 'loading'}}</span>
+      <span>{{position.longitude}}</span>
     </ion-item>
     <ion-item ng-show="errrorHtml">
-    <span>失败原因：</span>
-    <span>{{errrorHtml}}</span>
-  </ion-item>
-    <button ng-click='getPosition()' class='button button-positive'>获取位置</button>
+      <span>失败原因：</span>
+      <span>{{errrorHtml}}</span>
+    </ion-item>
+    <div style="text-align: center;margin-top: 100px;" >
+      <button ng-click='getPosition()' class='button button-positive'>获取位置</button>
+    </div>
   </ion-content>
 </ion-view>

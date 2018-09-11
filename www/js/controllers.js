@@ -168,9 +168,6 @@ angular.module('starter.controllers')
 
   })
 
-  .controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
-    $scope.chat = Chats.get($stateParams.chatId);
-  })
 
   .controller('AccountCtrl', function ($scope, $rootScope, $ionicModal, $http, myNote, $state, $interval, CalenderService,lunarCalendar,$filter) {
 

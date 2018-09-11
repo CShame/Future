@@ -13,14 +13,5 @@ angular.module('starter.config2', [])
           }
         }
       })
-      .state('tab.chat-detail', {
-        url: '/chats/:chatId',
-        views: {
-          'tab-chats': {
-            templateUrl: 'templates/chat-detail.html',
-            controller: 'ChatDetailCtrl'
-          }
-        }
-      })
   }])
 ;
