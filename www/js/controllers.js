@@ -4,7 +4,8 @@ angular.module('starter.controllers')
 
     $scope.functionPoint = [
       {name:'下拉框',page:'baseSelect'},
-      {name:'获取经纬度',page:'geoLocation'}
+      {name:'获取经纬度',page:'geoLocation'},
+      {name:'录音',page:'record'}
     ];
 
     $scope.goPage = function (pageUrl) {
@@ -12,85 +13,85 @@ angular.module('starter.controllers')
     };
 
 
-    $scope.recordTitle = '按住录音';
-
-
-    function getRecord(src, step) {
-      var mediaRec = new Media(src,
-        // success callback
-        function () {
-          console.log("recordAudio():Audio Success", '---' + step);
-        },
-        // error callback
-        function (err) {
-          console.log("recordAudio():Audio Error: " + err.code, '---' + step);
-        });
-      return mediaRec;
-    }
-
-
-    var mediaRec = null;
-    //开始录音
-    $scope.startRecord = function () {
-      console.log('触发on-hold');
-      var src = 'test.mp3';
-      if (mediaRec) {
-        mediaRec.release();
-      }
-      console.log(src);
-      mediaRec = new Media(src,
-        // success callback
-        function () {
-          console.log("recordAudio():startRecord Success");
-        },
-        // error callback
-        function (err) {
-          console.log("recordAudio():startRecord Error: " + err.code);
-        });
-      // Record audio
-      mediaRec.startRecord();
-    };
-
-    //停止录音并保存
-    $scope.stopAndSaveRecord = function () {
-      console.log('触发on-release');
-      $timeout(function () {
-        if (mediaRec) {
-          mediaRec.stopRecord();
-          mediaRec.release();
-        }
-      }, 0)
-    };
-
-    //停止录音并取消录音
-    $scope.cancelRecord = function ($event) {
-      console.log('触发向上滑', $event);
-
-      // $scope.recordTitle = '按住录音';
-      //
-      // var src = "2.aac";
-      // var mediaRec = getRecord(src,'cancelRecord');
-      // mediaRec.stopRecord();
-      // //todo:delete
-    };
-
-    //播放录音
-    $scope.playRecord = function () {
-      var src = "test.mp3";
-      if (mediaRec) {
-        mediaRec.release();
-      }
-      mediaRec = new Media(src,
-        // success callback
-        function () {
-          console.log("recordAudio():play Success");
-        },
-        // error callback
-        function (err) {
-          console.log("recordAudio():play Error: " + err.code);
-        });
-      mediaRec.play();
-    }
+    // $scope.recordTitle = '按住录音';
+    //
+    //
+    // function getRecord(src, step) {
+    //   var mediaRec = new Media(src,
+    //     // success callback
+    //     function () {
+    //       console.log("recordAudio():Audio Success", '---' + step);
+    //     },
+    //     // error callback
+    //     function (err) {
+    //       console.log("recordAudio():Audio Error: " + err.code, '---' + step);
+    //     });
+    //   return mediaRec;
+    // }
+    //
+    //
+    // var mediaRec = null;
+    // //开始录音
+    // $scope.startRecord = function () {
+    //   console.log('触发on-hold');
+    //   var src = 'test.mp3';
+    //   if (mediaRec) {
+    //     mediaRec.release();
+    //   }
+    //   console.log(src);
+    //   mediaRec = new Media(src,
+    //     // success callback
+    //     function () {
+    //       console.log("recordAudio():startRecord Success");
+    //     },
+    //     // error callback
+    //     function (err) {
+    //       console.log("recordAudio():startRecord Error: " + err.code);
+    //     });
+    //   // Record audio
+    //   mediaRec.startRecord();
+    // };
+    //
+    // //停止录音并保存
+    // $scope.stopAndSaveRecord = function () {
+    //   console.log('触发on-release');
+    //   $timeout(function () {
+    //     if (mediaRec) {
+    //       mediaRec.stopRecord();
+    //       mediaRec.release();
+    //     }
+    //   }, 0)
+    // };
+    //
+    // //停止录音并取消录音
+    // $scope.cancelRecord = function ($event) {
+    //   console.log('触发向上滑', $event);
+    //
+    //   // $scope.recordTitle = '按住录音';
+    //   //
+    //   // var src = "2.aac";
+    //   // var mediaRec = getRecord(src,'cancelRecord');
+    //   // mediaRec.stopRecord();
+    //   // //todo:delete
+    // };
+    //
+    // //播放录音
+    // $scope.playRecord = function () {
+    //   var src = "test.mp3";
+    //   if (mediaRec) {
+    //     mediaRec.release();
+    //   }
+    //   mediaRec = new Media(src,
+    //     // success callback
+    //     function () {
+    //       console.log("recordAudio():play Success");
+    //     },
+    //     // error callback
+    //     function (err) {
+    //       console.log("recordAudio():play Error: " + err.code);
+    //     });
+    //   mediaRec.play();
+    // }
 
   })
 

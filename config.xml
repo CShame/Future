@@ -47,4 +47,8 @@
         <variable name="IOS_LOCATION_DESC" value="请点击'好'以允许访问。" />
     </plugin>
     <engine name="android" spec="~6.3.0" />
+    <plugin name="cordova-plugin-media" spec="^5.0.2" />
+    <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
+    <plugin name="cordova-plugin-file-opener2" spec="^2.0.19" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.3" />
 </widget>

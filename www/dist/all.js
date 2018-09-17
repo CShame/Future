@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','starter.config','starter.directives','ngCordovaBluetoothLE','whcyit-immerse'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','starter.config','starter.directives','ngCordova','ngCordovaBluetoothLE','whcyit-immerse'])
 
 .run(["$ionicPlatform", function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -80,7 +80,8 @@ angular.module('starter.controllers')
 
     $scope.functionPoint = [
       {name:'下拉框',page:'baseSelect'},
-      {name:'获取经纬度',page:'geoLocation'}
+      {name:'获取经纬度',page:'geoLocation'},
+      {name:'录音',page:'record'}
     ];
 
     $scope.goPage = function (pageUrl) {
@@ -88,85 +89,85 @@ angular.module('starter.controllers')
     };
 
 
-    $scope.recordTitle = '按住录音';
-
-
-    function getRecord(src, step) {
-      var mediaRec = new Media(src,
-        // success callback
-        function () {
-          console.log("recordAudio():Audio Success", '---' + step);
-        },
-        // error callback
-        function (err) {
-          console.log("recordAudio():Audio Error: " + err.code, '---' + step);
-        });
-      return mediaRec;
-    }
-
-
-    var mediaRec = null;
-    //开始录音
-    $scope.startRecord = function () {
-      console.log('触发on-hold');
-      var src = 'test.mp3';
-      if (mediaRec) {
-        mediaRec.release();
-      }
-      console.log(src);
-      mediaRec = new Media(src,
-        // success callback
-        function () {
-          console.log("recordAudio():startRecord Success");
-        },
-        // error callback
-        function (err) {
-          console.log("recordAudio():startRecord Error: " + err.code);
-        });
-      // Record audio
-      mediaRec.startRecord();
-    };
-
-    //停止录音并保存
-    $scope.stopAndSaveRecord = function () {
-      console.log('触发on-release');
-      $timeout(function () {
-        if (mediaRec) {
-          mediaRec.stopRecord();
-          mediaRec.release();
-        }
-      }, 0)
-    };
-
-    //停止录音并取消录音
-    $scope.cancelRecord = function ($event) {
-      console.log('触发向上滑', $event);
-
-      // $scope.recordTitle = '按住录音';
-      //
-      // var src = "2.aac";
-      // var mediaRec = getRecord(src,'cancelRecord');
-      // mediaRec.stopRecord();
-      // //todo:delete
-    };
-
-    //播放录音
-    $scope.playRecord = function () {
-      var src = "test.mp3";
-      if (mediaRec) {
-        mediaRec.release();
-      }
-      mediaRec = new Media(src,
-        // success callback
-        function () {
-          console.log("recordAudio():play Success");
-        },
-        // error callback
-        function (err) {
-          console.log("recordAudio():play Error: " + err.code);
-        });
-      mediaRec.play();
-    }
+    // $scope.recordTitle = '按住录音';
+    //
+    //
+    // function getRecord(src, step) {
+    //   var mediaRec = new Media(src,
+    //     // success callback
+    //     function () {
+    //       console.log("recordAudio():Audio Success", '---' + step);
+    //     },
+    //     // error callback
+    //     function (err) {
+    //       console.log("recordAudio():Audio Error: " + err.code, '---' + step);
+    //     });
+    //   return mediaRec;
+    // }
+    //
+    //
+    // var mediaRec = null;
+    // //开始录音
+    // $scope.startRecord = function () {
+    //   console.log('触发on-hold');
+    //   var src = 'test.mp3';
+    //   if (mediaRec) {
+    //     mediaRec.release();
+    //   }
+    //   console.log(src);
+    //   mediaRec = new Media(src,
+    //     // success callback
+    //     function () {
+    //       console.log("recordAudio():startRecord Success");
+    //     },
+    //     // error callback
+    //     function (err) {
+    //       console.log("recordAudio():startRecord Error: " + err.code);
+    //     });
+    //   // Record audio
+    //   mediaRec.startRecord();
+    // };
+    //
+    // //停止录音并保存
+    // $scope.stopAndSaveRecord = function () {
+    //   console.log('触发on-release');
+    //   $timeout(function () {
+    //     if (mediaRec) {
+    //       mediaRec.stopRecord();
+    //       mediaRec.release();
+    //     }
+    //   }, 0)
+    // };
+    //
+    // //停止录音并取消录音
+    // $scope.cancelRecord = function ($event) {
+    //   console.log('触发向上滑', $event);
+    //
+    //   // $scope.recordTitle = '按住录音';
+    //   //
+    //   // var src = "2.aac";
+    //   // var mediaRec = getRecord(src,'cancelRecord');
+    //   // mediaRec.stopRecord();
+    //   // //todo:delete
+    // };
+    //
+    // //播放录音
+    // $scope.playRecord = function () {
+    //   var src = "test.mp3";
+    //   if (mediaRec) {
+    //     mediaRec.release();
+    //   }
+    //   mediaRec = new Media(src,
+    //     // success callback
+    //     function () {
+    //       console.log("recordAudio():play Success");
+    //     },
+    //     // error callback
+    //     function (err) {
+    //       console.log("recordAudio():play Error: " + err.code);
+    //     });
+    //   mediaRec.play();
+    // }
 
   }])
 
@@ -243,7 +244,7 @@ angular.module('starter.controllers')
 
 
   }])
-  
+
 
   .controller('AccountCtrl', ["$scope", "$rootScope", "$ionicModal", "$http", "myNote", "$state", "$interval", "CalenderService", "lunarCalendar", "$filter", function ($scope, $rootScope, $ionicModal, $http, myNote, $state, $interval, CalenderService,lunarCalendar,$filter) {
 
@@ -1165,54 +1166,6 @@ angular.module('starter.services', [], ["$httpProvider", function ($httpProvider
   }];
 }])
 
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
-
-  return {
-    all: function() {
-      return chats;
-    },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
-      }
-      return null;
-    }
-  };
-})
 
 /*测试环境*/
   .constant('RequestUrl', 'http://192.168.3.179:999/')
@@ -1222,13 +1175,56 @@ angular.module('starter.services', [], ["$httpProvider", function ($httpProvider
   // .constant('RequestUrl', 'http://master.eegrid.com/')
   // .constant('baseUrl', 'http://master.eegrid.com/App.ashx?Name=EFOS.Master.Business.')
 
-  .factory('AirInputData',function () {
-  var inputData = function(){
+  .factory('pathUtil', [function () {
+    return {
+      getBasePath: function (noFile) {
+        var basePath;
+        if (ionic.Platform.isIOS()) {
+          if(noFile === true){
+            basePath = cordova.file.documentsDirectory.replace("file://", "");
+          }else{
+            basePath = cordova.file.documentsDirectory;
+          }
+        } else {
+          basePath = cordova.file.externalApplicationStorageDirectory || cordova.file.applicationStorageDirectory;
+        }
+        return basePath;
+      }
+    }
+  }])
 
-  }
+  .factory('DateUtil', [function () {
+    return {
+      DateFormat: function () {
+        var date = new Date();
+        var res;
+        var year = date.getFullYear();
+        var Month = date.getMonth() + 1;
+        var day = date.getDate();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        var sec = date.getSeconds();
 
-  return {inputData:inputData};
-})
+        if (Month < 10) {
+          Month = '0' + Month;
+        }
+        if (day < 10) {
+          day = '0' + day;
+        }
+        if (hour < 10) {
+          hour = '0' + hour;
+        }
+        if (min < 10) {
+          min = '0' + min;
+        }
+        if (sec < 10) {
+          sec = '0' + sec;
+        }
+        res = '' + year + Month + day + hour + min + sec;
+        return res;
+      }
+    }
+  }])
 
   .factory('HttpFactory', ["$http", "$ionicPopup", "$ionicLoading", function ($http, $ionicPopup, $ionicLoading) {
     var send = function (config) {
@@ -1374,6 +1370,172 @@ angular.module('starter.services', [], ["$httpProvider", function ($httpProvider
     }
 }])
 
+  .factory('fsUtil', ['pathUtil', '$q', '$cordovaFile', '$cordovaFileOpener2', '$cordovaFileTransfer',
+    function (pathUtil, $q, $cordovaFile, $cordovaFileOpener2, $cordovaFileTransfer) {
+      return {
+        download: function (serverPath, downloadPathSuffix) {
+          var options = {};
+          var trustHosts = true;
+          var defer = $q.defer();
+          // var fileTransfer = new FileTransfer();
+          var basePath = pathUtil.getBasePath();
+          var targetPath = basePath + '/' + downloadPathSuffix;
+          $cordovaFileTransfer.download(serverPath, targetPath, options, trustHosts).then(
+            function (result) {
+              defer.resolve(targetPath);
+              console.log("下载成功", result);
+            }, function (error) {
+              console.log("下载失败", error);
+              defer.reject(error);
+            },
+            function (process) {
+              // defer.reject(error);
+            });
+          return defer.promise;
+        },
+        checkFile: function (path, filename) {
+          var defer = $q.defer();
+          window.resolveLocalFileSystemURL(path, function (fileEntry) {
+            $cordovaFile.checkFile(fileEntry.toInternalURL(), filename).then(function () {
+              defer.resolve(true);
+            }, function (error) {
+              defer.resolve(false);
+            });
+          });
+          return defer.promise;
+        },
+        deleteFile: function (src) {
+          var defer = $q.defer();
+          var arr = src.split('/');
+          var filename = arr.pop();
+          var path = arr.join('/') + '/';
+          window.resolveLocalFileSystemURL(path, function (fileEntry) {
+            $cordovaFile.removeFile(fileEntry.toInternalURL(), filename).then(function () {
+              defer.resolve(true);
+            }, function (error) {
+              defer.resolve(false);
+            });
+          });
+          return defer.promise;
+        },
+        openFile: function (targetPath) {
+          var docSuffix = targetPath.slice(2).split(".");
+          var type;
+          if (docSuffix[docSuffix.length - 1] == "doc") {
+            type = "application/msword";
+          } else if (docSuffix[docSuffix.length - 1] == "docx") {
+            type = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+          }
+          else if (docSuffix[docSuffix.length - 1] == "pdf") {
+            type = "application/pdf";
+          } else if (docSuffix[docSuffix.length - 1] == "xls") {
+            type = "application/vnd.ms-excel";
+          } else if (docSuffix[docSuffix.length - 1] == "xlsx") {
+            type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+          } else if (docSuffix[docSuffix.length - 1] == "txt" || docSuffix[docSuffix.length - 1] == "text") {
+            type = "text/plain";
+          } else if (docSuffix[docSuffix.length - 1] == "jpg" || docSuffix[docSuffix.length - 1] == "gif" || docSuffix[docSuffix.length - 1] == "jpeg" || docSuffix[docSuffix.length - 1] == "png") {
+            type = "image/" + docSuffix[docSuffix.length - 1];
+          } else if (docSuffix[docSuffix.length - 1] == "zip") {
+            type = 'application/zip';
+          } else if (docSuffix[docSuffix.length - 1] == "ppt") {
+            type = 'application/vnd.ms-powerpoint';
+          } else if (docSuffix[docSuffix.length - 1] == "pptx") {
+            type = 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
+          }
+
+          $cordovaFileOpener2.open(targetPath, type)
+            .then(function () {
+              console.log("Success!")
+            }, function (err) {
+              console.log("open:" + err.message);
+            });
+        }
+      }
+    }])
+
+  .factory('CameraUtil', ['$q', '$cordovaFile', 'DateUtil', 'pathUtil', function ($q, $cordovaFile, DateUtil, pathUtil) {
+    //拍照存储
+    function takePhoto(dirName, fileNamePrefix) {
+      var def = $q.defer();
+
+      var pictureSource = navigator.camera.PictureSourceType;
+      var destinationType = navigator.camera.DestinationType;
+
+      navigator.camera.getPicture(onSuccessPic, failure,
+        {
+          quality: 70,
+          destinationType: destinationType.FILE_URI,
+          sourceType: pictureSource.CAMERA,
+          allowEdit: false,
+          targetHeight: 600,
+          targetWidth: 600,
+          correctOrientation: true
+        }
+      );
+
+      function failure(error) {
+        def.reject(error);
+      }
+
+      //照片名称为 时间戳
+      function onSuccessPic(imageURI) {
+        var basePath = pathUtil.getBasePath();
+        var newName = DateUtil.DateFormat() + ".png";
+        if (fileNamePrefix) {
+          var arr = fileNamePrefix.split('.');
+          if (arr[arr.length - 1] == 'png' || arr[arr.length - 1] == 'jpg') {
+            newName = fileNamePrefix;
+          } else {
+            // newName = fileNamePrefix ? fileNamePrefix + '-' + newName : newName;
+            newName = fileNamePrefix + '-' + newName
+          }
+        }
+        $cordovaFile.checkDir(basePath, dirName)
+          .then(function (success) {
+            // 如果有这个文件夹，则直接实现移动
+            moveFile(imageURI, basePath + dirName + "/", newName);
+          }, function (error) {
+            // 如果没有这个文件夹，则先创建再移动
+            $cordovaFile.createDir(basePath, dirName, false)
+              .then(function (success) {
+                moveFile(imageURI, basePath + dirName + "/", newName);
+              }, function (error) {
+                def.reject(error);
+              });
+          });
+      };
+
+      //移动文件
+      function moveFile(fileUri, targetPath, newName) {
+        window.resolveLocalFileSystemURL(fileUri, function (fileEntry) {
+          window.resolveLocalFileSystemURL(targetPath, function (dirEntry) {
+              fileEntry.moveTo(dirEntry, newName, function (entry) {
+                //返回文件路径
+                def.resolve(entry.toURL());
+              }, function (error) {
+                // alert("移动出错");
+                def.reject(error);
+              });
+            },
+            function (error) {
+              // alert("解析目标路径出错");
+              def.reject(error);
+            });
+        }, function (error) {
+          // alert("解析源路径出错");
+          def.reject(error);
+        });
+      };
+
+      return def.promise;
+    };
+
+    return {
+      takePhoto: takePhoto
+    }
+
+  }])
 
 
   .factory('chart', ['$rootScope', function ($rootScope) {
@@ -3220,79 +3382,352 @@ angular.module('starter.controllers')
 ;
 
 /**
- * Created by ws on 2018/7/18.
+ * Created by ws on 2018/3/7.
  */
-/**
- * Created by ws on 2018/7/17.
- */
-angular.module('starter.controllers')
-  .directive('drawBar',[function(){
+angular.module('starter.directives')
+  .directive('describeBox', ['$interval', '$ionicModal', '$timeout', 'pathUtil', 'CameraUtil', 'recordServ','myNote','fsUtil',
+    function ($interval, $ionicModal, $timeout, pathUtil, CameraUtil, recordServ,myNote,fsUtil) {
+
     return {
       restrict: 'E',
-      templateUrl: 'directives/drawBar/page.html',
-      replace: true,
+      templateUrl: 'directives/describeBox/page.html',
       scope: {
-        barList:'=',
-        lineWidth:'@',
-        bgColor:'@',
-        fullColor:'@',
-        keyWordPer:'@',
-        keyWordData:'@',
-        keyWordName:'@',
-        maxY:"="
+        describeContent: '='
       },
-      link: function (scope, element, attr) {
+      link: function (scope, element) {
+        /**
+         * ----------------------------------------------
+         * describeContent : [obj]  指令双向绑定的描述信息
+         *    + title    : [string] 文字信息
+         *    + voiceList: [array]  语音数组
+         *         + time: [string] 语音时长
+         *         + recordName:[string] 语音资源路径
+         *    + photoList: [array]  照片信息
+         *         +url  :  [string] 图片路径
+         * ----------------------------------------------
+         * */
+          // scope.describeContent = {
+          //   title: '',
+          //   voiceList: [],
+          //   photoList:[]
+          // };
+        var mediaRec;
+        var recordStartTime;
+        var recordStopTime;
+        var isStartedVoice = false;
 
-        if(scope.maxY){
-          var min = scope.maxY/3;
-          scope.yLine = [scope.maxY,min*2,min,0];
-        }else{
-          scope.yLine = [12,8,4,0];
-        }
+        scope.saveRecord = true;
+        scope.contentOpen = true;
+        scope.recordTitle = '按住说话';
 
-        if(!scope.bgColor){
-          scope.bgColor = "#E8F7FF";
-        }
-        if(!scope.fullColor){
-          scope.fullColor = "linear-gradient(to top, rgb(22, 146, 252), rgb(31, 181, 255));"
-        }
-        if(!scope.lineWidth){
-          scope.lineWidth = 6;
-        }
-
-        scope.drawBarStyle = {};
-
-        scope.drawBarStyle.bg = {
-          "width":scope.lineWidth+"px",
-          "border-top-left-radius":scope.lineWidth*0.5 + "px",
-          "border-top-right-radius":scope.lineWidth*0.5+"px"
+        scope.openOrClose = function () {
+          scope.contentOpen = !scope.contentOpen;
         };
 
-        scope.$watch("barList",function (newV,oldV) {
-          if(newV && newV.length > 0){
-            scope.barList.forEach(function (each) {
-              each.fullStyle = {
-                "width":scope.lineWidth+"px",
-                "height":(scope.keyWordPer ?each[scope.keyWordPer]:(each[scope.keyWordData]*100/scope.maxY).toFixed(1)) + "%",
-                "border-top-left-radius":scope.lineWidth*0.5 + "px",
-                "border-top-right-radius":scope.lineWidth*0.5 + "px"
+        scope.oStyle = {
+          modalStyle: {}
+        };
+
+        var interval = null;
+        var timeInterval = null;
+        scope.autoTextArea = function (obj) {
+          timeInterval = $interval(function () {
+            // console.log(obj);
+            obj.target.style.height = obj.target.scrollHeight + 'px';
+            //todo:行减少的时候高度没有减少
+          }, 200);
+        };
+        scope.clearAuto = function () {
+          if (timeInterval) {
+            $interval.cancel(timeInterval);
+          }
+        };
+
+        var voiceInterval = null;
+
+        /**
+         * 播放本条语音的动画
+         * */
+        scope.playVoice = function (data) {
+          if (voiceInterval) {
+            $interval.cancel(voiceInterval);
+          }
+          //停止其它语音
+          for (var j = 0; j < scope.describeContent.voiceList.length; j++) {
+            scope.describeContent.voiceList[j].haoroomsStyle = {"background-position": "0px 0px"};
+          }
+          //播放本条语音
+          var i = 0;
+          voiceInterval = $interval(frameAnmi, 300);
+          function frameAnmi() {
+            if (i > 4) {
+              i = 0;
+            }
+            data.haoroomsStyle = {"background-position": "-" + i * 20 + "px 0px"};
+            i++;
+          }
+
+          playThisVoice(data.recordName);
+          //语音播放完之后动画停止
+          $timeout(function () {
+            if (voiceInterval) {
+              $interval.cancel(voiceInterval);
+            }
+            data.haoroomsStyle = {"background-position": "0px 0px"};
+            mediaRec.stop();
+            mediaRec.release();
+            mediaRec = null;
+          }, data.time * 1000);
+        };
+        /**
+         * 播放音频文件
+         * */
+        function playThisVoice(src) {
+          console.log('play path:',src);
+          mediaRec = new Media(src,
+            // success callback
+            function () {
+              console.log("recordAudio():play Success");
+            },
+            // error callback
+            function (err) {
+              console.log("recordAudio():play Error: " + err.code);
+            });
+          mediaRec.play();
+        }
+
+        /**
+         * 打开录音界面
+         * */
+        $ionicModal.fromTemplateUrl(
+          'directives/describeBox/recordModal.html',
+          {
+            scope: scope,
+            animation: 'fade-in'
+          }).then(function (modal) {
+          scope.modal = modal;
+        });
+        scope.openRecord = function () {
+          scope.saveRecord = true;
+          scope.modal.show();
+        };
+        scope.closeRecordModal = function () {
+          if (scope.modal) {
+            scope.modal.hide();
+            // scope.modal.remove();
+          }
+          scope.recordTitle = '按住说话';
+        };
+
+        /**
+         * 打开相机
+         * */
+        scope.openCamera = function () {
+          if (scope.describeContent.photoList && scope.describeContent.photoList.length >= 2) {
+            myNote.myNotice('最多只能拍两张照片');
+            return;
+          }
+          CameraUtil.takePhoto('temp').then(function (data) {
+            var photo = {};
+            photo.url = data;
+            scope.describeContent.photoList.push(photo);
+          });
+        };
+
+        /**
+         * 开始录音
+         * */
+        scope.startRecord = function () {
+          scope.noBroke = false;
+          scope.recordTitle = '松开保存';
+          try {
+            var src = pathUtil.getBasePath(true) + new Date().getTime();
+            if (cordova.platformId === 'android') {
+              src += '.mp3';
+            } else {
+              src += '.m4a';
+            }
+            if (mediaRec) {
+              mediaRec.release();
+            }
+            console.log(src);
+            mediaRec = new Media(src,
+              // success callback
+              function () {
+                console.log("recordAudio():startRecord Success");
+              },
+              // error callback
+              function (err) {
+                console.log("recordAudio():startRecord Error: " + err.code);
+              });
+            // Record audio
+            mediaRec.startRecord();
+            isStartedVoice = true;
+            loadAnimation();
+            scope.describeContent.voiceList.push({recordName: src});
+            recordStartTime = new Date().getTime();
+            return false;
+          }catch (err){
+            console.log(err);
+          }
+        };
+
+        /**
+         * saveRecord 为true时，停止录音并保存
+         * */
+        scope.stopAndSaveRecord = function () {
+          if(!isStartedVoice){
+            return;
+          }
+          isStartedVoice = false;
+
+          if(mediaRec){
+            mediaRec.stopRecord();
+            mediaRec.release();
+          }
+          // stopAnimation();
+          mediaRec = null;
+          if (scope.saveRecord === true) {
+            console.log('停止录音并保存');
+            recordStopTime = new Date().getTime();
+            afterSaveRecord();
+          } else {
+            console.log('停止录音并且不保存');
+            var deleteVoice = scope.describeContent.voiceList.splice(scope.describeContent.voiceList.length - 1, 1);
+            scope.saveRecord = true;
+            //delete record source
+            fsUtil.deleteFile(deleteVoice.recordName)
+          }
+          // scope.closeRecordModal();
+          scope.noBroke = true;
+        };
+
+
+        /**
+         * 没调用此方法表示弹出框等意外中断
+         * */
+        scope.recordBroke = function () {
+          if(!scope.noBroke){
+            $timeout(function () {
+              if(mediaRec){
+                mediaRec.stopRecord();
+                mediaRec.release();
               }
-            })
+            },1000);
+            scope.describeContent.voiceList.splice(scope.describeContent.voiceList.length - 1, 1);
+          }else{
+            scope.closeRecordModal();
+          }
+          stopAnimation();
+        };
+
+        /**
+         * 设置scope.saveRecord为false,不保存停止录音
+         * */
+        scope.cancelRecord = function () {
+          if (scope.saveRecord === true) {
+            scope.saveRecord = false;
+          }
+        };
+        /**
+         * 设置scope.saveRecord为true,恢复录音
+         * */
+        scope.returnRecord = function () {
+          if (scope.saveRecord === false) {
+            scope.saveRecord = true;
+          }
+        };
+
+        /**
+         * 删除本条语音
+         * */
+        scope.deleteRecord = function (data, index) {
+          var deleteVoice = scope.describeContent.voiceList.splice(index, 1);
+          //delete record source
+          fsUtil.deleteFile(deleteVoice.recordName)
+        };
+
+        function afterSaveRecord() {
+          var currentVoice = scope.describeContent.voiceList[scope.describeContent.voiceList.length - 1];
+          currentVoice.time = parseInt((recordStopTime - recordStartTime) / 1000) + 1;
+          currentVoice.eachVoiceWidth = {width: 55 + currentVoice.time * 5 + 'px'};
+        }
+
+
+        //加载动画
+        function loadAnimation() {
+          var j = 0;
+          interval = $interval(frameAnmi, 300);
+          function frameAnmi() {
+            if (j > 5) {
+              j = 0;
+            }
+            scope.oStyle.modalStyle = {"background-position": "-" + j * 64 + "px 0px"};
+            j++;
+          }
+        }
+
+        function stopAnimation() {
+          $timeout(function () {
+            if (interval) {
+              $interval.cancel(interval);
+            }
+            scope.oStyle.modalStyle = {"background-position": "0px 0px"};
+          })
+        }
+
+        scope.$watch('describeContent.title', function (newVal, oldVal) {
+          if (newVal && newVal != oldVal) {
+            if (newVal.length > 60) {
+              myNote.myNotice('不能超过60个字');
+              scope.describeContent.title = newVal.substr(0, 60);
+            }
           }
         });
 
-        scope.showThisTooltip = function (index) {
-          element[0].getElementsByClassName("tooltip")[index].style.display = "block";
-        };
+      }
+    }
+  }])
 
-        scope.hideThisTooltip = function (index) {
-          element[0].getElementsByClassName("tooltip")[index].style.display = "none";
-        };
+  .directive('recordBtn', ['$ionicGesture','$timeout',function ($ionicGesture,$timeout) {
+    return {
+      restrict: 'A',
+      scope: {
+        recordHold: '&',
+        recordBroke:'&',
+        recordRelease: '&'
+      },
+      link: function (scope, element) {
+
+        $ionicGesture.on('hold', function () {
+          console.log('$ionicGesture hold');
+          scope.recordHold();
+        }, element);
+
+        $ionicGesture.on('touchend', function () {
+          // 比release先触发,弹出意外窗口时，不会触发此事件
+          console.log('$ionicGesture touchend');
+          scope.recordRelease();
+        }, element);
+
+        $ionicGesture.on('release', function () {
+          console.log("$ionicGesture release");
+          scope.recordBroke();
+        }, element);
 
       }
     }
+  }])
+;
 
-  }]);
+/**
+ * Created by ws on 2018/3/7.
+ */
+angular.module('starter.services')
+  .service('recordServ',[function () {
+
+  }])
+;
 
 /**
  * Created by ws on 2018/7/17.
@@ -3424,6 +3859,81 @@ angular.module('starter.controllers')
             "display":"none"
           }
         }
+      }
+    }
+
+  }]);
+
+/**
+ * Created by ws on 2018/7/18.
+ */
+/**
+ * Created by ws on 2018/7/17.
+ */
+angular.module('starter.controllers')
+  .directive('drawBar',[function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'directives/drawBar/page.html',
+      replace: true,
+      scope: {
+        barList:'=',
+        lineWidth:'@',
+        bgColor:'@',
+        fullColor:'@',
+        keyWordPer:'@',
+        keyWordData:'@',
+        keyWordName:'@',
+        maxY:"="
+      },
+      link: function (scope, element, attr) {
+
+        if(scope.maxY){
+          var min = scope.maxY/3;
+          scope.yLine = [scope.maxY,min*2,min,0];
+        }else{
+          scope.yLine = [12,8,4,0];
+        }
+
+        if(!scope.bgColor){
+          scope.bgColor = "#E8F7FF";
+        }
+        if(!scope.fullColor){
+          scope.fullColor = "linear-gradient(to top, rgb(22, 146, 252), rgb(31, 181, 255));"
+        }
+        if(!scope.lineWidth){
+          scope.lineWidth = 6;
+        }
+
+        scope.drawBarStyle = {};
+
+        scope.drawBarStyle.bg = {
+          "width":scope.lineWidth+"px",
+          "border-top-left-radius":scope.lineWidth*0.5 + "px",
+          "border-top-right-radius":scope.lineWidth*0.5+"px"
+        };
+
+        scope.$watch("barList",function (newV,oldV) {
+          if(newV && newV.length > 0){
+            scope.barList.forEach(function (each) {
+              each.fullStyle = {
+                "width":scope.lineWidth+"px",
+                "height":(scope.keyWordPer ?each[scope.keyWordPer]:(each[scope.keyWordData]*100/scope.maxY).toFixed(1)) + "%",
+                "border-top-left-radius":scope.lineWidth*0.5 + "px",
+                "border-top-right-radius":scope.lineWidth*0.5 + "px"
+              }
+            })
+          }
+        });
+
+        scope.showThisTooltip = function (index) {
+          element[0].getElementsByClassName("tooltip")[index].style.display = "block";
+        };
+
+        scope.hideThisTooltip = function (index) {
+          element[0].getElementsByClassName("tooltip")[index].style.display = "none";
+        };
+
       }
     }
 
@@ -4185,57 +4695,6 @@ angular.module('starter.controllers')
   }]);
 
 /**
- * Created by Administrator on 2017/2/21 0021.
- */
-angular.module('starter.controllers')
-  .directive('monthOption', [ '$filter', function ( $filter) {
-    return {
-      restrict: 'E',
-      replace: true,
-      scope: {
-        mapTime: '&',
-      },
-      templateUrl: 'directives/monthOption/page.html',
-      link: function (scope) {
-
-        var now = new Date();
-        scope.thisYear = now.getYear() + 1900;
-        scope.thisMonth = now.getMonth()+1;
-
-
-        scope.canAdd = false;
-
-        scope.$watch('state.reset', function (nVal) {
-          if (nVal) {
-            scope.timeType = scope.yearOrMonth;
-            now = new Date();
-            scope.nowData = $filter('date')(now, 'yyyy/MM');
-          }
-        });
-
-        scope.setTime = function (side) {
-          if(side == -1){
-            if(scope.thisMonth >1){
-              scope.thisMonth--;
-            }else{
-              scope.thisYear--;
-              scope.thisMonth = 12;
-            }
-          }else{
-            if(scope.thisMonth < 12){
-              scope.thisMonth++;
-            }else{
-              scope.thisYear++;
-              scope.thisMonth = 1;
-            }
-          }
-          scope.mapTime({thisYear: scope.thisYear, thisMonth: scope.thisMonth});
-        };
-      }
-    }
-  }]);
-
-/**
  * Created by ws on 2018/4/4.
  */
 angular.module('starter.controllers')
@@ -4289,6 +4748,57 @@ angular.module('starter.controllers')
           scope.btnCancel();
         };
 
+      }
+    }
+  }]);
+
+/**
+ * Created by Administrator on 2017/2/21 0021.
+ */
+angular.module('starter.controllers')
+  .directive('monthOption', [ '$filter', function ( $filter) {
+    return {
+      restrict: 'E',
+      replace: true,
+      scope: {
+        mapTime: '&',
+      },
+      templateUrl: 'directives/monthOption/page.html',
+      link: function (scope) {
+
+        var now = new Date();
+        scope.thisYear = now.getYear() + 1900;
+        scope.thisMonth = now.getMonth()+1;
+
+
+        scope.canAdd = false;
+
+        scope.$watch('state.reset', function (nVal) {
+          if (nVal) {
+            scope.timeType = scope.yearOrMonth;
+            now = new Date();
+            scope.nowData = $filter('date')(now, 'yyyy/MM');
+          }
+        });
+
+        scope.setTime = function (side) {
+          if(side == -1){
+            if(scope.thisMonth >1){
+              scope.thisMonth--;
+            }else{
+              scope.thisYear--;
+              scope.thisMonth = 12;
+            }
+          }else{
+            if(scope.thisMonth < 12){
+              scope.thisMonth++;
+            }else{
+              scope.thisYear++;
+              scope.thisMonth = 1;
+            }
+          }
+          scope.mapTime({thisYear: scope.thisYear, thisMonth: scope.thisMonth});
+        };
       }
     }
   }]);
@@ -4382,6 +4892,49 @@ angular.module('starter.controllers')
           }
 
           scope.btnCancel();
+        };
+
+      }
+    }
+  }]);
+
+/**
+ * Created by ws on 2018/8/23.
+ */
+angular.module('starter.directives')
+  .directive('myCalendar',['CalenderService',function (CalenderService) {
+    return {
+      restrict: 'E',
+      scope: {
+        resultCallback:'&'
+
+      },
+      templateUrl: 'directives/mycalendar/page.html',
+      link: function (scope) {
+
+        scope.thisMonthDate = [];
+
+        var nowDate = new Date();
+        var thisYear = nowDate.getYear();
+        var thisMonth = nowDate.getMonth()+1;
+        var thisDate = nowDate.getDate();
+
+        scope.thisMonthDate = CalenderService.initCalendar(thisYear, thisMonth, thisDate);
+        console.log(scope.thisMonthDate);
+
+        scope.resultCallback({MonthDate:scope.thisMonthDate});
+
+
+        scope.timeCause = function (year, month) {
+          scope.thisMonthDate = CalenderService.initCalendar(year-1900, month, thisDate);
+          console.log(scope.thisMonthDate);
+          scope.resultCallback({MonthDate:scope.thisMonthDate});
+        };
+
+
+        scope.selectDate = function (date) {
+          date.askForLeave = !date.askForLeave;
+          scope.resultCallback({MonthDate:scope.thisMonthDate});
         };
 
       }
@@ -4507,46 +5060,113 @@ angular.module('starter.controllers')
 ;
 
 /**
- * Created by ws on 2018/8/23.
+ * Created by ws on 2018/3/12.
  */
 angular.module('starter.directives')
-  .directive('myCalendar',['CalenderService',function (CalenderService) {
+  .directive('voiceItems', ['$interval', '$timeout', 'fsUtil', function ($interval, $timeout, fsUtil) {
+
     return {
       restrict: 'E',
+      templateUrl: 'directives/voiceItems/page.html',
       scope: {
-        resultCallback:'&'
-
+        voiceList: '=',
+        canDelete: '@',
+        voiceUrl: '@',
+        voiceTime: '@',
+        deleteHandler: '&'
       },
-      templateUrl: 'directives/mycalendar/page.html',
       link: function (scope) {
 
-        scope.thisMonthDate = [];
+        var voiceInterval;
+        var mediaRec;
+        if (!scope.voiceUrl) {
+          scope.voiceUrl = 'Url';
+        }
+        if (!scope.voiceTime) {
+          scope.voiceTime = 'Mins';
+        }
 
-        var nowDate = new Date();
-        var thisYear = nowDate.getYear();
-        var thisMonth = nowDate.getMonth()+1;
-        var thisDate = nowDate.getDate();
+        initRecord();
 
-        scope.thisMonthDate = CalenderService.initCalendar(thisYear, thisMonth, thisDate);
-        console.log(scope.thisMonthDate);
+        function initRecord() {
+          scope.$watch('voiceList', function (newV, oldV) {
+            if (newV && newV.length > 0) {
+              scope.voiceList.forEach(function (each) {
+                each.eachVoiceWidth = {width: 55 + each[scope.voiceTime] * 5 + 'px'}
+              })
+            }
+          });
+        }
 
-        scope.resultCallback({MonthDate:scope.thisMonthDate});
+        /**
+         * 播放本条语音的动画
+         * */
+        scope.playVoice = function (data, index) {
+          if (voiceInterval) {
+            $interval.cancel(voiceInterval);
+          }
+          //停止其它语音
+          for (var j = 0; j < scope.voiceList.length; j++) {
+            scope.voiceList[j].haoroomsStyle = {"background-position": "0px 0px"};
+          }
+          //播放本条语音
+          var i = 0;
+          var divParent = document.getElementById("divParent" + index);
+          voiceInterval = $interval(frameAnmi, 300);
 
+          function frameAnmi() {
+            if (i > 4) {
+              i = 0;
+            }
+            data.haoroomsStyle = {"background-position": "-" + i * 20 + "px 0px"};
+            i++;
+          }
 
-        scope.timeCause = function (year, month) {
-          scope.thisMonthDate = CalenderService.initCalendar(year-1900, month, thisDate);
-          console.log(scope.thisMonthDate);
-          scope.resultCallback({MonthDate:scope.thisMonthDate});
+          playThisVoice(data[scope.voiceUrl]);
+          // //语音播放完之后动画停止
+          $timeout(function () {
+            if (voiceInterval) {
+              $interval.cancel(voiceInterval);
+            }
+            data.haoroomsStyle = {"background-position": "0px 0px"};
+          }, data[scope.voiceTime] * 1000);
         };
 
+        /**
+         * 播放音频文件
+         * */
+        function playThisVoice(src) {
+          if (mediaRec) {
+            mediaRec.stop();
+            mediaRec.release();
+          }
+          mediaRec = new Media(src,
+            // success callback
+            function () {
+              console.log("recordAudio():Audio Success");
+            },
+            // error callback
+            function (err) {
+              console.log("recordAudio():Audio Error: " + err.code);
+            });
+          mediaRec.play();
+        }
 
-        scope.selectDate = function (date) {
-          date.askForLeave = !date.askForLeave;
-          scope.resultCallback({MonthDate:scope.thisMonthDate});
+        /**
+         * 删除本条语音
+         * */
+        scope.deleteRecord = function (data, index) {
+          scope.voiceList.splice(index, 1);
+          if (scope.deleteHandler) {   //回调处理
+            scope.deleteHandler({file: data[scope.voiceUrl]});
+          } else {    //本地文件
+            fsUtil.deleteFile(data[scope.voiceUrl]);
+          }
         };
 
       }
     }
+
   }]);
 
 /**
@@ -5010,6 +5630,20 @@ angular.module('starter.controllers')
   }]);
 
 /**
+ * Created by ws on 2018/9/17.
+ */
+angular.module('starter.controllers')
+  .controller('recordCtrl', ["$scope", function ($scope) {
+
+    $scope.describeInfo = {
+      title: '',
+      voiceList: [],
+      photoList: []
+    };
+
+  }]);
+
+/**
  * Created by ws on 2018/8/22.
  */
 angular.module('starter.config1', [])
@@ -5049,7 +5683,19 @@ angular.module('starter.config1', [])
             controller: 'baseSelectCtrl'
           }
         }
-      });
+      })
+
+      .state('tab.record', {
+        url: '/record',
+        views: {
+          'tab-dash': {
+            templateUrl: 'src/tab1/record/page.html',
+            controller: 'recordCtrl'
+          }
+        }
+      })
+
+    ;
 
     // if none of the above states are matched, use this as the fallback
     // $urlRouterProvider.otherwise('/tab/dash');

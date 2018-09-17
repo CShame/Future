@@ -7,6 +7,10 @@
     "animate.css": "^3.7.0",
     "cordova-android": "6.3.0",
     "cordova-plugin-baidumaplocation": "^3.2.0",
+    "cordova-plugin-camera": "^4.0.3",
+    "cordova-plugin-file-opener2": "^2.0.19",
+    "cordova-plugin-file-transfer": "^1.7.1",
+    "cordova-plugin-media": "^5.0.2",
     "gulp": "^3.5.6",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.2.0",
@@ -44,7 +48,11 @@
         "ANDROID_KEY": "hIGbGzyv593zzk8c1xbdnhL4kMme2Kwl",
         "IOS_KEY": "hIGbGzyv593zzk8c1xbdnhL4kMme2Kwl",
         "IOS_LOCATION_DESC": "请点击'好'以允许访问。"
-      }
+      },
+      "cordova-plugin-media": {},
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-file-opener2": {},
+      "cordova-plugin-camera": {}
     }
   }
 }

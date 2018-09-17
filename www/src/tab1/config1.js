@@ -38,7 +38,19 @@ angular.module('starter.config1', [])
             controller: 'baseSelectCtrl'
           }
         }
-      });
+      })
+
+      .state('tab.record', {
+        url: '/record',
+        views: {
+          'tab-dash': {
+            templateUrl: 'src/tab1/record/page.html',
+            controller: 'recordCtrl'
+          }
+        }
+      })
+
+    ;
 
     // if none of the above states are matched, use this as the fallback
     // $urlRouterProvider.otherwise('/tab/dash');

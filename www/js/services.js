@@ -43,13 +43,56 @@ angular.module('starter.services', [], ["$httpProvider", function ($httpProvider
   // .constant('RequestUrl', 'http://master.eegrid.com/')
   // .constant('baseUrl', 'http://master.eegrid.com/App.ashx?Name=EFOS.Master.Business.')
 
-  .factory('AirInputData',function () {
-  var inputData = function(){
+  .factory('pathUtil', [function () {
+    return {
+      getBasePath: function (noFile) {
+        var basePath;
+        if (ionic.Platform.isIOS()) {
+          if(noFile === true){
+            basePath = cordova.file.documentsDirectory.replace("file://", "");
+          }else{
+            basePath = cordova.file.documentsDirectory;
+          }
+        } else {
+          basePath = cordova.file.externalApplicationStorageDirectory || cordova.file.applicationStorageDirectory;
+        }
+        return basePath;
+      }
+    }
+  }])
 
-  }
+  .factory('DateUtil', [function () {
+    return {
+      DateFormat: function () {
+        var date = new Date();
+        var res;
+        var year = date.getFullYear();
+        var Month = date.getMonth() + 1;
+        var day = date.getDate();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        var sec = date.getSeconds();
 
-  return {inputData:inputData};
-})
+        if (Month < 10) {
+          Month = '0' + Month;
+        }
+        if (day < 10) {
+          day = '0' + day;
+        }
+        if (hour < 10) {
+          hour = '0' + hour;
+        }
+        if (min < 10) {
+          min = '0' + min;
+        }
+        if (sec < 10) {
+          sec = '0' + sec;
+        }
+        res = '' + year + Month + day + hour + min + sec;
+        return res;
+      }
+    }
+  }])
 
   .factory('HttpFactory', function ($http, $ionicPopup, $ionicLoading) {
     var send = function (config) {
@@ -195,6 +238,172 @@ angular.module('starter.services', [], ["$httpProvider", function ($httpProvider
     }
 })
 
+  .factory('fsUtil', ['pathUtil', '$q', '$cordovaFile', '$cordovaFileOpener2', '$cordovaFileTransfer',
+    function (pathUtil, $q, $cordovaFile, $cordovaFileOpener2, $cordovaFileTransfer) {
+      return {
+        download: function (serverPath, downloadPathSuffix) {
+          var options = {};
+          var trustHosts = true;
+          var defer = $q.defer();
+          // var fileTransfer = new FileTransfer();
+          var basePath = pathUtil.getBasePath();
+          var targetPath = basePath + '/' + downloadPathSuffix;
+          $cordovaFileTransfer.download(serverPath, targetPath, options, trustHosts).then(
+            function (result) {
+              defer.resolve(targetPath);
+              console.log("下载成功", result);
+            }, function (error) {
+              console.log("下载失败", error);
+              defer.reject(error);
+            },
+            function (process) {
+              // defer.reject(error);
+            });
+          return defer.promise;
+        },
+        checkFile: function (path, filename) {
+          var defer = $q.defer();
+          window.resolveLocalFileSystemURL(path, function (fileEntry) {
+            $cordovaFile.checkFile(fileEntry.toInternalURL(), filename).then(function () {
+              defer.resolve(true);
+            }, function (error) {
+              defer.resolve(false);
+            });
+          });
+          return defer.promise;
+        },
+        deleteFile: function (src) {
+          var defer = $q.defer();
+          var arr = src.split('/');
+          var filename = arr.pop();
+          var path = arr.join('/') + '/';
+          window.resolveLocalFileSystemURL(path, function (fileEntry) {
+            $cordovaFile.removeFile(fileEntry.toInternalURL(), filename).then(function () {
+              defer.resolve(true);
+            }, function (error) {
+              defer.resolve(false);
+            });
+          });
+          return defer.promise;
+        },
+        openFile: function (targetPath) {
+          var docSuffix = targetPath.slice(2).split(".");
+          var type;
+          if (docSuffix[docSuffix.length - 1] == "doc") {
+            type = "application/msword";
+          } else if (docSuffix[docSuffix.length - 1] == "docx") {
+            type = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+          }
+          else if (docSuffix[docSuffix.length - 1] == "pdf") {
+            type = "application/pdf";
+          } else if (docSuffix[docSuffix.length - 1] == "xls") {
+            type = "application/vnd.ms-excel";
+          } else if (docSuffix[docSuffix.length - 1] == "xlsx") {
+            type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+          } else if (docSuffix[docSuffix.length - 1] == "txt" || docSuffix[docSuffix.length - 1] == "text") {
+            type = "text/plain";
+          } else if (docSuffix[docSuffix.length - 1] == "jpg" || docSuffix[docSuffix.length - 1] == "gif" || docSuffix[docSuffix.length - 1] == "jpeg" || docSuffix[docSuffix.length - 1] == "png") {
+            type = "image/" + docSuffix[docSuffix.length - 1];
+          } else if (docSuffix[docSuffix.length - 1] == "zip") {
+            type = 'application/zip';
+          } else if (docSuffix[docSuffix.length - 1] == "ppt") {
+            type = 'application/vnd.ms-powerpoint';
+          } else if (docSuffix[docSuffix.length - 1] == "pptx") {
+            type = 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
+          }
+
+          $cordovaFileOpener2.open(targetPath, type)
+            .then(function () {
+              console.log("Success!")
+            }, function (err) {
+              console.log("open:" + err.message);
+            });
+        }
+      }
+    }])
+
+  .factory('CameraUtil', ['$q', '$cordovaFile', 'DateUtil', 'pathUtil', function ($q, $cordovaFile, DateUtil, pathUtil) {
+    //拍照存储
+    function takePhoto(dirName, fileNamePrefix) {
+      var def = $q.defer();
+
+      var pictureSource = navigator.camera.PictureSourceType;
+      var destinationType = navigator.camera.DestinationType;
+
+      navigator.camera.getPicture(onSuccessPic, failure,
+        {
+          quality: 70,
+          destinationType: destinationType.FILE_URI,
+          sourceType: pictureSource.CAMERA,
+          allowEdit: false,
+          targetHeight: 600,
+          targetWidth: 600,
+          correctOrientation: true
+        }
+      );
+
+      function failure(error) {
+        def.reject(error);
+      }
+
+      //照片名称为 时间戳
+      function onSuccessPic(imageURI) {
+        var basePath = pathUtil.getBasePath();
+        var newName = DateUtil.DateFormat() + ".png";
+        if (fileNamePrefix) {
+          var arr = fileNamePrefix.split('.');
+          if (arr[arr.length - 1] == 'png' || arr[arr.length - 1] == 'jpg') {
+            newName = fileNamePrefix;
+          } else {
+            // newName = fileNamePrefix ? fileNamePrefix + '-' + newName : newName;
+            newName = fileNamePrefix + '-' + newName
+          }
+        }
+        $cordovaFile.checkDir(basePath, dirName)
+          .then(function (success) {
+            // 如果有这个文件夹，则直接实现移动
+            moveFile(imageURI, basePath + dirName + "/", newName);
+          }, function (error) {
+            // 如果没有这个文件夹，则先创建再移动
+            $cordovaFile.createDir(basePath, dirName, false)
+              .then(function (success) {
+                moveFile(imageURI, basePath + dirName + "/", newName);
+              }, function (error) {
+                def.reject(error);
+              });
+          });
+      };
+
+      //移动文件
+      function moveFile(fileUri, targetPath, newName) {
+        window.resolveLocalFileSystemURL(fileUri, function (fileEntry) {
+          window.resolveLocalFileSystemURL(targetPath, function (dirEntry) {
+              fileEntry.moveTo(dirEntry, newName, function (entry) {
+                //返回文件路径
+                def.resolve(entry.toURL());
+              }, function (error) {
+                // alert("移动出错");
+                def.reject(error);
+              });
+            },
+            function (error) {
+              // alert("解析目标路径出错");
+              def.reject(error);
+            });
+        }, function (error) {
+          // alert("解析源路径出错");
+          def.reject(error);
+        });
+      };
+
+      return def.promise;
+    };
+
+    return {
+      takePhoto: takePhoto
+    }
+
+  }])
 
 
   .factory('chart', ['$rootScope', function ($rootScope) {
