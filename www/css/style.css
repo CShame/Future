@@ -6,18 +6,6 @@
   border-top: 1px solid rgba(211,211,211,1)!important;
 }
 
-
-.chats .parent{
-  height: 20px;
-  white-space: nowrap;
-  word-break: keep-all;
-  overflow: scroll;
-}
-
-.chats .children{
-  display: inline-block;
-}
-
 .start-record{
   text-align: center;
   background: aliceblue;

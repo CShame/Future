@@ -2,57 +2,6 @@
  * Created by ws on 2018/7/5.
  */
 angular.module('starter.controllers')
-  .directive('marquee',['$timeout','$interval',function ($timeout,$interval) {
-
-    return{
-      restrict: 'A',
-      scope:{
-        options:'=',
-        isChange:'=',
-        changeCallback:'&'
-      },
-      link: function (scope, element,attr) {
-        /**
-        * options [obj]
-         * 属性 step  [int] 每一步滚动距离
-         * 属性 timer [int] 频率
-         * 属性
-        * */
-        var ele = element[0] ;
-        var obj = {};
-        obj.step = scope.options.step || 1;
-        obj.timer = scope.options.timer || 18;
-
-        var maxScroll;
-
-        //禁止手动滚动
-        ele.ontouchstart = function(){ return false;};
-
-        $timeout(function () {
-          maxScroll = ele.scrollWidth - window.innerWidth;
-          console.log('变化前的滚动区域',maxScroll);
-          $interval(function () {
-            if(ele.scrollLeft<maxScroll){
-              ele.scrollLeft += obj.step;
-            }else{
-              ele.scrollLeft = 0;
-            }
-          },obj.timer);
-        });
-
-        scope.$watch('isChange',function (newV,oldV) {
-          if(newV != oldV && newV==true){
-            $timeout(function () {
-              maxScroll = ele.scrollWidth - window.innerWidth;
-              console.log('变化后的滚动区域',maxScroll);
-              scope.changeCallback();
-              console.log('1111');
-            });
-          }
-        })
-      }
-    }
-  }])
 
   .directive('repeatFinish',function(){
     return {

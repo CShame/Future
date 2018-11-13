@@ -1,0 +1,9 @@
+.marquee-directive{
+  height: 20px;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow: scroll;
+}
+.marquee-directive .children{
+  display: inline-block;
+}

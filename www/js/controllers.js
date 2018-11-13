@@ -110,7 +110,7 @@ angular.module('starter.controllers')
 
     $scope.options = {
       step: 1,
-      timer: 18
+      timer: 50
     };
     $scope.isChange = false;
 
@@ -126,10 +126,6 @@ angular.module('starter.controllers')
         '通知2：拉拉阿拉啦啦啊啊啊啊啊啊',
         '通知3：拉拉阿拉啦啦啊啊啊啊啊啊',
       ];
-      console.log('第二次刷新');
-      $timeout(function () {
-        $scope.isChange = true;
-      })
     }, 5000);
 
 

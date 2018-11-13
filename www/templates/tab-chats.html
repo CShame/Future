@@ -1,9 +1,7 @@
 <ion-view view-title="Chats">
   <ion-content class="chats">
-    <div class='parent' marquee options='options' is-change='isChange' change-callback='changeCallback()'>
-      <div class='children' ng-repeat='data in dataList'>{{data}}&nbsp;&nbsp;&nbsp;&nbsp;</div>
-    </div>
 
+    <marquee-row options='options' marquee-data = 'dataList'  change-callback='changeCallback()'></marquee-row>
 
     <div style="width: 100%;background: #0c60ee;height: 44px;overflow: scroll;" id="aa">
       <div style="background: #0a9dc7;height:44px">123132</div>

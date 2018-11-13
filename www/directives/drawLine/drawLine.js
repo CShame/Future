@@ -21,9 +21,9 @@ angular.module('starter.controllers')
       },
       link: function (scope, element,attr) {
 
-        console.log(scope.tooltipTitle);
-        console.log(scope.tooltipData1);
-        console.log(scope.tooltipData2);
+        // console.log(scope.tooltipTitle);
+        // console.log(scope.tooltipData1);
+        // console.log(scope.tooltipData2);
 
         if(scope.tooltipTitle && scope.tooltipData1  &&scope.tooltipData2) {
           element[0].addEventListener("touchstart", function (event) {
