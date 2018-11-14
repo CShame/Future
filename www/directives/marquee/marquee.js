@@ -9,8 +9,7 @@ angular.module('starter.controllers')
       replace:true,
       scope:{
         marqueeData:'=',
-        options:'=',
-        changeCallback:'&'
+        options:'='
       },
       link: function (scope, element,attr) {
 

@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/www/js/controllers.js" line="202" />
+    <bookmark url="file://$PROJECT_DIR$/www/js/controllers.js" line="193" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b9f94db-f19e-4881-89a6-06a63b2aabdf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/directives/marquee/marquee.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/directives/marquee/page.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/directives/marquee/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/directives/directive.js" afterPath="$PROJECT_DIR$/www/directives/directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/directives/drawLine/drawLine.js" afterPath="$PROJECT_DIR$/www/directives/drawLine/drawLine.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/directives/marquee/marquee.js" afterPath="$PROJECT_DIR$/www/directives/marquee/marquee.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/directives/marquee/page.html" afterPath="$PROJECT_DIR$/www/directives/marquee/page.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/dist/all.js" afterPath="$PROJECT_DIR$/www/dist/all.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/dist/all.js.map" afterPath="$PROJECT_DIR$/www/dist/all.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/dist/all.min.css" afterPath="$PROJECT_DIR$/www/dist/all.min.css" />
@@ -43,22 +38,22 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
+            <state relative-caret-position="360">
+              <caret line="104" column="25" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
               <folding>
-                <element signature="e#4805#9401#0" expanded="false" />
-                <element signature="e#7480#7717#0" expanded="false" />
-                <element signature="e#9475#13052#0" expanded="false" />
-                <element signature="e#13108#38188#0" expanded="false" />
-                <element signature="e#13695#15926#0" expanded="false" />
-                <element signature="e#17718#25080#0" expanded="false" />
-                <element signature="e#26037#26233#0" expanded="false" />
-                <element signature="e#29227#30679#0" expanded="false" />
-                <element signature="e#30886#31070#0" expanded="false" />
-                <element signature="e#31267#31717#0" expanded="false" />
-                <element signature="e#31927#31982#0" expanded="false" />
-                <element signature="e#32265#36021#0" expanded="false" />
-                <element signature="e#36406#38076#0" expanded="false" />
+                <element signature="e#4622#9218#0" expanded="false" />
+                <element signature="e#7297#7534#0" expanded="false" />
+                <element signature="e#9292#12869#0" expanded="false" />
+                <element signature="e#12925#38005#0" expanded="false" />
+                <element signature="e#13512#15743#0" expanded="false" />
+                <element signature="e#17535#24897#0" expanded="false" />
+                <element signature="e#25854#26050#0" expanded="false" />
+                <element signature="e#29044#30496#0" expanded="false" />
+                <element signature="e#30703#30887#0" expanded="false" />
+                <element signature="e#31084#31534#0" expanded="false" />
+                <element signature="e#31744#31799#0" expanded="false" />
+                <element signature="e#32082#35838#0" expanded="false" />
+                <element signature="e#36223#37893#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -67,8 +62,8 @@
       <file leaf-file-name="tab-chats.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/tab-chats.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="69">
+              <caret line="3" column="60" selection-start-line="3" selection-start-column="60" selection-end-line="3" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -94,10 +89,10 @@
                 <element signature="e#129#135#0" expanded="true" />
                 <element signature="e#135#141#0" expanded="true" />
                 <element signature="e#141#147#0" expanded="true" />
-                <element signature="e#297#303#0" expanded="true" />
-                <element signature="e#303#309#0" expanded="true" />
-                <element signature="e#309#315#0" expanded="true" />
-                <element signature="e#315#321#0" expanded="true" />
+                <element signature="e#295#301#0" expanded="true" />
+                <element signature="e#301#307#0" expanded="true" />
+                <element signature="e#307#313#0" expanded="true" />
+                <element signature="e#313#319#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,8 +101,8 @@
       <file leaf-file-name="marquee.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/directives/marquee/marquee.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="322">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -136,8 +131,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/directives/marquee/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="207">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -218,10 +213,10 @@
         <option value="$PROJECT_DIR$/www/directives/marquee/style.css" />
         <option value="$PROJECT_DIR$/www/directives/directive.js" />
         <option value="$PROJECT_DIR$/www/css/style.css" />
-        <option value="$PROJECT_DIR$/www/templates/tab-chats.html" />
-        <option value="$PROJECT_DIR$/www/directives/marquee/page.html" />
-        <option value="$PROJECT_DIR$/www/js/controllers.js" />
         <option value="$PROJECT_DIR$/www/directives/marquee/marquee.js" />
+        <option value="$PROJECT_DIR$/www/templates/tab-chats.html" />
+        <option value="$PROJECT_DIR$/www/js/controllers.js" />
+        <option value="$PROJECT_DIR$/www/directives/marquee/page.html" />
       </list>
     </option>
   </component>
@@ -654,12 +649,12 @@
       <workItem from="1541126793260" duration="2907000" />
       <workItem from="1541661285791" duration="4848000" />
       <workItem from="1541745649792" duration="6924000" />
-      <workItem from="1542010777231" duration="5881000" />
+      <workItem from="1542010777231" duration="10368000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="945210000" />
+    <option name="totallyTimeSpent" value="949697000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -671,7 +666,7 @@
       <window_info id="Event Log" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40053332" sideWeight="0.5021075" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50696677" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50696677" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32047158" sideWeight="0.49578503" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -689,14 +684,14 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40085515" sideWeight="0.5021075" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40053332" sideWeight="0.5021075" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2647374" sideWeight="0.49578503" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20213333" sideWeight="0.53790087" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.202031" sideWeight="0.46209913" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50696677" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32047158" sideWeight="0.49578503" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21013333" sideWeight="0.59347826" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21013333" sideWeight="0.40652174" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.49789253" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1015,14 +1010,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/directives/marquee/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/directives/linkageSelect2/linkageSelect2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -1049,10 +1036,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/directives/linkageSelect2/modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/directives/marquee/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="104" column="25" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
+          <folding>
+            <element signature="e#4622#9218#0" expanded="false" />
+            <element signature="e#7297#7534#0" expanded="false" />
+            <element signature="e#9292#12869#0" expanded="false" />
+            <element signature="e#12925#38005#0" expanded="false" />
+            <element signature="e#13512#15743#0" expanded="false" />
+            <element signature="e#17535#24897#0" expanded="false" />
+            <element signature="e#25854#26050#0" expanded="false" />
+            <element signature="e#29044#30496#0" expanded="false" />
+            <element signature="e#30703#30887#0" expanded="false" />
+            <element signature="e#31084#31534#0" expanded="false" />
+            <element signature="e#31744#31799#0" expanded="false" />
+            <element signature="e#32082#35838#0" expanded="false" />
+            <element signature="e#36223#37893#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/tab-chats.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="69">
+          <caret line="3" column="60" selection-start-line="3" selection-start-column="60" selection-end-line="3" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -1066,48 +1091,18 @@
             <element signature="e#129#135#0" expanded="true" />
             <element signature="e#135#141#0" expanded="true" />
             <element signature="e#141#147#0" expanded="true" />
-            <element signature="e#297#303#0" expanded="true" />
-            <element signature="e#303#309#0" expanded="true" />
-            <element signature="e#309#315#0" expanded="true" />
-            <element signature="e#315#321#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/directives/linkageSelect2/modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
-          <folding>
-            <element signature="e#4805#9401#0" expanded="false" />
-            <element signature="e#7480#7717#0" expanded="false" />
-            <element signature="e#9475#13052#0" expanded="false" />
-            <element signature="e#13108#38188#0" expanded="false" />
-            <element signature="e#13695#15926#0" expanded="false" />
-            <element signature="e#17718#25080#0" expanded="false" />
-            <element signature="e#26037#26233#0" expanded="false" />
-            <element signature="e#29227#30679#0" expanded="false" />
-            <element signature="e#30886#31070#0" expanded="false" />
-            <element signature="e#31267#31717#0" expanded="false" />
-            <element signature="e#31927#31982#0" expanded="false" />
-            <element signature="e#32265#36021#0" expanded="false" />
-            <element signature="e#36406#38076#0" expanded="false" />
+            <element signature="e#295#301#0" expanded="true" />
+            <element signature="e#301#307#0" expanded="true" />
+            <element signature="e#307#313#0" expanded="true" />
+            <element signature="e#313#319#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/directives/marquee/marquee.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="322">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>

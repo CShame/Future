@@ -105,20 +105,11 @@ angular.module('starter.controllers')
       '通知5：拉拉阿拉啦啦啊啊啊啊啊啊',
       '通知6：拉拉阿拉啦啦啊啊啊啊啊啊'
     ];
-    console.log('第一次刷新');
-
 
     $scope.options = {
       step: 1,
       timer: 50
     };
-    $scope.isChange = false;
-
-    $scope.changeCallback = function () {
-      $scope.isChange = false;
-      console.log("变化完成后", $scope.isChange);
-    };
-
 
     $timeout(function () {
       $scope.dataList = [
